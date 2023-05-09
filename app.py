@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify, json, render_template
 #importo las dependencias de trabajo
+from flask import Flask, request, jsonify, json, render_template
+#importo las configuraciones de la bd
 from config.db import app, bd
 
 

@@ -1,6 +1,6 @@
 from config.db import bd, app, ma
 
-class Users(bd.Model):
+class Programa(bd.Model):
     __tablename__ ='tbl_programa'
 
     id = bd.Column(bd.Integer, primary_key = True)
@@ -15,6 +15,6 @@ class Users(bd.Model):
 with app.app_context():
     bd.create_all()
     
-class UsersSchema(ma.Schema):
+class ProgramaSchema(ma.Schema):
     class Meta:
         fields = ('id','nombrepro','idfacultad_fk')

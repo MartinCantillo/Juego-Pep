@@ -1,6 +1,6 @@
 from config.db import bd, app, ma
 
-class Users(bd.Model):
+class Facultad(bd.Model):
     __tablename__ ='tbl_facultad'
 
     id = bd.Column(bd.Integer, primary_key = True)
@@ -13,6 +13,6 @@ class Users(bd.Model):
 with app.app_context():
     bd.create_all()
     
-class UsersSchema(ma.Schema):
+class FacultadSchema(ma.Schema):
     class Meta:
         fields = ('id','nombre_fa')

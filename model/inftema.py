@@ -1,6 +1,6 @@
 from config.db import bd, app, ma
 
-class Users(bd.Model):
+class Inftema(bd.Model):
     __tablename__ ='tbl_inftema'
 
     id = bd.Column(bd.Integer, primary_key = True)
@@ -21,6 +21,6 @@ class Users(bd.Model):
 with app.app_context():
     bd.create_all()
     
-class UsersSchema(ma.Schema):
+class InftemaSchema(ma.Schema):
     class Meta:
         fields = ('id','Titulo_inftem','IdNivel_fk','Det_inftema','Idtematica_Fk')
