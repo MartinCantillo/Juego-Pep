@@ -1,0 +1,21 @@
+from config.db import bd, app, ma
+
+class Users(bd.Model):
+    __tablename__ ='tbl_tematica'
+
+    id = bd.Column(bd.Integer, primary_key = True)
+    nombre_tematica=bd.Column(bd.String(10))
+    tope_tem=bd.Column(bd.Integer)
+    
+   
+    def __init__(self, id,nombre_tematica,tope_tem):
+        self.id = id
+        self.nombre_tematica=nombre_tematica
+        self.tope_tem = tope_tem
+    
+with app.app_context():
+    bd.create_all()
+    
+class UsersSchema(ma.Schema):
+    class Meta:
+        fields = ('id','nombre_tematica','tope_tem')
