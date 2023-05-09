@@ -5,19 +5,19 @@ from config.db import app, bd
 
 #importamos los modelos
 
-from model.administrativo import Administrativo, AdministrativoSchema
-from model.categoria import Categoria, CategoriaSchema
-from model.estudiante import Estudiante, EstudianteSchema
-from model.facultad import Facultad, FacultadSchema
-from model.inftema import Inftema, InftemaSchema
-from model.nivel import Nivel, NivelSchema
-from model.partida import Partida, PartidaSchema
-from model.pregunta import Pregunta, PreguntaSchema
-from model.programa import Programa, ProgramaSchema
-from model.respuesta import Respuesta, RespuestaSchema
-from model.tablerouser import Tablerouser, TablerouserSchema
 from model.tematica import Tematica, TematicaSchema
+from model.nivel import Nivel, NivelSchema
+from model.facultad import Facultad, FacultadSchema
+from model.categoria import Categoria, CategoriaSchema
 from model.usuario import Usuario, UsuarioSchema
+from model.tablerouser import Tablerouser, TablerouserSchema
+from model.pregunta import Pregunta, PreguntaSchema
+from model.respuesta import Respuesta, RespuestaSchema
+from model.programa import Programa, ProgramaSchema
+from model.estudiante import Estudiante, EstudianteSchema
+from model.partida import Partida, PartidaSchema
+from model.inftema import Inftema, InftemaSchema
+from model.administrativo import Administrativo, AdministrativoSchema
 
 administrativo_schema = AdministrativoSchema()
 administrativo_schema = AdministrativoSchema(many=True)
