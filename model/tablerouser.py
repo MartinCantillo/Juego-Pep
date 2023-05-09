@@ -1,7 +1,7 @@
 from config.db import bd, app, ma
 
 class Users(bd.Model):
-    __tablename__ ='tbl_categoria'
+    __tablename__ ='tbl_tablerouser'
 
     id = bd.Column(bd.Integer, primary_key = True)
     IdUsuario_Fk = bd.Column(bd.Integer,bd.ForeignKey('tbl_usuario.id'))
