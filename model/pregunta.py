@@ -15,7 +15,6 @@ class Users(bd.Model):
         self.Idtematica_FK =Idtematica_FK     
         self.enunciado= enunciado
         self.puntos=puntos
-        self.IdNiveles_Fkk=IdNiveles_Fk
     
 with app.app_context():
     bd.create_all()
