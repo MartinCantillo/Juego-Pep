@@ -15,7 +15,7 @@ html{
 
 body{
     font-family: var(--fuente);
-    background-image: url('');
+    background-image: url('/static/img/fondo.jpg');
     background-position: center center;
     background-size: cover;
     display: flex;
@@ -26,11 +26,11 @@ body{
 .contenedor{
     margin: 0 auto;
     max-width: 1200px;
-    width: 90%;
+    width: 95%;
 }
 
 .imagen-formulario{
-    background-image: url("/static/img/bg.jpg");
+    background-image: url('/static/img/bg.jpg');
     background-position: center center;
     background-size: cover;
     height: 80px;
@@ -72,17 +72,16 @@ body{
     padding: 50px;
     background-color: var(--azul);
 }
-.texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
+.texto-formulario h2, .input label, .texto-formulario p{
     color: var(--blanco);
 }
 .texto-formulario h2{
-        background-image: url("/static/img/bh.png");
+        background-image: url('/static/img/bh.png');
         display: flex;
         justify-content: center;
         width:  200px;
         height: 200px;
         background-size: cover;
-
         left: 50px;
 
 
@@ -97,11 +96,7 @@ body{
     font-weight: bold;
     margin: 20px 0;
 }
-.password-olvidada a{
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 22px;
-}
+
 .input input{
     width: 100%;
     padding: 10px 16px;

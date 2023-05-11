@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario Conoce tu pep</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Registro.css' ) }}">
+</head>
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+
+        <form class="formulario">
+            <div class="texto-formulario">
+                <h2><img src="{{ url_for('static', filename='img/bh.png') }}" /></h2>
+            </div>
+            <div class="input">
+                <label for="nombre">Nombre</label>
+                <input placeholder=""type="text" id="nombre">
+            </div>
+            <div class="input">
+                <label for="apellidos">Apellidos</label>
+                <input placeholder=""type="text" id="apellidos">
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input placeholder=""type="text" id="email">
+            </div>
+            <div class="input">
+                <label for="contraseña">Contraseña</label>
+                <input placeholder="" type="password" id="contraseña">
+
+            </div>
+            <div class="input">
+                <label for="confirmar_contraseña">Confirmar Contraseña</label>
+                <input placeholder="" type="password" id="Confirmar_contraseña">
+
+            </div>
+            <button type="submit" class="btn" >Crear Cuenta</button>
+            <div class="login-register">
+                <p>Ya tienes una cuenta?<a href="#"
+                    class="register-link">Ingresa aquí</a>
+                </p>
+            </div>
+            
+        </form>
+    </div>
+
+    
+</body>
+
+</html>
