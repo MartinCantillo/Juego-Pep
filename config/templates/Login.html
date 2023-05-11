@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario Conoce tu pep</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css' ) }}">
+  
+</head>
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+
+        <form class="formulario">
+            <div class="texto-formulario">
+               
+                <h2><img src="{{ url_for('static', filename='img/bh.png') }}" /></h2>
+               
+            </div>
+            <div class="input">
+                <label for="usuario">Email</label>
+                <input placeholder="Ingresa tu Email" type="email" id="email">
+            </div>
+            <div class="input">
+                <label for="contraseña">Contraseña</label>
+                <input placeholder="Ingresa tu contraseña" type="password" id="contraseña">
+                <a href="#">¿Has olvidado tu contraseña?</a>
+            </div>
+            <button type="submit" class="btn" onclick="Iniciar()" >Iniciar sesion</button>
+            <div class="login-register">
+                <p>No tienes una cuenta?<a href="#"
+                    class="register-link">Registrate aquí</a>
+                </p>
+            </div>
+            
+        </form>
+    </div>
+    <script src="{{url_for('static', filename ='js/Loggin.js')}}"></script> 
+</body>
+
+</html>
