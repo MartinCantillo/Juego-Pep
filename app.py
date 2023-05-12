@@ -10,7 +10,7 @@ from model.nivel import Nivel, NivelSchema
 from model.facultad import Facultad, FacultadSchema
 from model.categoria import Categoria, CategoriaSchema
 from model.usuario import Usuario, UsuarioSchema
-from model.tablerouser import Tablerouser, TablerouserSchema
+from model.tablerouser import Tablerouser, TablerouserSchema 
 from model.pregunta import Pregunta, PreguntaSchema
 from model.respuesta import Respuesta, RespuestaSchema
 from model.programa import Programa, ProgramaSchema
@@ -194,6 +194,175 @@ def saveadministrativo():
     bd.session.add(newadministrativo)
     bd.session.commit()
     return "guardado"
+
+#ACTUALIZAR
+
+@app.route("/actutematica", methods=['POST'])
+def actutematica():    
+    id = request.json['id'] 
+    nombre_tematica = request.json['nombre_tematica'] 
+    tope_tem = request.json['tope_tem']
+    tematica = Tematica.query.get(id)  
+    tematica.nombre_tematica = nombre_tematica
+    tematica.tope_tem = tope_tem
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actunivel", methods=['POST'])
+def actunivel():    
+    id = request.json['id'] 
+    nombre_nv = request.json['nombre_nv'] 
+    nivel = Nivel.query.get(id)  
+    nivel.nombre_nv = nombre_nv
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actufacultad", methods=['POST'])
+def actufacultad():    
+    id = request.json['id'] 
+    nombre_fa = request.json['nombre_fa'] 
+    facultad = Facultad.query.get(id)  
+    facultad.nombre_fa = nombre_fa
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actucategoria", methods=['POST'])
+def actucategoria():    
+    id = request.json['id'] 
+    ctg_name = request.json['ctg_name'] 
+    categoria = Categoria.query.get(id)  
+    categoria.ctg_name = ctg_name
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuusuario", methods=['POST'])
+def actuusuario():    
+    id = request.json['id'] 
+    nom_usuario = request.json['nom_usuario']
+    IdCategoria_Fk = request.json['IdCategoria_Fk']
+    estado = request.json['estado']
+    clave_usuario = request.json['clave_usuario']
+    emailusuario_pk = request.json['emailusuario_pk']
+    usuario = Usuario.query.get(id)  
+    usuario.nom_usuario = nom_usuario
+    usuario.IdCategoria_Fk = IdCategoria_Fk
+    usuario.estado = estado
+    usuario.clave_usuario = clave_usuario
+    usuario.emailusuario_pk = emailusuario_pk
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actutablerouser", methods=['POST'])
+def actutablerouser():    
+    id = request.json['id'] 
+    IdUsuario_Fk = request.json['IdUsuario_Fk']
+    PuntosTot = request.json['PuntosTot']
+    Nivel_Act = request.json['Nivel_Act']
+    tablerouser = Tablerouser.query.get(id)  
+    tablerouser.IdUsuario_Fk = IdUsuario_Fk
+    tablerouser.PuntosTot = PuntosTot
+    tablerouser.Nivel_Act = Nivel_Act
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actupregunta", methods=['POST'])
+def actupregunta():    
+    id = request.json['id'] 
+    NomCorto = request.json['NomCorto']
+    Idtematica_FK = request.json['Idtematica_FK']
+    enunciado = request.json['enunciado']
+    puntos = request.json['puntos']
+    pregunta = Pregunta.query.get(id)  
+    pregunta.NomCorto = NomCorto
+    pregunta.PuntosTot = Idtematica_FK
+    pregunta.enunciado = enunciado
+    pregunta.puntos = puntos
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/acturespuesta", methods=['POST'])
+def acturespuesta():    
+    id = request.json['id'] 
+    IDpregunta_FK = request.json['IDpregunta_FK']
+    EnuncRespu = request.json['EnuncRespu']
+    PuntosRespu = request.json['PuntosRespu']
+    respuesta = Respuesta.query.get(id)  
+    respuesta.IDpregunta_FK = IDpregunta_FK
+    respuesta.EnuncRespu = EnuncRespu
+    respuesta.PuntosRespu = PuntosRespu
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuprograma", methods=['POST'])
+def actuprograma():    
+    id = request.json['id'] 
+    nombrepro = request.json['nombrepro']
+    idfacultad_fk = request.json['idfacultad_fk']
+    programa = Programa.query.get(id)  
+    programa.nombrepro = nombrepro
+    programa.idfacultad_fk = idfacultad_fk
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuestudiante", methods=['POST'])
+def actuestudiante():    
+    id = request.json['id'] 
+    nidusuario_fk = request.json['idusuario_fk']
+    nombre_estud = request.json['nombre_estud']
+    idfacultad_fk = request.json['idfacultad_fk']
+    idprograma_fk = request.json['idprograma_fk']
+    estudiante = Estudiante.query.get(id)  
+    estudiante.nidusuario_fk = nidusuario_fk
+    estudiante.nombre_estud = nombre_estud
+    estudiante.idfacultad_fk = idfacultad_fk
+    estudiante.idprograma_fk = idprograma_fk
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuepartida", methods=['POST'])
+def actupartida():    
+    id = request.json['id'] 
+    Idusuario_fk = request.json['Idusuario_fk']
+    IdNivel_fk = request.json['IdNivel_fk']
+    Idpregunta_fk = request.json['Idpregunta_fk']
+    Ptos_Resp = request.json['Ptos_Resp']
+    partida = Partida.query.get(id)  
+    partida.Idusuario_fk = Idusuario_fk
+    partida.IdNivel_fk = IdNivel_fk
+    partida.Idpregunta_fk = Idpregunta_fk
+    partida.Ptos_Resp = Ptos_Resp
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuinftema", methods=['POST'])
+def actuinftema():    
+    id = request.json['id'] 
+    Titulo_inftem = request.json['Titulo_inftem']
+    Det_inftema = request.json['Det_inftema']
+    Idtematica_Fk = request.json['Idtematica_Fk']
+    IdNivel_fk = request.json['IdNivel_fk']
+    inftema = Inftema.query.get(id)  
+    inftema.Titulo_inftem = Titulo_inftem
+    inftema.Det_inftema = Det_inftema
+    inftema.Idtematica_Fk = Idtematica_Fk
+    inftema.IdNivel_fk = IdNivel_fk
+    bd.session.commit()     
+    return "actualización exitosa"
+
+@app.route("/actuadministrativo", methods=['POST'])
+def actuadministrativo():    
+    id = request.json['id'] 
+    Idusuario_fk = request.json['Idusuario_fk']
+    nombre_admin = request.json['nombre_admin']
+    IdFacultad_fk = request.json['IdFacultad_fk']
+    idPrograma_fk = request.json['idPrograma_fk']
+    administrativo = Administrativo.query.get(id)  
+    administrativo.Idusuario_fk = Idusuario_fk
+    administrativo.nombre_admin = nombre_admin
+    administrativo.IdFacultad_fk = IdFacultad_fk
+    administrativo.idPrograma_fk = idPrograma_fk
+    bd.session.commit()     
+    return "actualización exitosa"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
