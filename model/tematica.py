@@ -8,8 +8,7 @@ class Tematica(bd.Model):
     tope_tem=bd.Column(bd.Integer)
     
    
-    def __init__(self, id,nombre_tematica,tope_tem):
-        self.id = id
+    def __init__(self,nombre_tematica,tope_tem):
         self.nombre_tematica=nombre_tematica
         self.tope_tem = tope_tem
     

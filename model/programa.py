@@ -7,9 +7,8 @@ class Programa(bd.Model):
     nombrepro = bd.Column(bd.String(50))
     idfacultad_fk=bd.Column(bd.Integer,bd.ForeignKey('tbl_facultad.id'))
    
-    def __init__(self, id, nombrepro,idfacultad_fk):
-        self.id = id
-        self.nombre_fa = nombrepro
+    def __init__(self,nombrepro,idfacultad_fk):
+        self.nombrepro = nombrepro
         self.idfacultad_fk = idfacultad_fk
     
 with app.app_context():

@@ -11,8 +11,7 @@ class Inftema(bd.Model):
     
    
 
-    def __init__(self, id,Titulo_inftem,Det_inftema, IdNivel_fk ,Idtematica_Fk):
-        self.id = id
+    def __init__(self,Titulo_inftem,Det_inftema, IdNivel_fk ,Idtematica_Fk):
         self.Titulo_inftem =Titulo_inftem
         self.IdNivel_fk =IdNivel_fk     
         self.Det_inftema= Det_inftema

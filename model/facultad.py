@@ -6,8 +6,7 @@ class Facultad(bd.Model):
     id = bd.Column(bd.Integer, primary_key = True)
     nombre_fa = bd.Column(bd.String(50))
    
-    def __init__(self, id, nombre_fa):
-        self.id = id
+    def __init__(self,nombre_fa):
         self.nombre_fa = nombre_fa
     
 with app.app_context():

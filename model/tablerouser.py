@@ -9,8 +9,7 @@ class Tablerouser(bd.Model):
     Nivel_Act=bd.Column(bd.Integer)
     
    
-    def __init__(self, id,IdUsuario_Fk,PuntosTot,Nivel_Act):
-        self.id = id
+    def __init__(self,IdUsuario_Fk,PuntosTot,Nivel_Act):
         self.IdUsuario_Fk = IdUsuario_Fk
         self.PuntosTot=PuntosTot
         self.Nivel_Act=Nivel_Act

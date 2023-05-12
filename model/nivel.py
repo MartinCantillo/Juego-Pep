@@ -7,8 +7,7 @@ class Nivel(bd.Model):
     nombre_nv=bd.Column(bd.String(10))
     
    
-    def __init__(self, id,nombre_nv):
-        self.id = id
+    def __init__(self,nombre_nv):
         self.nombre_nv = nombre_nv
     
 with app.app_context():

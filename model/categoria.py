@@ -6,8 +6,7 @@ class Categoria(bd.Model):
     id = bd.Column(bd.Integer, primary_key = True)
     ctg_name = bd.Column(bd.String(50))
    
-    def __init__(self, id, ctg_name):
-        self.id = id
+    def __init__(self,ctg_name):
         self.ctg_name = ctg_name
     
 with app.app_context():

@@ -10,8 +10,7 @@ class Respuesta(bd.Model):
     
    
 
-    def __init__(self, id,IDpregunta_FK,EnuncRespu, PuntosRespu):
-        self.id = id
+    def __init__(self,IDpregunta_FK,EnuncRespu, PuntosRespu):
         self.IDpregunta_FK =IDpregunta_FK
         self.EnuncRespu =EnuncRespu    
         self.PuntosRespu= PuntosRespu

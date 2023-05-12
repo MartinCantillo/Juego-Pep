@@ -9,8 +9,7 @@ class Pregunta(bd.Model):
     enunciado=bd.Column(bd.String(100))
     puntos=bd.Column(bd.Integer)
 
-    def __init__(self, id, NomCorto,Idtematica_FK,enunciado,puntos):
-        self.id = id
+    def __init__(self,NomCorto,Idtematica_FK,enunciado,puntos):
         self.NomCorto = NomCorto
         self.Idtematica_FK =Idtematica_FK     
         self.enunciado= enunciado

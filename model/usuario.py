@@ -10,8 +10,7 @@ class Usuario(bd.Model):
     clave_usuario=bd.Column(bd.String(30))
     emailusuario_pk=bd.Column(bd.String(50))
 
-    def __init__(self, id, nom_usuario,IdCategoria_Fk,estado,clave_usuario,emailusuario_pk):
-        self.id = id
+    def __init__(self,nom_usuario,IdCategoria_Fk,estado,clave_usuario,emailusuario_pk):
         self.nom_usuario = nom_usuario
         self.IdCategoria_Fk =IdCategoria_Fk      
         self.estado = estado

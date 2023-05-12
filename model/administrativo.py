@@ -9,10 +9,9 @@ class Administrativo(bd.Model):
     idPrograma_fk = bd.Column(bd.Integer,bd.ForeignKey('tbl_programa.id'))
     
 
-    def __init__(self, id, Idusuario_fk ,nombre_admin,IdFacultad_fk,idPrograma_fk):
-        self.id = id
+    def __init__(self,Idusuario_fk ,nombre_admin,IdFacultad_fk,idPrograma_fk):
         self.Idusuario_fk  = Idusuario_fk 
-        self.nombre_admin =nombre_admin      
+        self.nombre_admin = nombre_admin      
         self.IdFacultad_fk = IdFacultad_fk
         self.idPrograma_fk = idPrograma_fk
     
