@@ -364,5 +364,111 @@ def actuadministrativo():
     bd.session.commit()     
     return "actualización exitosa"
 
+#ELIMINAR POR ID
+
+@app.route("/deltemactica", methods=['POST'])
+def deltemactica():    
+    id = request.json['id'] 
+    tematica = Tematica.query.get(id)    
+    bd.session.delete(tematica)
+    bd.session.commit()     
+    return jsonify(tematica_schema.dump(tematica))
+
+@app.route("/delnivel", methods=['POST'])
+def delnivel():    
+    id = request.json['id'] 
+    nivel = Nivel.query.get(id)    
+    bd.session.delete(nivel)
+    bd.session.commit()     
+    return jsonify(nivel_schema.dump(nivel))
+
+@app.route("/delfacultad", methods=['POST'])
+def delfacultad():    
+    id = request.json['id'] 
+    facultad = Facultad.query.get(id)    
+    bd.session.delete(facultad)
+    bd.session.commit()     
+    return jsonify(facultad_schema.dump(facultad))
+
+@app.route("/decategoria", methods=['POST'])
+def delcategoria():    
+    id = request.json['id'] 
+    categoria = Categoria.query.get(id)    
+    bd.session.delete(categoria)
+    bd.session.commit()     
+    return jsonify(categoria_schema.dump(categoria))
+
+@app.route("/delusuario", methods=['POST'])
+def delusuario():    
+    id = request.json['id'] 
+    usuario = Usuario.query.get(id)    
+    bd.session.delete(usuario)
+    bd.session.commit()     
+    return jsonify(usuario_schema.dump(usuario))
+
+@app.route("/deltablerouser", methods=['POST'])
+def deltablerouser():    
+    id = request.json['id'] 
+    tablerouser = Tablerouser.query.get(id)    
+    bd.session.delete(tablerouser)
+    bd.session.commit()     
+    return jsonify(tablerouser_schema.dump(tablerouser))
+
+@app.route("/delpregunta", methods=['POST'])
+def delpregunta():    
+    id = request.json['id'] 
+    pregunta = Pregunta.query.get(id)    
+    bd.session.delete(pregunta)
+    bd.session.commit()     
+    return jsonify(pregunta_schema.dump(pregunta))
+
+@app.route("/delrespuesta", methods=['POST'])
+def delrespuesta():    
+    id = request.json['id'] 
+    respuesta = Respuesta.query.get(id)    
+    bd.session.delete(respuesta)
+    bd.session.commit()     
+    return jsonify(respuesta_schema.dump(respuesta))
+
+@app.route("/delprograma", methods=['POST'])
+def delprograma():    
+    id = request.json['id'] 
+    programa = Programa.query.get(id)    
+    bd.session.delete(programa)
+    bd.session.commit()     
+    return jsonify(programa_schema.dump(programa))
+
+@app.route("/delestudiante", methods=['POST'])
+def delestudiante():    
+    id = request.json['id'] 
+    estudiante = Estudiante.query.get(id)    
+    bd.session.delete(estudiante)
+    bd.session.commit()     
+    return jsonify(estudiante_schema.dump(estudiante))
+
+@app.route("/delpartida", methods=['POST'])
+def delpartida():    
+    id = request.json['id'] 
+    partida = Partida.query.get(id)    
+    bd.session.delete(partida)
+    bd.session.commit()     
+    return jsonify(partida_schema.dump(partida))
+
+@app.route("/delinftema", methods=['POST'])
+def delinftema():    
+    id = request.json['id'] 
+    inftema = Inftema.query.get(id)    
+    bd.session.delete(inftema)
+    bd.session.commit()     
+    return jsonify(inftema_schema.dump(inftema))
+
+@app.route("/deladministrativo", methods=['POST'])
+def deladministrativo():    
+    id = request.json['id'] 
+    administrativo = Administrativo.query.get(id)    
+    bd.session.delete(administrativo)
+    bd.session.commit()     
+    return jsonify(administrativo_schema.dump(administrativo))
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
