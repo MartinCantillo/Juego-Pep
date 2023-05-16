@@ -21,16 +21,24 @@ body{
     display: flex;
     align-items: center;
     height: 100vh;
+    
 }
 
 .contenedor{
+    height: 550px;
     margin: 0 auto;
-    max-width: 1200px;
-    width: 90%;
+    max-width: 900px;
+    width: 95%;
+    padding: 0px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.4);
+
+    
 }
 
 .imagen-formulario{
-    background-image: url("/static/img/bg.jpg");
+    background-image: url('/static/img/LoginyRegistro/bg.jpg');
     background-position: center center;
     background-size: cover;
     height: 80px;
@@ -71,36 +79,52 @@ body{
 .formulario{
     padding: 50px;
     background-color: var(--azul);
+    padding: 3px 10px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-left: 25px;
+    margin-top: 27px;
+
+
+
+
 }
 .texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
     color: var(--blanco);
+
 }
 .texto-formulario h2{
-        background-image: url("/static/img/bh.png");
+        background-image: url('/static/img/LoginyRegistro/bh.jpg');
         display: flex;
         justify-content: center;
-        width:  200px;
-        height: 200px;
+        width:  140px;
+        height: 140px;
+        border-top-left-radius: 75px;
+        border-bottom-left-radius: 75px;
+        border-top-right-radius: 75px;
+        border-bottom-right-radius: 75px;
         background-size: cover;
-
         left: 50px;
-
-
+        
 }
+
 .texto-formulario p{
     font-size: 22px;
     text-align: center;
+    
 }
 .input label{
     display: block;
     font-size: 22px;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 15px 0;
+
 }
 .password-olvidada a{
     display: inline-block;
     margin-top: 20px;
     font-size: 22px;
+
 }
 .input input{
     width: 100%;
@@ -115,7 +139,7 @@ body{
     font-weight: bold;
     border: none;
     margin-top: 20px;
-    transition: background-color .3s ease-in-out;
+
 }
 .input input[type="submit"]:hover{
   
@@ -138,15 +162,20 @@ body{
 	margin: 1rem 0;
 	cursor: pointer;
 	transition: .5s;
+
 }
 h2{
-                            
+    background-image: url('/static/img/LoginyRegistro/bh.jpg');
     width:130%;
     height:130%;
     margin:0 auto;
     background-size: cover;
-    background-image: url('/static/img/bh.png');
     background-position: 50% 50%;
 
+
+}
+div{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     
 }
