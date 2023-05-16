@@ -1,0 +1,99 @@
+.thumbnail_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-style: double;
+    border-color: aquamarine;
+  }
+  
+  .thumbnail_container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .thumbnail_container.selected img {
+    border: 2px solid blue;
+  }
+  
+  .img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .img_container img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+  
+  .img_container.selected img {
+    border: 2px solid blue;
+  }
+  
+  .main_img{ 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    height: auto;
+    display: block;
+  }
+  
+  #backButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #backButton:hover {
+    background-color: #0056b3;
+  }
+  
+  body {
+    background-color: #28038b;
+    background-image: url('/config/static/img/Niveles\ PEP-01.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: 0%;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.2);
+    filter: brightness(120%);
+    border-color: gold;
+    box-shadow: 0 0 5px gold;
+  }
+  
+  #selectButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #selectButton:hover {
+    background-color: #0056b3;
+  }
+  
+  
