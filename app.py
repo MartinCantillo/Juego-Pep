@@ -62,9 +62,18 @@ usuario_schema =  UsuarioSchema (many=True)
 
 @app.route("/", methods=['GET'])
 def index():
-    nombre= "Loggin"
+    nombre= "Login"
     return render_template('Login.html')
 
+@app.route("/Registro", methods=['GET'])
+def registrar():
+    nombre= "registrar"
+    return  render_template('Registro.html')
+
+@app.route("/Ccontraseña", methods=['GET'])
+def Contraseña():
+    nombre= "contraseña"
+    return  render_template('Ccontraseña.html')
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():

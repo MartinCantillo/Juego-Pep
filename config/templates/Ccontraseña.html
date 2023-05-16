@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario Conoce tu pep</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Contraseña.css' ) }}">
+</head>
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+
+        <form class="formulario">
+            <div class="texto-formulario">
+                <h2><img src="{{ url_for('static', filename='img/LoginyRegistro/bh.jpg') }}" /></h2>
+            </div>
+            
+            <div class="input">
+                <label for="Email">Email</label>
+                <input placeholder="" type="text" id="Email">                 
+            </div>
+
+            <div class="input">
+                <label for="contraseña">Contraseña nueva</label>
+                <input placeholder="" type="password" id="contraseña">                 
+            </div>
+            <div class="input">
+                <label for="contraseña">Confirmar Contraseña nueva</label>
+                <input placeholder="" type="password" id="contraseña">                 
+            </div>
+            <button type="submit" class="btn" onclick="Iniciar()" >Actualizar</button>
+            <div class="login-register">
+            </div>
+            
+        </form>
+    </div>
+
+</body>
+
+</html>
