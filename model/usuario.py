@@ -11,11 +11,12 @@ class Usuario(bd.Model):
     avatar_rut=bd.Column(bd.String(50))
     emailusuario_pk=bd.Column(bd.String(50))
 
-    def __init__(self,nom_usuario,IdCategoria_Fk,estado,clave_usuario,emailusuario_pk):
+    def __init__(self,nom_usuario,IdCategoria_Fk,estado,clave_usuario,avatar_rut,emailusuario_pk):
         self.nom_usuario = nom_usuario
         self.IdCategoria_Fk =IdCategoria_Fk      
         self.estado = estado
         self.clave_usuario=clave_usuario
+        self.avatar_rut=avatar_rut
         self.emailusuario_pk=emailusuario_pk
     
 with app.app_context():
@@ -23,4 +24,4 @@ with app.app_context():
     
 class UsuarioSchema(ma.Schema):
     class Meta:
-        fields = ('id','nom_usuario','IdCategoria_Fk','estado','clave_usuario','emailusuario_pk')
+        fields = ('id','nom_usuario','IdCategoria_Fk','estado','clave_usuario','avatar_rut','emailusuario_pk')
