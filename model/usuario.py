@@ -8,6 +8,7 @@ class Usuario(bd.Model):
     IdCategoria_Fk = bd.Column(bd.Integer,bd.ForeignKey('tbl_categoria.id'))
     estado=bd.Column(bd.String(1))
     clave_usuario=bd.Column(bd.String(30))
+    avatar_rut=bd.Column(bd.String(50))
     emailusuario_pk=bd.Column(bd.String(50))
 
     def __init__(self,nom_usuario,IdCategoria_Fk,estado,clave_usuario,emailusuario_pk):
