@@ -65,6 +65,22 @@ def index():
     nombre= "Login"
     return render_template('Login.html')
 
+@app.route("/admin", methods=['GET'])
+def admin():
+    nombre= "Admin"
+    return render_template('admin.html')
+
+@app.route("/creadospormi", methods=['GET'])
+def creadospormi():
+    nombre= "Creados por mí"
+    return render_template('creadospormi.html')
+
+@app.route("/crearjuego", methods=['GET'])
+def crearjuego():
+    nombre= "Crear juego"
+    return render_template('crearjuego.html')
+
+
 @app.route("/Registro", methods=['GET'])
 def registrar():
     nombre= "registrar"
