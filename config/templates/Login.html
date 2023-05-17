@@ -14,8 +14,8 @@
 
       <form class="formulario">
         <div class="texto-formulario">
-          <h2><img src="{{ url_for('static', filename='img/LoginyRegistro/bh.jpg') }}" /></h2>
-        </div>
+          <h2 src="{{ url_for('static', filename='static/img/LoginyRegistro/bh.jpg') }}" >
+      </div>
         <div class="input">
           <label for="usuario">Email</label>
           <input placeholder="Ingresa tu Email" type="text" id="usuario" />
@@ -28,7 +28,28 @@
             id="contraseña"
           />
         </div>
-        <br />
+        <br>
+        <bs />
+
+        <div>
+          <input type="checkbox" name="opcion" id="opcion1" onchange="limitarSeleccion('opcion1')" /> <!--El valor para el "ID" de jugador es igual a "1" -->
+          <label for="opcion1">Jugador</label>
+
+          <input type="checkbox" name="opcion" id="opcion2" onchange="limitarSeleccion('opcion2')" />  <!--El valor para el "ID" de administrador es igual a "2" -->
+          <label for="opcion2">Administrador</label>
+        </div>
+        
+        <script>
+          function limitarSeleccion(id) {
+            const checkboxes = document.getElementsByName("opcion");
+            checkboxes.forEach((checkbox) => {
+              if (checkbox.id !== id) {
+                checkbox.checked = false;
+              }
+            });
+          }
+        </script>
+        <bs/>      
         <a href="/Ccontraseña">¿Has olvidado tu contraseña?</a>
         <button type="submit" class="btn" onclick="Iniciar()">
           Iniciar sesion
@@ -36,8 +57,7 @@
         <div class="login-register">
           <p>
             No tienes una cuenta?<a href="/Registro" class="register-link"
-              >Registrate aquí</a
-            >
+              >Registrate aquí</a>
           </p>
         </div>
       </form>
