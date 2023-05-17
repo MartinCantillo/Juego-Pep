@@ -65,6 +65,22 @@ def index():
     nombre= "Login"
     return render_template('Login.html')
 
+@app.route("/admin", methods=['GET'])
+def admin():
+    nombre= "Admin"
+    return render_template('admin.html')
+
+@app.route("/creadospormi", methods=['GET'])
+def creadospormi():
+    nombre= "Creados por mí"
+    return render_template('creadospormi.html')
+
+@app.route("/crearjuego", methods=['GET'])
+def crearjuego():
+    nombre= "Crear juego"
+    return render_template('crearjuego.html')
+
+
 @app.route("/Registro", methods=['GET'])
 def registrar():
     nombre= "registrar"
@@ -114,8 +130,9 @@ def saveusuario():
     IdCategoria_Fk = request.json['IdCategoria_Fk']
     estado = request.json['estado']
     clave_usuario = request.json['clave_usuario']
+    avatar_rut = request.json['avatar_rut']
     emailusuario_pk = request.json['emailusuario_pk']
-    newusuario = Usuario(nom_usuario, IdCategoria_Fk, estado, clave_usuario, emailusuario_pk)
+    newusuario = Usuario(nom_usuario, IdCategoria_Fk, estado, clave_usuario, avatar_rut,emailusuario_pk)
     bd.session.add(newusuario)
     bd.session.commit()
     return "guardado"
@@ -251,12 +268,14 @@ def actuusuario():
     IdCategoria_Fk = request.json['IdCategoria_Fk']
     estado = request.json['estado']
     clave_usuario = request.json['clave_usuario']
+    avatar_rut = request.json['avatar_rut']
     emailusuario_pk = request.json['emailusuario_pk']
     usuario = Usuario.query.get(id)  
     usuario.nom_usuario = nom_usuario
     usuario.IdCategoria_Fk = IdCategoria_Fk
     usuario.estado = estado
     usuario.clave_usuario = clave_usuario
+    usuario.avatar_rut = avatar_rut
     usuario.emailusuario_pk = emailusuario_pk
     bd.session.commit()     
     return "actualización exitosa"

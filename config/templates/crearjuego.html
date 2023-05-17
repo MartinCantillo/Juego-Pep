@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Crear juego</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/crearjuego.css'>
+
+</head>
+
+<body>
+    <div class="bubbles">
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span> 
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:15"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:15"></span>
+        <span style="--i:25"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:12"></span>
+        <span style="--i:16"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span> 
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:15"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:15"></span>
+        <span style="--i:25"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:12"></span>
+        <span style="--i:16"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span> 
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:15"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:15"></span>
+        <span style="--i:25"></span>
+        <span style="--i:21"></span> 
+        <span style="--i:12"></span>
+        <span style="--i:16"></span>
+
+    </div>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-logo">
+                <span>Conoce tu PEP</span>
+                <ul class="navbar-navTittle">
+                    <input type="text" class="nav-item-input" placeholder="Sin título">
+                </ul>
+            </a>
+            <p>Pregunta 1/10</p>
+            <!-- Aquí se crean las temáticas -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-item-label">Temática:</span>
+                    <select class="nav-item-select">
+                        <option value="historia">Historia</option>
+                        <option value="ciencia">Ciencia</option>
+                        <option value="arte">Arte</option>
+                    </select>
+                </li>
+                <!-- Aquí se definen los puntos que valen las preguntas -->
+                <li class="nav-item">
+                    <span class="nav-item-label">Puntos de pregunta:</span>
+                    <select class="nav-item-select">
+                        <option value="facil">5</option>
+                        <option value="medio">10</option>
+                        <option value="dificil">15</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor">
+        <div class="contenedor-pregunta">
+            <div class="explicacion-pregunta">
+                <div id="pregunta">
+                    <p>Escribe aquí tu pregunta...</p>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor-respuestas">
+            <ul class="contenedor-opciones">
+                <li class="contenedor-option">
+                    <div class="interior-opcion">
+                        <div class="marcar-correcta">
+                            <input type="radio" name="correcta">
+                        </div>
+                        <p class="explicacion-respuesta" id="opcion-0">Escribe aquí tu opción de respuesta</p>
+                    </div>
+                </li>
+                <li class="contenedor-option">
+                    <div class="interior-opcion">
+                        <div class="marcar-correcta">
+                            <input type="radio" name="correcta">
+                        </div>
+                        <p class="explicacion-respuesta" id="opcion-1">Escribe aquí tu opción de respuesta</p>
+                    </div>
+                </li>
+                <li class="contenedor-option">
+                    <div class="interior-opcion">
+                        <div class="marcar-correcta">
+                            <input type="radio" name="correcta">
+                        </div>
+                        <p class="explicacion-respuesta" id="opcion-2">Escribe aquí tu opción de respuesta</p>
+                    </div>
+                </li>
+                <li class="contenedor-option">
+                    <div class="interior-opcion">
+                        <div class="marcar-correcta">
+                            <input type="radio" name="correcta">
+                        </div>
+                        <p class="explicacion-respuesta" id="opcion-3">Escribe aquí tu opción de respuesta</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-buttons">
+            <button class="footer-button cancel-button">Cancelar</button>
+            <button class="footer-button save-button">Guardar</button>
+        </div>
+    </div>
+
+    <script src='/static/js/crearjuego.js'></script>
+</body>
+
+</html>
