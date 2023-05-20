@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block body %}
 
-<header>
+<header >
     <nav class="navbar">
             <span class="navbar-navTittle">
                 <input type="text" class="nav-item-input" placeholder="Sin título">
@@ -8,7 +8,7 @@
     </nav>
 </header>
 
-<div class="contenedor">
+<div class="contenedor" >
     <div class="contenedor-interior">
         <div class="contenedor-pregunta">
             <div class="explicacion-pregunta">
@@ -64,9 +64,9 @@
     <ul class="footer-nav">
         <!-- Aquí se cargan las temáticas -->
         <li class="footer-item">
-            <span class="footer-item-label" id="selTematicas">Temática:</span>
-            <select class="footer-item-select" onchange="cargarTematica()" >
-                <option value="facil">opcion1</option>
+            <span class="footer-item-label" >Temática:</span>
+            <select class="footer-item-select"  id="selTematicas">
+                <option value="facil">Seleccionar</option>
             </select>
         </li>
         <!-- Aquí se definen los puntos de las preguntas -->
@@ -84,4 +84,12 @@
         <button class="footer-button save-button">Guardar</button>
     </div>
 </div>
+{% endblock %}
+<!-- Aquí se define la parte del js-->
+{% block scripts %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      cargarTematica();
+    });
+  </script>
 {% endblock %}

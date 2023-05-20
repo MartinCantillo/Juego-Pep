@@ -11,12 +11,12 @@ function cargarTematica() {
       // Iterar sobre los datos y agregar opciones al select
       for (let key in datos) {
         const option = document.createElement("option");
-        option.value = datos[key].nombre_tematica;
+        option.text = datos[key].nombre_tematica;
         selectElement.appendChild(option);
       }
     })
     .catch(function (error) {
       console.error(error);
     });
-    console.log(selectElement);
+   
 }

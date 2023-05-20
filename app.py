@@ -511,6 +511,7 @@ def ConsultaTematica():
     for tematica in results:
         i+=1	       
         dato[i] = {
+        'id' :tematica.id,
         'nombre_tematica':tematica.nombre_tematica ,
         'tope_tem': tematica.tope_tem           
         }
