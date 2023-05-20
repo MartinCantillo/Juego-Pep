@@ -5,8 +5,6 @@ function Iniciar() {
 
   if (email == "admin" && contraseña == "123") {
     alert("Iniciaste sesion ");
-    console.log(email);
-    console.log(contraseña);
   } else {
     alert("Por favor verificar");
     

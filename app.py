@@ -65,6 +65,11 @@ def index():
     nombre= "Login"
     return render_template('Login.html')
 
+@app.route("/avatar", methods=['GET'])
+def avatar():
+    nombre= "Avatar"
+    return render_template('avatar.html')
+
 @app.route("/admin", methods=['GET'])
 def admin():
     nombre= "Admin"
@@ -84,7 +89,6 @@ def crearpreguntas():
 def creartematicas():
     nombre= "Crear tematicas"
     return render_template('creartematicas.html')
-
 
 @app.route("/Registro", methods=['GET'])
 def registrar():

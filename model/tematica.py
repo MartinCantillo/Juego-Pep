@@ -4,7 +4,7 @@ class Tematica(bd.Model):
     __tablename__ ='tbl_tematica'
 
     id = bd.Column(bd.Integer, primary_key = True)
-    nombre_tematica=bd.Column(bd.String(10))
+    nombre_tematica=bd.Column(bd.String(30))
     tope_tem=bd.Column(bd.Integer)
     
    

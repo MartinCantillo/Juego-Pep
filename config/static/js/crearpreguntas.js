@@ -20,3 +20,16 @@ function cargarTematica() {
     });
    
 }
+
+const crearPreguntaBtn = document.querySelector('#crearpreguntas')
+const contenedorPregunta = document.querySelector('.contenedor')
+const headerPregunta = document.querySelector('#header-pregunta')
+const footerPregunta = document.querySelector('.footer')
+
+crearPreguntaBtn.onclick = function() {
+  contenedorPregunta.classList.toggle('open')
+  const isOpen = contenedorPregunta.classList.contains('open')
+  crearPreguntaBtn.classList = isOpen
+  ? 'card-pregunta open'
+  : 'card-pregunta'
+}

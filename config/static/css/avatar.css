@@ -59,7 +59,7 @@
   
   body {
     background-color: #28038b;
-    background-image: url('/config/static/img/Niveles\ PEP-01.png');
+    background-image: url('/static/img/avatar/Niveles\ PEP-01.png');
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: cover;

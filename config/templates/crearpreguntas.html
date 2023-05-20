@@ -1,25 +1,31 @@
 {% extends "layout.html" %} {% block body %}
 
-<header >
+<header id="header-pregunta">
     <nav class="navbar">
             <span class="navbar-navTittle">
                 <input type="text" class="nav-item-input" placeholder="Sin título">
             </span>
     </nav>
 </header>
-
+<div class="card-pregunta" id="crearpreguntas">
+    <div class="add_btn">
+        <i class="fa-solid fa-circle-plus"></i>
+    </div>
+    <h3>Crear nueva pregunta</h3>
+</div>
 <div class="contenedor" >
     <div class="contenedor-interior">
         <div class="contenedor-pregunta">
             <div class="explicacion-pregunta">
                 <div id="pregunta">
-                    <p contenteditable="true">Escribe aquí tu pregunta...</p>
-                </div>
-                <div class="guardarPregunta">
-                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span class="tittle-pregunta">
+                        <input type="text" class="input-tittle-pregunta" placeholder="Escribe aquí tu pregunta">
+                    </span>
                 </div>
             </div>
-           
+            <div class="guardarPregunta">
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
         </div>
         <div class="contenedor-respuestas">
             <ul class="contenedor-opciones">
@@ -73,10 +79,14 @@
         <li class="footer-item">
             <span class="footer-item-label">Asignar Puntos:</span>
             <select class="footer-item-select" >
-                <option value="facil">5</option>
-                <option value="medio">10</option>
-                <option value="dificil">15</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
             </select>
+        </li>
+        <li class="footer-item">
+            <span class="footer-item-label">Codigo de la pregunta:</span>
+            <input type="text" class="footer-item-input" readonly>
         </li>
     </ul>
     <div class="footer-buttons">
@@ -85,6 +95,7 @@
     </div>
 </div>
 {% endblock %}
+
 <!-- Aquí se define la parte del js-->
 {% block scripts %}
   <script>
