@@ -75,10 +75,15 @@ def creadospormi():
     nombre= "Creados por mí"
     return render_template('creadospormi.html')
 
-@app.route("/crearjuego", methods=['GET'])
-def crearjuego():
-    nombre= "Crear juego"
-    return render_template('crearjuego.html')
+@app.route("/crearpreguntas", methods=['GET'])
+def crearpreguntas():
+    nombre= "Crear preguntas"
+    return render_template('crearpreguntas.html')
+
+@app.route("/creartematicas", methods=['GET'])
+def creartematicas():
+    nombre= "Crear tematicas"
+    return render_template('creartematicas.html')
 
 
 @app.route("/Registro", methods=['GET'])

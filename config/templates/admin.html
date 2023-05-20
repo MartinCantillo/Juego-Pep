@@ -1,40 +1,35 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Admin</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/admin.css'>
-    
-</head>
+{% extends "layout.html" %} {% block body %}
 
-<body>
-  
-    <div class="card-container">
-        <div class="card">
-          <div class="card-image" id="crearjuego">
-            <img src="/static/img/admin/crearjuego.png" alt="Crearjuego">
-          </div>
-          <h2>Crear juego</h2>
-        </div>
-        
-        <div class="card">
-          <div class="card-image" id="creadospormi">
-            <img src="/static/img/admin/creadospormi.jpeg" alt="Creadospormi">
-          </div>
-          <h2>Creados por mí</h2>
-        </div>
-        
-        <div class="card">
-          <div class="card-image" id="cambiarrol">
-            <img src="/static/img/admin/cambiarrol.png" alt="Cambiarrol">
-          </div>
-          <h2>Cambiar rol</h2>
-        </div>
+<div class="card-container">
+
+    <div class="card">
+      <div class="card-image" id="creartematicas">
+        <img src="/static/img/admin/crearjuego.png" alt="creartematicas">
       </div>
-      <script src='/static/js/admin.js'></script>
-</body>
+      <h2>Crear Temáticas</h2>
+    </div>
 
-</html>
+    <div class="card">
+      <div class="card-image" id="crearpreguntas">
+        <img src="/static/img/admin/crearjuego.png" alt="crearpregunta">
+      </div>
+      <h2>Crear Preguntas</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-image" id="creadospormi">
+        <img src="/static/img/admin/creadospormi.jpeg" alt="Creadospormi">
+      </div>
+      <h2>Creados por mí</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-image" id="cambiarrol">
+        <img src="/static/img/admin/cambiarrol.png" alt="Cambiarrol">
+      </div>
+      <h2>Cambiar rol</h2>
+    </div>
+</div>
+
+{% endblock %}

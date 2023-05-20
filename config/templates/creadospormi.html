@@ -1,50 +1,38 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page creados por mi</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/creadospormi.css'>
-</head>
+{% extends "layout.html" %} {% block body %}
 
-<body>
+<div class="game-list">
     <div class="game-list">
-        <div class="game-list">
-            <div class="game-item">
-                <h3>Juego 1</h3>
-                <div class="menu">
-                    <button class="menu-button">&#8285</button>
-                    <div class="menu-content">
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
-                    </div>
+        <div class="game-item">
+            <h3>Juego 1</h3>
+            <div class="menu">
+                <button class="menu-button">&#8285</button>
+                <div class="menu-content">
+                    <button class="edit-button">Edit</button>
+                    <button class="delete-button">Delete</button>
                 </div>
             </div>
-            <div class="game-item">
-                <h3>Juego 2</h3>
-                <div class="menu">
-                    <button class="menu-button">&#8285</button>
-                    <div class="menu-content">
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
-                    </div>
+        </div>
+        <div class="game-item">
+            <h3>Juego 2</h3>
+            <div class="menu">
+                <button class="menu-button">&#8285</button>
+                <div class="menu-content">
+                    <button class="edit-button">Edit</button>
+                    <button class="delete-button">Delete</button>
                 </div>
             </div>
-            <div class="game-item">
-                <h3>Juego 3</h3>
-                <div class="menu">
-                    <button class="menu-button">&#8285</button>
-                    <div class="menu-content">
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
-                    </div>
+        </div>
+        <div class="game-item">
+            <h3>Juego 3</h3>
+            <div class="menu">
+                <button class="menu-button">&#8285</button>
+                <div class="menu-content">
+                    <button class="edit-button">Edit</button>
+                    <button class="delete-button">Delete</button>
                 </div>
             </div>
         </div>
     </div>
-    <script src='/static/js/creadospormi.js'></script>
-</body>
-
-</html>
+</div>
+{% endblock %}

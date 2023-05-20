@@ -33,8 +33,6 @@ body{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.4);
-
-    
 }
 
 .imagen-formulario{
@@ -84,11 +82,8 @@ body{
     border-bottom-right-radius: 30px;
     margin-left: 25px;
     margin-top: 27px;
-
-
-
-
 }
+
 .texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
     color: var(--blanco);
 

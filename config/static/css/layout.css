@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/img/admin/3409297.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navbar-layout a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navbar-layout a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navbar-layout a:hover::after{
+    transform: scaleX(1);
+}
+
+.toggle_btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-inferior {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: heigh 0.2 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu-inferior.open {
+    height: 210px;
+}
+
+.menu-inferior a {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 992px) {
+    .navbar-layout {
+        display: none;
+    }
+
+    .toggle_btn {
+        display: block;
+    }
+
+    .menu-inferior {
+        display: block;
+    }
+}
+
+@media(max-width: 576px) {
+    .menu-inferior {
+        left: 2rem;
+        width: unset;
+    }
+    
+    .logo {
+        font-size: 1.5em;
+    }
+}
