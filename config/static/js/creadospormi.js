@@ -1,4 +1,4 @@
-// Seleccionamos los elementos del DOM necesarios
+/*// Seleccionamos los elementos del DOM necesarios
 const menuBtn = document.querySelectorAll(".menu-button");
 const menu = document.querySelectorAll(".menu");
 
@@ -29,3 +29,29 @@ deleteBtns.forEach((btn) => {
     // Aquí iría el código para eliminar el juego
   });
 });
+*/
+
+console.log("entro ");
+function cargarTematica() {
+  // Obtén una referencia al elemento 'select' en tu HTML
+  const selectElement = document.getElementById("selTematicas");
+
+  let endpoint = "/consultatematica";
+  axios.get(endpoint)
+    .then(function (response) {
+      // La respuesta contiene los datos devueltos por la API
+      const datos = response.data;
+
+      // Iterar sobre los datos y agregar opciones al select
+      for (let key in datos) {
+        const option = document.createElement("option");
+        option.value = datos[key].nombre_tematica;
+        selectElement.appendChild(option);
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+    console.log(selectElement);
+}
+

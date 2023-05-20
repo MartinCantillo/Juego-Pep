@@ -503,5 +503,21 @@ def deladministrativo():
     bd.session.commit()     
     return jsonify(administrativo_schema.dump(administrativo))
 
+@app.route('/consultatematica', methods=['GET'])
+def ConsultaTematica():
+    results = bd.session.query(Tematica).all() 
+    dato={}   
+    i=0
+    for tematica in results:
+        i+=1	       
+        dato[i] = {
+        'nombre_tematica':tematica.nombre_tematica ,
+        'tope_tem': tematica.tope_tem           
+        }
+      
+    print(Tematica.nombre_tematica  )  
+    return jsonify(dato)
+    
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

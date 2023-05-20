@@ -64,17 +64,15 @@
     <ul class="footer-nav">
         <!-- Aquí se cargan las temáticas -->
         <li class="footer-item">
-            <span class="footer-item-label">Temática:</span>
-            <select class="footer-item-select">
-                <option value="historia">Historia</option>
-                <option value="ciencia">Ciencia</option>
-                <option value="arte">Arte</option>
+            <span class="footer-item-label" id="selTematicas">Temática:</span>
+            <select class="footer-item-select" onchange="cargarTematica()" >
+                <option value="facil">opcion1</option>
             </select>
         </li>
         <!-- Aquí se definen los puntos de las preguntas -->
         <li class="footer-item">
             <span class="footer-item-label">Asignar Puntos:</span>
-            <select class="footer-item-select">
+            <select class="footer-item-select" >
                 <option value="facil">5</option>
                 <option value="medio">10</option>
                 <option value="dificil">15</option>
