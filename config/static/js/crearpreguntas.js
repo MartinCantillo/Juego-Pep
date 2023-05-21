@@ -29,7 +29,9 @@ const footerPregunta = document.querySelector(".footer");
 crearPreguntaBtn.onclick = function () {
   contenedorPregunta.classList.toggle("open");
   const isOpen = contenedorPregunta.classList.contains("open");
-  crearPreguntaBtn.classList = isOpen ? "card-pregunta open" : "card-pregunta";
+  crearPreguntaBtn.classList = isOpen 
+  ? "card-pregunta open"
+  : "card-pregunta";
 };
 
 function GuardarPregunta() {

@@ -1,18 +1,19 @@
 {% extends "layout.html" %} {% block body %}
 <div class="contenedor-tematica">
-    <h2 class="title">Tématicas</h2>
-    <div class="input">
-        <label for="nombreTematica">Nombre</label>
-        <input placeholder="Ingresa el nombre de la tematica" type="text" id="nombreTematica" />
+    <div class="interior">
+        <h2 class="title">Tématicas</h2>
+        <div class="input">
+            <label for="nombreTematica">Nombre</label>
+            <input placeholder="Ingresa el nombre de la tematica" type="text" id="nombreTematica" />
+        </div>
+        <div class="input">
+            <label for="topeTematica">Puntos</label>
+            <input placeholder="Ingresa los puntos para pasar la tematica" type="text" id="topeTematica" />
+        </div>
+        <button type="submit" onclick="saveTematica()" class="btn">
+            Guardar
+        </button>
     </div>
-    <div class="input">
-        <label for="topeTematica">Puntos</label>
-        <input placeholder="Ingresa los puntos para pasar la tematica" type="text" id="topeTematica" />
-    </div>
-    <button type="submit" onclick="saveTematica()" class="btn">
-        Guardar
-    </button>
-    
 </div>
 
 {% endblock %}

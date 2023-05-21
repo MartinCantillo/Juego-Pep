@@ -1,3 +1,9 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .navbar {
     position: absolute;
     top: 30px;
@@ -31,6 +37,7 @@
     align-items: center;
     background-color: transparent;
     border-radius: 20px;
+    backdrop-filter: blur(20px);
     overflow: hidden;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -47,9 +54,32 @@
 
 .add_btn {
     color: #fff;
-    padding: 15px;
+    margin-right: 10px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.preguntas-creadas {
+    width: 95%;
+    height: 550px;
+    max-width: 900px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0px 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-pregunta {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .contenedor {
@@ -130,41 +160,6 @@
     text-align: center;
 }
 
-
-/*.explicacion-pregunta {
-    display: flex;
-    justify-content: center;
-    width: 800px;
-    height: 100px;
-    padding: 20px 50px;
-    font: 1em sans-serif;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
-}
-
-.pregunta {
-    display: flex;
-    justify-content: center;
-}
-
-.tittle-pregunta{
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 1rem;
-}
-
-.tittle-pregunta input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
-    outline: none;
-    color: #fff;
-}
-*/
 .guardarPregunta {
     color: #fff;
     font-size: 1.5rem;
@@ -288,7 +283,8 @@ li {
 }
 
 @media (max-width:1080px) {
-    .contenedor {
+    .contenedor,
+    .contenedor.open {
         display: none;
     }
 
