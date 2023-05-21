@@ -3,7 +3,7 @@
 <header id="header-pregunta">
     <nav class="navbar">
             <span class="navbar-navTittle">
-                <input type="text" class="nav-item-input" placeholder="Sin título">
+                <input type="text"  id="tituloP" class="nav-item-input" placeholder="Sin título">
             </span>
     </nav>
 </header>
@@ -19,12 +19,12 @@
             <div class="explicacion-pregunta">
                 <div id="pregunta">
                     <span class="tittle-pregunta">
-                        <input type="text" class="input-tittle-pregunta" placeholder="Escribe aquí tu pregunta">
+                        <input type="text"  id="enunciado" class="input-tittle-pregunta" placeholder="Escribe aquí tu pregunta">
                     </span>
                 </div>
             </div>
             <div class="guardarPregunta">
-                <i class="fa-solid fa-floppy-disk"></i>
+                <i class="fa-solid fa-floppy-disk" onclick="GuardarPregunta()"></i>
             </div>
         </div>
         <div class="contenedor-respuestas">
@@ -72,13 +72,13 @@
         <li class="footer-item">
             <span class="footer-item-label" >Temática:</span>
             <select class="footer-item-select"  id="selTematicas">
-                <option value="facil">Seleccionar</option>
+                <option value="Seleccionar">Seleccionar</option>
             </select>
         </li>
         <!-- Aquí se definen los puntos de las preguntas -->
         <li class="footer-item">
             <span class="footer-item-label">Asignar Puntos:</span>
-            <select class="footer-item-select" >
+            <select class="footer-item-select" id="puntos" >
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>

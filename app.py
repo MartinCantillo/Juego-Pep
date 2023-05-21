@@ -520,8 +520,9 @@ def ConsultaTematica():
         'tope_tem': tematica.tope_tem           
         }
       
-    print(Tematica.nombre_tematica  )  
+    print(tematica.nombre_tematica  )  
     return jsonify(dato)
+  
     
 
 if __name__ == '__main__':
