@@ -1,8 +1,8 @@
 {% extends "layout.html" %} {% block body %}
 
-<header id="header-pregunta">
-  <nav class="navbar">
-    <span class="navbar-navTittle">
+<header >
+  <nav class="navbar" >
+    <span class="navbar-navTittle" id="header-pregunta">
       <input
         type="text"
         id="tituloP"
@@ -18,13 +18,35 @@
   </div>
   <h3>Crear nueva pregunta</h3>
 </div>
-<div class="contenedor">
+<div class="preguntas-creadas" id="preguntas-creadas">
+    <div class="content-pregunta">
+        <div class="head-content-pregunta">
+            <div class="btnEditar">
+                <button class="edit-button">Editar</button>
+            </div>
+            <div class="puntos">
+                <p>Puntos</p>
+            </div>
+        </div>
+        <div class="enunciado">
+            <p>ENUNCIADO</p>
+        </div>
+        <h4>opciones de respuesta</h4>
+        <div class="body-content-pregunta">
+            <li><div class="opcResp1"><p>respuesta 1</p></div></li>
+            <li><div class="opcResp2"><p>respuesta 2</p></div></li>
+            <li><div class="opcResp3"><p>respuesta 3</p></div></li>
+            <li><div class="opcResp4"><p>respuesta 4</p></div></li>
+        </div>
+    </div>
+</div>
+<div class="contenedor" id="contenedor">
   <div class="contenedor-interior">
     <div class="contenedor-pregunta">
       <div class="explicacion-pregunta">
         <div id="pregunta">
           <span class="tittle-pregunta" id="enunciado">
-            <p class="enunciado-pregunta" contenteditable="true" placeholder="Escribe aquí tu pregunta"></p>
+            <p class="enunciado-pregunta" contenteditable="true" placeholder="Escribe aquí tu pregunta..."></p>
            <!-- <input
               type="text"
               id="enunciado"
@@ -95,7 +117,7 @@
   </div>
 </div>
 
-<div class="footer">
+<div class="footer" id="footer">
   <ul class="footer-nav">
     <!-- Aquí se cargan las temáticas -->
     <li class="footer-item">
@@ -115,8 +137,8 @@
     </li>
   </ul>
   <div class="footer-buttons">
-    <button class="footer-button cancel-button">Cancelar</button>
-    <button class="footer-button save-button" href="/crearpreguntas" onclick="guardarRespuestas()">Guardar</button>
+    <button class="footer-button cancel-button" onclick = "CancelarPregunta()">Cancelar</button>
+    <button class="footer-button save-button" href="/crearpreguntas" onclick="guardarRespuestas(), CancelarPregunta()">Guardar</button>
     
   </div>
 </div>
@@ -134,5 +156,6 @@
     respuestaCorrecta();
   });
 </script>
+
 
 {% endblock %}

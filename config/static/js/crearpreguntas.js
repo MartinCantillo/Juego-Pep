@@ -23,12 +23,65 @@ function cargarTematica() {
 
 const crearPreguntaBtn = document.querySelector("#crearpreguntas");
 const contenedorPregunta = document.querySelector(".contenedor");
+const btnCancelar = document.querySelector(".cancel-button");
+const btnGuardar = document.querySelector(".save-button");
 
 crearPreguntaBtn.onclick = function () {
   contenedorPregunta.classList.toggle("open");
   const isOpen = contenedorPregunta.classList.contains("open");
-  crearPreguntaBtn.classList = isOpen ? "card-pregunta open" : "card-pregunta";
+  crearPreguntaBtn.classList = isOpen 
+  ? "card-pregunta open"
+  : "card-pregunta"
+
+  if (isOpen) {
+    MostrarCrearPregunta();
+    btnCancelar.onclick = function() {
+      contenedorPregunta.classList.remove("open");
+      crearPreguntaBtn.classList.remove("open");
+      const isOpen = false;
+      crearPreguntaBtn.classList = "card-pregunta"
+      document.getElementById("crearpreguntas").style.display = "flex";
+      CancelarPregunta();
+    };
+    btnGuardar.onclick = function() {
+      contenedorPregunta.classList.remove("open");
+      crearPreguntaBtn.classList.remove("open");
+      const isOpen = false;
+      crearPreguntaBtn.classList = "card-pregunta"
+      document.getElementById("crearpreguntas").style.display = "flex";
+      CancelarPregunta();
+    };
+  }else{
+    CancelarPregunta();
+  }
+  
 };
+
+function MostrarCrearPregunta() {
+  // Ocultar elementos que no se mostrarán
+    document.getElementById("tituloJuego").style.display = "none";
+    document.getElementById("crearpreguntas").style.display = "none";
+    document.getElementById("preguntas-creadas").style.display = "none";
+
+  // Mostrar elementos que se mostrarán
+    document.getElementById("contenedor").style.display = "block";
+    document.getElementById("header-pregunta").style.display = "block";
+    document.getElementById("footer").style.display = "flex";
+} 
+
+function CancelarPregunta() {
+  // Mostrar elementos que se ocultaron al crear la pregunta
+  document.getElementById("tituloJuego").style.display = "block";
+  document.getElementById("crearpreguntas").style.display = "run-in";
+  document.getElementById("preguntas-creadas").style.display = "block";
+
+  // Ocultar el contenido de la pregunta creada
+  document.getElementById("contenedor").style.display = "none";
+  document.getElementById("header-pregunta").style.display = "none";
+  document.getElementById("footer").style.display = "none";
+}
+
+
 
 function GuardarPregunta() {
   const enunciado = document.getElementById("enunciado").querySelector("p").textContent;

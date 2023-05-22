@@ -18,6 +18,13 @@
 <body>
     <header>
         <h2 class="logo">Conoce tu PEP</h2>
+        <span class="navTittleGame" id="tituloJuego">
+            <input
+              type="text"
+              class="nav-item-input1"
+              placeholder="Sin título"
+            />
+        </span>
         <nav class="navbar-layout">
             <a href="/admin">Home</a>
             <a href="/creartematicas">Temáticas</a>
@@ -39,6 +46,11 @@
     {% block body %}
     {% endblock %}
     {% block scripts %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+        CancelarPregunta();
+        });
+    </script>
     {% endblock %}
     <script src='/static/js/layout.js'></script>
     <script src='/static/js/admin.js'></script>
