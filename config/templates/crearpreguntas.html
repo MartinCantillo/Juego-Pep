@@ -23,13 +23,14 @@
     <div class="contenedor-pregunta">
       <div class="explicacion-pregunta">
         <div id="pregunta">
-          <span class="tittle-pregunta">
-            <input
+          <span class="tittle-pregunta" id="enunciado">
+            <p class="enunciado-pregunta" contenteditable="true" placeholder="Escribe aquí tu pregunta"></p>
+           <!-- <input
               type="text"
               id="enunciado"
               class="input-tittle-pregunta"
               placeholder="Escribe aquí tu pregunta"
-            />
+            />-->
           </span>
         </div>
       </div>
@@ -39,45 +40,55 @@
     </div>
     <div class="contenedor-respuestas">
       <ul class="contenedor-opciones">
+
         <li class="contenedor-option" id="resp0">
-          <div class="interior-opcion">
-            <div class="marcar-correcta">
-              <input type="radio" name="opciones" />
+            <div class="interior-opcion">
+              <div class="marcar-correcta">
+                <div>
+                  <input type="radio" name="opciones" />
+                </div>
+              </div>
+              <div class="explicacion-respuesta">
+                <p class="opcion-0" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+              </div>
             </div>
-            <p class="explicacion-respuesta opcion-0" contenteditable="true">
-              Escribe aquí tu opción de respuesta
-            </p>
-          </div>
-        </li>
+        </li>   
+
         <li class="contenedor-option" id="resp1">
           <div class="interior-opcion">
-            <div class="marcar-correcta">
-              <input type="radio" name="opciones" />
+              <div class="marcar-correcta">
+                <div>
+                  <input type="radio" name="opciones" />
+                </div>
+              </div>
+              <div class="explicacion-respuesta">
+                <p class="opcion-1" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+              </div>
             </div>
-            <p class="explicacion-respuesta opcion-1" contenteditable="true">
-              Escribe aquí tu opción de respuesta
-            </p>
-          </div>
         </li>
         <li class="contenedor-option" id="resp2">
-          <div class="interior-opcion">
-            <div class="marcar-correcta">
-              <input type="radio" name="opciones" />
-            </div>
-            <p class="explicacion-respuesta opcion-2" contenteditable="true">
-              Escribe aquí tu opción de respuesta
-            </p>
-          </div>
+            <div class="interior-opcion">
+                <div class="marcar-correcta">
+                  <div>
+                    <input type="radio" name="opciones" />
+                  </div>
+                </div>
+                <div class="explicacion-respuesta">
+                  <p class="opcion-2" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+                </div>
+              </div>
         </li>
         <li class="contenedor-option" id="resp3">
-          <div class="interior-opcion">
-            <div class="marcar-correcta">
-              <input type="radio" name="opciones" />
-            </div>
-            <p class="explicacion-respuesta opcion-3" contenteditable="true">
-              Escribe aquí tu opción de respuesta
-            </p>
-          </div>
+            <div class="interior-opcion">
+                <div class="marcar-correcta">
+                  <div>
+                    <input type="radio" name="opciones" />
+                  </div>
+                </div>
+                <div class="explicacion-respuesta">
+                  <p class="opcion-3" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+                </div>
+              </div>
         </li>
       </ul>
     </div>
@@ -101,10 +112,6 @@
         <option value="10">10</option>
         <option value="15">15</option>
       </select>
-    </li>
-    <li class="footer-item">
-      <span class="footer-item-label">Codigo de la pregunta:</span>
-      <input type="text" id="idP"class="footer-item-input" readonly />
     </li>
   </ul>
   <div class="footer-buttons">

@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -128,9 +128,14 @@ body{
     overflow: hidden;
 }
 
+
 .explicacion-pregunta {
-    width: 800px;
-    height: 100px;
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .explicacion-pregunta #pregunta {
@@ -144,13 +149,13 @@ body{
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    padding: 5px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 1.2rem;
     background: transparent;
     border: none;
 }
 
-.explicacion-pregunta .input-tittle-pregunta {
+.explicacion-pregunta .enunciado-pregunta {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -158,6 +163,12 @@ body{
     outline: none;
     color: #fff;
     text-align: center;
+    cursor: text;
+}
+
+.tittle-pregunta p[contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
 }
 
 .guardarPregunta {
@@ -183,35 +194,53 @@ body{
     text-align: center;
     padding: 20px;
     width: 500px;
-    width: calc(30% - 20px);
+    height: 250px;
     max-width: 250px;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+.marcar-correcta {
+    top: 10px;
+    right: 10px;
 }
 
 .explicacion-respuesta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    max-width: 1138px;
+    flex-grow: 1;
     cursor: text;
+    overflow: hidden;
 }
 
 .interior-opcion {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
-li {
-    list-style: none;
+.interior-opcion p {
+    width: 95%;
+    height: 100%;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+    overflow: hidden;
+    outline: none;
+}
+
+.interior-opcion input[type="radio"] {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.explicacion-respuesta p[contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
 }
 
 .footer {
@@ -283,6 +312,7 @@ li {
 }
 
 @media (max-width:1080px) {
+
     .contenedor,
     .contenedor.open {
         display: none;

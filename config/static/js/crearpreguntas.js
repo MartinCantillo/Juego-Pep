@@ -31,7 +31,7 @@ crearPreguntaBtn.onclick = function () {
 };
 
 function GuardarPregunta() {
-  const enunciado = document.getElementById("enunciado").value;
+  const enunciado = document.getElementById("enunciado").querySelector("p").textContent;
   const tituloP = document.getElementById("tituloP").value;
   const puntos = document.getElementById("puntos").value;
   const tematicaN = document.getElementById("selTematicas").value;
@@ -79,9 +79,8 @@ function GuardarPregunta() {
     .catch((error) => {
       alert("Error al obtener el ID de la temática:", error);
     });
-
-    
 }
+
 
 function respuestaCorrecta() {
   // Obtén todos los inputs de radio
@@ -93,8 +92,8 @@ function respuestaCorrecta() {
   });
  
 }
-// Función para obtener el párrafo asociado al input de radio seleccionado
 
+// Función para obtener el párrafo asociado al input de radio seleccionado
 var respCorrecta = "";
 function obtenerParrafo(event) {
   // Obtén el contenedor padre del input de radio
@@ -114,7 +113,7 @@ function obtenerParrafo(event) {
 var idPreguntaActu="" ;
 function obtenerIdPreguntas( ) {
 
-  const enunciados = document.getElementById("enunciado").value;
+  const enunciados = document.getElementById("enunciado").querySelector("p").textContent;
   // Cargar el id de la pregunta
   let url2 = "/consultapregunta";
   // se consulta por enunciado
