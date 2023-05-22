@@ -506,7 +506,7 @@ def deladministrativo():
     bd.session.delete(administrativo)
     bd.session.commit()     
     return jsonify(administrativo_schema.dump(administrativo))
-
+#consultas
 @app.route('/consultatematica', methods=['GET'])
 def ConsultaTematica():
     results = bd.session.query(Tematica).all() 
@@ -523,7 +523,22 @@ def ConsultaTematica():
     print(tematica.nombre_tematica  )  
     return jsonify(dato)
   
-    
+@app.route('/consultapregunta', methods=['GET'])
+def ConsultaPregunta():
+    results = bd.session.query(Pregunta).all() 
+    dato={}   
+    i=0
+    for pregunta in results:
+        i+=1	       
+        dato[i] = {
+        'id' :pregunta.id,
+        'NomCorto':pregunta.NomCorto,
+        'Idtematica_FK': pregunta.Idtematica_FK,
+        'enunciado':  pregunta.enunciado,
+        'puntos': pregunta.puntos          
+        }
+     
+    return jsonify(dato)    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

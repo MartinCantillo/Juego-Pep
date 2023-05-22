@@ -74,7 +74,7 @@ function GuardarPregunta() {
         .catch(function (error) {
           console.log(error);
         });
-
+       
       alert("Pregunta guardada con éxito.");
     })
     .catch((error) => {

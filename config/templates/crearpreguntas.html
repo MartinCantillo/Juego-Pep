@@ -1,113 +1,131 @@
 {% extends "layout.html" %} {% block body %}
 
 <header id="header-pregunta">
-    <nav class="navbar">
-            <span class="navbar-navTittle">
-                <input type="text"  id="tituloP" class="nav-item-input" placeholder="Sin título">
-            </span>
-    </nav>
+  <nav class="navbar">
+    <span class="navbar-navTittle">
+      <input
+        type="text"
+        id="tituloP"
+        class="nav-item-input"
+        placeholder="Sin título"
+      />
+    </span>
+  </nav>
 </header>
-
 <div class="card-pregunta" id="crearpreguntas">
-    <div class="add_btn">
-        <i class="fa-solid fa-circle-plus"></i>
-    </div>
-    <h3>Crear nueva pregunta</h3>
+  <div class="add_btn">
+    <i class="fa-solid fa-circle-plus"></i>
+  </div>
+  <h3>Crear nueva pregunta</h3>
 </div>
-<div class="preguntas-creadas">
-    <div class="content-pregunta">
-        
-    </div>
-</div>
-
-<div class="contenedor" >
-    <div class="contenedor-interior">
-        <div class="contenedor-pregunta">
-            <div class="explicacion-pregunta">
-                <div id="pregunta">
-                    <span class="tittle-pregunta">
-                        <input type="text"  id="enunciado" class="input-tittle-pregunta" placeholder="Escribe aquí tu pregunta">
-                    </span>
-                </div>
-            </div>
-            <div class="guardarPregunta">
-                <i class="fa-solid fa-floppy-disk" onclick="GuardarPregunta()"></i>
-            </div>
+<div class="contenedor">
+  <div class="contenedor-interior">
+    <div class="contenedor-pregunta">
+      <div class="explicacion-pregunta">
+        <div id="pregunta">
+          <span class="tittle-pregunta">
+            <input
+              type="text"
+              id="enunciado"
+              class="input-tittle-pregunta"
+              placeholder="Escribe aquí tu pregunta"
+            />
+          </span>
         </div>
-        <div class="contenedor-respuestas">
-            <ul class="contenedor-opciones">
-                <li class="contenedor-option">
-                    <div class="interior-opcion">
-                        <div class="marcar-correcta">
-                            <input type="radio" name="correcta">
-                        </div>
-                        <p class="explicacion-respuesta opcion-0" contenteditable="true">Escribe aquí tu opción de respuesta</p>
-                    </div>
-                </li>
-                <li class="contenedor-option">
-                    <div class="interior-opcion">
-                        <div class="marcar-correcta">
-                            <input type="radio" name="correcta">
-                        </div>
-                        <p class="explicacion-respuesta opcion-1" contenteditable="true">Escribe aquí tu opción de respuesta</p>
-                    </div>
-                </li>
-                <li class="contenedor-option">
-                    <div class="interior-opcion">
-                        <div class="marcar-correcta">
-                            <input type="radio" name="correcta">
-                        </div>
-                        <p class="explicacion-respuesta opcion-2" contenteditable="true">Escribe aquí tu opción de respuesta</p>
-                    </div>
-                </li>
-                <li class="contenedor-option">
-                    <div class="interior-opcion">
-                        <div class="marcar-correcta">
-                            <input type="radio" name="correcta">
-                        </div>
-                        <p class="explicacion-respuesta opcion-3" contenteditable="true">Escribe aquí tu opción de respuesta</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+      </div>
+      <div class="guardarPregunta">
+        <i class="fa-solid fa-floppy-disk" onclick=" GuardarPregunta()"></i>
+      </div>
     </div>
+    <div class="contenedor-respuestas">
+      <ul class="contenedor-opciones">
+        <li class="contenedor-option" id="resp0">
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <input type="radio" name="opciones" />
+            </div>
+            <p class="explicacion-respuesta opcion-0" contenteditable="true">
+              Escribe aquí tu opción de respuesta
+            </p>
+          </div>
+        </li>
+        <li class="contenedor-option" id="resp1">
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <input type="radio" name="opciones" />
+            </div>
+            <p class="explicacion-respuesta opcion-1" contenteditable="true">
+              Escribe aquí tu opción de respuesta
+            </p>
+          </div>
+        </li>
+        <li class="contenedor-option" id="resp2">
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <input type="radio" name="opciones" />
+            </div>
+            <p class="explicacion-respuesta opcion-2" contenteditable="true">
+              Escribe aquí tu opción de respuesta
+            </p>
+          </div>
+        </li>
+        <li class="contenedor-option" id="resp3">
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <input type="radio" name="opciones" />
+            </div>
+            <p class="explicacion-respuesta opcion-3" contenteditable="true">
+              Escribe aquí tu opción de respuesta
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
-    <ul class="footer-nav">
-        <!-- Aquí se cargan las temáticas -->
-        <li class="footer-item">
-            <span class="footer-item-label" >Temática:</span>
-            <select class="footer-item-select"  id="selTematicas">
-                <option value="Seleccionar">Seleccionar</option>
-            </select>
-        </li>
-        <!-- Aquí se definen los puntos de las preguntas -->
-        <li class="footer-item">
-            <span class="footer-item-label">Asignar Puntos:</span>
-            <select class="footer-item-select" id="puntos" >
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-            </select>
-        </li>
-        <li class="footer-item">
-            <span class="footer-item-label">Codigo de la pregunta:</span>
-            <input type="text" class="footer-item-input" readonly>
-        </li>
-    </ul>
-    <div class="footer-buttons">
-        <button class="footer-button cancel-button">Cancelar</button>
-        <button class="footer-button save-button">Guardar</button>
-    </div>
+  <ul class="footer-nav">
+    <!-- Aquí se cargan las temáticas -->
+    <li class="footer-item">
+      <span class="footer-item-label">Temática:</span>
+      <select class="footer-item-select" id="selTematicas">
+        <option value="Seleccionar">Seleccionar</option>
+      </select>
+    </li>
+    <!-- Aquí se definen los puntos de las preguntas -->
+    <li class="footer-item">
+      <span class="footer-item-label">Asignar Puntos:</span>
+      <select class="footer-item-select" id="puntos">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </li>
+    <li class="footer-item">
+      <span class="footer-item-label">Codigo de la pregunta:</span>
+      <input type="text" id="idP"class="footer-item-input" readonly />
+    </li>
+  </ul>
+  <div class="footer-buttons">
+    <button class="footer-button cancel-button">Cancelar</button>
+    <button class="footer-button save-button" href="/crearpreguntas" onclick="guardarRespuestas()">Guardar</button>
+    
+  </div>
 </div>
 {% endblock %}
 
 <!-- Aquí se define la parte del js-->
 {% block scripts %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      cargarTematica();
-    });
-  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    cargarTematica();
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    respuestaCorrecta();
+  });
+</script>
+
 {% endblock %}
