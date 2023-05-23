@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h4{
+    color: #DBE1F0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 50;
+    margin-bottom: 28px;
+}
+
+/*     Estilos boton volver       */
+.btn_volver{
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 13px 29px 13px 30px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 14px;
+}
+
+.btn_volver:hover{
+    letter-spacing: 0.1em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+    border-radius: 9px;
+}
+
+.btn_volver::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9px;
+    background: rgb(123, 29, 73);
+}
+
+.btn_volver span{
+    position: relative;
+    z-index: 1;
+}
+
+.btn_volver i{
+    position: absolute;
+    inset: 0;
+    display: block;    
+}
+
+
+/*     Animacion boton cerrar en PopUp     */
+.btn_modal_cerrar{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 50px;
+    margin-left: 63px;
+    font-size: 1em;
+    padding: 10px 32px 10px 35px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn_modal_cerrar:hover{
+    letter-spacing: 0.25em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+    border-radius: 9px;
+}
+
+.btn_modal_cerrar::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9px;
+    background: rgb(101, 99, 148);
+}
+
+.btn_modal_cerrar span{
+    position: relative;
+    z-index: 1;
+}
+
+.btn_modal_cerrar i{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.btn_modal_cerrar i::before{
+    content: '';
+    position: absolute;
+    top: -3.3px;
+    left: 75%;
+    width: 10px;
+    height: 4px;
+    border: 2px solid var(--clr);   
+    background: rgb(101, 99, 148);
+    transition: 0.5s;
+}
+
+.btn_modal_cerrar:hover i::before{
+    width: 18px;
+    left: 7%;
+}
+
+.btn_modal_cerrar i::after{
+    content: '';
+    position: absolute;
+    bottom: -3.0px;
+    left: 10%;
+    width: 10px;
+    height: 4px;
+    border: 2px solid var(--clr);
+    background: rgb(101, 99, 148);
+    transition: 0.5s;
+}
+
+.btn_modal_cerrar:hover i::after{
+    width: 18px;
+    left: 78%;
+}
+
+/*     Animacion boton jugar en PopUp     */
+.btn_modal_jugar{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 50px;
+    font-size: 1em;
+    padding: 10px 39px 10px 40px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn_modal_jugar:hover{
+    letter-spacing: 0.25em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+    border-radius: 9px;
+}
+
+.btn_modal_jugar::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9px;
+    background: rgb(147, 38, 93);
+}
+
+.btn_modal_jugar span{
+    position: relative;
+    z-index: 1;
+}
+
+.btn_modal_jugar i{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.btn_modal_jugar i::before{
+    content: '';
+    position: absolute;
+    top: -3.3px;
+    left: 75%;
+    width: 10px;
+    height: 4px;
+    border: 2px solid var(--clr);   
+    background: rgb(147, 38, 93);
+    transition: 0.5s;
+}
+
+.btn_modal_jugar:hover i::before{
+    width: 18px;
+    left: 7%;
+}
+
+.btn_modal_jugar i::after{
+    content: '';
+    position: absolute;
+    bottom: -3.0px;
+    left: 10%;
+    width: 10px;
+    height: 4px;
+    border: 2px solid var(--clr);
+    background: rgb(147, 38, 93);
+    transition: 0.5s;
+}
+
+.btn_modal_jugar:hover i::after{
+    width: 18px;
+    left: 78%;
+}
+
+/*       Estilos div padre       */
+.padre{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('/config/static/img/JugandoImg/MapaPEP.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+
+.imgEsfera{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-right: -80px;
+    margin-bottom: 80px;
+}
+
+.imgBase{
+    height: 80px;
+    width: 80px;
+}
+
+.img_modal{
+    width: 100%;
+    height: 110px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+/*              Estilos nivel 1             */
+.item1{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: -120px;
+}
+
+.modal_container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level1{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 2             */
+.item2{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal_container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level2{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 3             */
+.item3{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.modal_container3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level3{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 4             */
+.item4{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 130px;
+}
+
+.modal_container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level4{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 5             */
+.item5{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal_container5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level5{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 6             */
+.item6{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: -100px;
+}
+
+.modal_container6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level6{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 7             */
+.item7{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: -180px;
+}
+
+.modal_container7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level7{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 8             */
+.item8{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: -50px;
+}
+
+.modal_container8 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level8{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 9             */
+.item9{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.modal_container9 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level9{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+/*              Estilos nivel 10             */
+.item10{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: 10%;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.modal_container10 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.level10{
+    background: rgba(82, 97, 188, 0.7);
+    border-radius: 15px;
+    width: 620px;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px 20px 28px 20px;
+}
+
+
+
+.show{
+    pointer-events: auto;
+    opacity: 1;
+}

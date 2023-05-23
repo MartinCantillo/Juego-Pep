@@ -1,0 +1,91 @@
+body{
+    background-image: url('/config/static/img/JugandoImg/fondoMenuPrincipal.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.imgPep{
+    height: 320px;
+    width: 370px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    z-index: 1;
+}
+
+.imgAvatar{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+
+.contenedor{
+    height: 100vh;
+    width: 100%;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opciones{
+    display: grid;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.botones{
+    margin-top: 15px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+
+
+/*      Animaciones botones      */
+.btn{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    padding: 13px 79px 13px 80px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.btn:hover{
+    letter-spacing: 0.0em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+    border-radius: 9px;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9px;
+    background: rgb(173, 1, 21);
+}
+
+.btn span{
+    position: relative;
+    z-index: 1;
+}
+
+.btn i{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+
