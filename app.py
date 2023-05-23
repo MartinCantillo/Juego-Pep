@@ -551,14 +551,9 @@ def valiusuarios():
     
     if len(resultado)>0:
         session['eamil'] = emailusuario_pk
-        redirect('config/templates/avatar.html')
-        return "Exitoso"
-    elif len(resultado)<=0:
+        return redirect('/avatar')
+    else:
         return "jjjjjjjjjjjjjjjjjjjjjjjjjjjjj"  
-    
-@app.route("/avatares")
-def avatares():
-    return redirect('/config/templates/avatar.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

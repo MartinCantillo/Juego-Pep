@@ -12,7 +12,7 @@
     <div class="contenedor-formulario contenedor">
       <div class="imagen-formulario"></div>
 
-      <form class="formulario">
+      <div class="formulario">
         <div class="texto-formulario">
           <h2 src="{{ url_for('static', filename='static/img/LoginyRegistro/bh.jpg') }}" >
       </div>
@@ -38,16 +38,7 @@
             <label for="opcion2">Administrador</label>
           </div>
           
-          <script>
-            function limitarSeleccion(id) {
-              const checkboxes = document.getElementsByName("opcion");
-              checkboxes.forEach((checkbox) => {
-                if (checkbox.id !== id) {
-                  checkbox.checked = false;
-                }
-              });
-            }
-          </script>
+          
             
           <a href="/Ccontraseña">¿Has olvidado tu contraseña?</a>
           <button type="submit" class="btn" onclick="Iniciar()">
@@ -59,7 +50,7 @@
                 >Registrate aquí</a>
             </p>
         </div>
-      </form>
+      </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{url_for('static', filename ='js/Loggin.js')}}"></script>
