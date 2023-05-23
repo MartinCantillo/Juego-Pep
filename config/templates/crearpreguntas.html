@@ -20,23 +20,19 @@
 </div>
 <div class="preguntas-creadas" id="preguntas-creadas">
     <div class="content-pregunta">
-        <div class="head-content-pregunta">
-            <div class="btnEditar">
-                <button class="edit-button">Editar</button>
-            </div>
-            <div class="puntos">
-                <p>Puntos</p>
-            </div>
-        </div>
-        <div class="enunciado">
-            <p>ENUNCIADO</p>
-        </div>
-        <h4>opciones de respuesta</h4>
-        <div class="body-content-pregunta">
-            <li><div class="opcResp1"><p>respuesta 1</p></div></li>
-            <li><div class="opcResp2"><p>respuesta 2</p></div></li>
-            <li><div class="opcResp3"><p>respuesta 3</p></div></li>
-            <li><div class="opcResp4"><p>respuesta 4</p></div></li>
+        <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">IdPregunta</th>
+                <th scope="col">Pregunta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="listapreguntas">
+        
+            </tbody>
+          </table>
         </div>
     </div>
 </div>
@@ -47,12 +43,6 @@
         <div id="pregunta">
           <span class="tittle-pregunta" id="enunciado">
             <p class="enunciado-pregunta" contenteditable="true" placeholder="Escribe aquí tu pregunta..."></p>
-           <!-- <input
-              type="text"
-              id="enunciado"
-              class="input-tittle-pregunta"
-              placeholder="Escribe aquí tu pregunta"
-            />-->
           </span>
         </div>
       </div>
@@ -137,8 +127,8 @@
     </li>
   </ul>
   <div class="footer-buttons">
-    <button class="footer-button cancel-button" onclick = "CancelarPregunta()">Cancelar</button>
-    <button class="footer-button save-button" href="/crearpreguntas" onclick="guardarRespuestas(), CancelarPregunta()">Guardar</button>
+    <button class="footer-button cancel-button">Cancelar</button>
+    <button class="footer-button save-button">Guardar</button>
     
   </div>
 </div>
@@ -156,6 +146,4 @@
     respuestaCorrecta();
   });
 </script>
-
-
 {% endblock %}

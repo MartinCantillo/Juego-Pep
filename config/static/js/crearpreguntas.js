@@ -1,5 +1,4 @@
 function cargarTematica() {
-  // Obtiene una referencia al elemento 'select' en tu HTML
   const selectElement = document.getElementById("selTematicas");
 
   let endpoint = "/consultatematica";
@@ -44,6 +43,7 @@ crearPreguntaBtn.onclick = function () {
       CancelarPregunta();
     };
     btnGuardar.onclick = function() {
+      guardarRespuestas();
       contenedorPregunta.classList.remove("open");
       crearPreguntaBtn.classList.remove("open");
       const isOpen = false;
@@ -72,8 +72,8 @@ function MostrarCrearPregunta() {
 function CancelarPregunta() {
   // Mostrar elementos que se ocultaron al crear la pregunta
   document.getElementById("tituloJuego").style.display = "block";
-  document.getElementById("crearpreguntas").style.display = "run-in";
-  document.getElementById("preguntas-creadas").style.display = "block";
+  document.getElementById("crearpreguntas").style.display = "flex";
+  document.getElementById("preguntas-creadas").style.display = "flex";
 
   // Ocultar el contenido de la pregunta creada
   document.getElementById("contenedor").style.display = "none";
@@ -81,91 +81,83 @@ function CancelarPregunta() {
   document.getElementById("footer").style.display = "none";
 }
 
-
-
 function GuardarPregunta() {
   const enunciado = document.getElementById("enunciado").querySelector("p").textContent;
   const tituloP = document.getElementById("tituloP").value;
   const puntos = document.getElementById("puntos").value;
   const tematicaN = document.getElementById("selTematicas").value;
 
-  let url = "/consultatematica";
-  axios
-    .get(url, {
-      params: {
-        nombre_tematica: tematicaN,
-      },
-    })
-    .then((response) => {
-      const tematicas = response.data;
-      let idTematica = null;
+  if (tituloP === "" || enunciado === "" || tematicaN === "Seleccionar") {
+    alert("Todos los campos son obligatorios");
+    return;
+  } else {
+    let url = "/consultatematica";
+    axios
+      .get(url, {
+        params: {
+          nombre_tematica: tematicaN,
+        },
+      })
+      .then((response) => {
+        const tematicas = response.data;
+        let idTematica = null;
 
-      Object.values(tematicas).forEach((tematica) => {
-        if (tematica.nombre_tematica === tematicaN) {
-          idTematica = tematica.id;
-        }
-      });
-
-   
-
-      // Realiza la petición para guardar la pregunta dentro del bloque .then()
-      let endpoint2 = "/savepregunta";
-      axios
-        .post(endpoint2, {
-          NomCorto: tituloP,
-          Idtematica_FK: idTematica,
-          enunciado: enunciado,
-          puntos: puntos,
-        })
-        .then(function (response) {
-          alert(response);
-          //Funcion para consultar a la bd para obtener la pk de la pregunta
-          obtenerIdPreguntas( );
-        })
-        .catch(function (error) {
-          console.log(error);
+        Object.values(tematicas).forEach((tematica) => {
+          if (tematica.nombre_tematica === tematicaN) {
+            idTematica = tematica.id;
+          }
         });
-       
-      alert("Pregunta guardada con éxito.");
-      
-    })
-    .catch((error) => {
-      alert("Error al obtener el ID de la temática:", error);
-    });
+
+        // Realiza la petición para guardar la pregunta dentro del bloque .then()
+        let endpoint2 = "/savepregunta";
+        axios
+          .post(endpoint2, {
+            NomCorto: tituloP,
+            Idtematica_FK: idTematica,
+            enunciado: enunciado,
+            puntos: puntos,
+          })
+          .then(function (response) {
+            alert(response);
+            //Funcion para consultar a la bd para obtener la pk de la pregunta
+            obtenerIdPreguntas();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        alert("Pregunta guardada con éxito.");
+      })
+      .catch((error) => {
+        alert("Error al obtener el ID de la temática:", error);
+      });
+    // Limpiar el contenido de los elementos HTML
+    document.getElementById("tituloP").value = "";
+    document.getElementById("enunciado").textContent = "";
+  }
 }
 
-
 function respuestaCorrecta() {
-  // Obtén todos los inputs de radio
   var inputsRadio = document.querySelectorAll('input[type="radio"]');
 
-  // Agrega un evento de escucha a cada input de radio
+  // Agrega un evento a cada input de radio
   inputsRadio.forEach(function (input) {
     input.addEventListener("change", obtenerParrafo);
   });
- 
 }
 
 // Función para obtener el párrafo asociado al input de radio seleccionado
 var respCorrecta = "";
 function obtenerParrafo(event) {
-  // Obtén el contenedor padre del input de radio
   var contenedorP = event.target.closest(".contenedor-option");
-
-  // Obtén el párrafo dentro del contenedor
   var parrafo = contenedorP.querySelector("p");
-
-  // Obtén el valor del párrafo
   var valorParrafo = parrafo.textContent;
+
   respCorrecta = valorParrafo;
- 
 }
-
-
 
 var idPreguntaActu="" ;
 function obtenerIdPreguntas( ) {
-
   const enunciados = document.getElementById("enunciado").querySelector("p").textContent;
   // Cargar el id de la pregunta
   let url2 = "/consultapregunta";
@@ -187,7 +179,6 @@ function obtenerIdPreguntas( ) {
       console.log("ID de la pregunta: fuera del if", idPregunta);
       idPreguntaActu=idPregunta
     });
-
 }
 
 function guardarRespuestas() {
@@ -205,16 +196,12 @@ function guardarRespuestas() {
 
   if (resp0 === respCorrecta) {
     puntosAct = puntos;
-    alert("es igual a resp0 puntos " + puntosAct);
   } else if (resp1 === respCorrecta) {
     puntosAct1 = puntos;
-    alert("es igual a resp1 y puntos " + puntosAct1);
   } else if (resp2 === respCorrecta) {
     puntosAct2 = puntos;
-    alert("es igual a resp2 puntos " + puntosAct2);
   } else if (resp3 === respCorrecta) {
     puntosAct3 = puntos;
-    alert("es igual a resp3 puntos " + puntosAct3);
   }
 
   //Consumir la API Con metodo Post
@@ -227,7 +214,7 @@ function guardarRespuestas() {
       IDpregunta_FK: idPreguntaActu,
     })
     .then(function (response) {
-      alert(response);
+      alert("Guardado con éxito");
     })
     .catch(function (error) {
       console.log(error);
@@ -241,11 +228,11 @@ function guardarRespuestas() {
       IDpregunta_FK: idPreguntaActu,
     })
     .then(function (response) {
-      alert(response);
     })
     .catch(function (error) {
       console.log(error);
     });
+
   //3
   axios
     .post(endpoint, {
@@ -254,11 +241,11 @@ function guardarRespuestas() {
       IDpregunta_FK: idPreguntaActu,
     })
     .then(function (response) {
-      alert(response);
     })
     .catch(function (error) {
       console.log(error);
     });
+
   //4
   axios
     .post(endpoint, {
@@ -267,13 +254,10 @@ function guardarRespuestas() {
       IDpregunta_FK: idPreguntaActu,
     })
     .then(function (response) {
-      alert(response);
     })
     .catch(function (error) {
       console.log(error);
     });
 
-  window.location.href = "/crearpreguntas";
-
- 
+  //window.location.href = "/crearpreguntas";
 }
