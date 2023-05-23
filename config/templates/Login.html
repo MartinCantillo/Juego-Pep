@@ -18,7 +18,7 @@
       </div>
         <div class="input">
           <label for="usuario">Email</label>
-          <input placeholder="Ingresa tu Email" type="text" id="usuario" />
+          <input placeholder="Ingresa tu Email" type="text" id="usuario" name="usuario" />
         </div>
         <div class="input">
           <label for="contraseña">Contraseña</label>
@@ -26,42 +26,42 @@
             placeholder="Ingresa tu contraseña"
             type="password"
             id="contraseña"
+            name="contraseña"
           />
         </div>
-        <br>
-        <bs />
-
-        <div>
-          <input type="checkbox" name="opcion" id="opcion1" onchange="limitarSeleccion('opcion1')" /> <!--El valor para el "ID" de jugador es igual a "1" -->
-          <label for="opcion1">Jugador</label>
-
-          <input type="checkbox" name="opcion" id="opcion2" onchange="limitarSeleccion('opcion2')" />  <!--El valor para el "ID" de administrador es igual a "2" -->
-          <label for="opcion2">Administrador</label>
-        </div>
         
-        <script>
-          function limitarSeleccion(id) {
-            const checkboxes = document.getElementsByName("opcion");
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.id !== id) {
-                checkbox.checked = false;
-              }
-            });
-          }
-        </script>
-        <bs/>      
-        <a href="/Ccontraseña">¿Has olvidado tu contraseña?</a>
-        <button type="submit" class="btn" onclick="Iniciar()">
-          Iniciar sesion
-        </button>
-        <div class="login-register">
-          <p>
-            No tienes una cuenta?<a href="/Registro" class="register-link"
-              >Registrate aquí</a>
-          </p>
+          <div>
+            <input type="checkbox" name="opcion" id="opcion1" onchange="limitarSeleccion('opcion1')" /> <!--El valor para el "ID" de jugador es igual a "1" -->
+            <label for="opcion1">Jugador</label>
+
+            <input type="checkbox" name="opcion" id="opcion2" onchange="limitarSeleccion('opcion2')" />  <!--El valor para el "ID" de administrador es igual a "2" -->
+            <label for="opcion2">Administrador</label>
+          </div>
+          
+          <script>
+            function limitarSeleccion(id) {
+              const checkboxes = document.getElementsByName("opcion");
+              checkboxes.forEach((checkbox) => {
+                if (checkbox.id !== id) {
+                  checkbox.checked = false;
+                }
+              });
+            }
+          </script>
+            
+          <a href="/Ccontraseña">¿Has olvidado tu contraseña?</a>
+          <button type="submit" class="btn" onclick="Iniciar()">
+            Iniciar sesion
+          </button>
+          <div class="login-register">
+            <p>
+              No tienes una cuenta?<a href="/Registro" class="register-link"
+                >Registrate aquí</a>
+            </p>
         </div>
       </form>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{url_for('static', filename ='js/Loggin.js')}}"></script>
   </body>
 </html>
