@@ -72,7 +72,7 @@ function MostrarCrearPregunta() {
 function CancelarPregunta() {
   // Mostrar elementos que se ocultaron al crear la pregunta
   document.getElementById("tituloJuego").style.display = "block";
-  document.getElementById("crearpreguntas").style.display = "flex";
+  document.getElementById("crearpreguntas").style.display = "in-block";
   document.getElementById("preguntas-creadas").style.display = "flex";
 
   // Ocultar el contenido de la pregunta creada
@@ -89,7 +89,7 @@ function GuardarPregunta() {
 
   if (tituloP === "" || enunciado === "" || tematicaN === "Seleccionar") {
     alert("Todos los campos son obligatorios");
-    return;
+    
   } else {
     let url = "/consultatematica";
     axios
@@ -133,7 +133,8 @@ function GuardarPregunta() {
       });
     // Limpiar el contenido de los elementos HTML
     document.getElementById("tituloP").value = "";
-    document.getElementById("enunciado").textContent = "";
+    document.getElementById("enunciado").querySelector("p").textContent = "";
+    
   }
 }
 

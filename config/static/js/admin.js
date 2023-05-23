@@ -1,6 +1,6 @@
 // Seleccionamos los elementos del DOM necesarios
 const createTematicsCard = document.querySelector("#creartematicas");
-const createGameCard = document.querySelector("#crearpreguntas");
+/*const createGameCard = document.querySelector("#crearpreguntas");
 const createdByMeCard = document.querySelector("#creadospormi");
 const changeRoleCard = document.querySelector("#cambiarrol");
 
@@ -21,3 +21,4 @@ changeRoleCard.addEventListener("click", () => {
 createTematicsCard.addEventListener("click", () => {
   window.location.href = "/creartematicas";
 });
+*/
