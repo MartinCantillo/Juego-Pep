@@ -1,5 +1,5 @@
 #importo las dependencias de trabajo
-from flask import Flask, request, jsonify, json, render_template
+from flask import Flask, request, jsonify, json, render_template, redirect, session
 #importo las configuraciones de la bd
 from config.db import app, bd
 
@@ -538,7 +538,22 @@ def ConsultaPregunta():
         'puntos': pregunta.puntos          
         }
      
-    return jsonify(dato)    
+    return jsonify(dato)  
+
+#VALIDACION
+
+@app.route("/valiusuarios", methods=['POST'])
+def valiusuarios():
+    emailusuario_pk = request.json['emailusuario_pk']
+    clave_usuario = request.json['clave_usuario']
+    usuario = bd.session.query(Usuario.id).filter(Usuario.emailusuario_pk == emailusuario_pk, Usuario.clave_usuario == clave_usuario).all()
+    resultado = usuario_schema.dump(usuario)
+    
+    if len(resultado)>0:
+        session['eamil'] = emailusuario_pk
+        return redirect('/avatar')
+    else:
+        return "jjjjjjjjjjjjjjjjjjjjjjjjjjjjj"  
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
