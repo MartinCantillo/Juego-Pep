@@ -99,6 +99,15 @@ def registrar():
 def Contraseña():
     nombre= "contraseña"
     return  render_template('Ccontraseña.html')
+
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    return render_template("jugando.html")
+
+@app.route("/menuprincipal", methods=['GET'])
+def menuprincipal():
+    return render_template('menuPrincipal.html')
+    
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():

@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/config/static/css/menuPrincipal.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menuPrincipal.css' ) }}">
 </head>
 <body>
-    <img src="/config/static/img/JugandoImg/avatar.jpg" class="imgAvatar" id="imgChange" alt="">
+    <img src="/static/img/JugandoImg/avatar.jpg" class="imgAvatar" id="imgChange" alt="">
 
 
     <div class="contenedor">
         <div class="opciones">
-            <img src="/config/static/img/JugandoImg/logoPEP.png" class="imgPep" alt="">
+            <img src="/static/img/JugandoImg/logoPEP.png" class="imgPep" alt="">
             <div class="botones">
-                <a href="/config/templates/jugando.html" id="btn_nuevo" class="btn" style="--clr:#DEED43">
+                <a href="/jugando" id="btn_nuevo" class="btn" style="--clr:#DEED43">
                     <span>Nuevo Juego</span><i></i>
                 </a>
-                <a href="/config/templates/jugando.html" id="btn_continuar" class="btn" style="--clr:#DEED43">
+                <a href="/jugando" id="btn_continuar" class="btn" style="--clr:#DEED43">
                     <span>Continuar Jugando</span><i></i>
                 </a>
-                <a id="btn_seleccionar" class="btn" style="--clr:#DEED43">
+                <a href="/avatar" id="btn_seleccionar" class="btn" style="--clr:#DEED43">
                     <span>Seleccionar Avatar</span><i></i>
                 </a>
-                <a id="btn_salir" class="btn" style="--clr:#DEED43">
+                <a href="/" id="btn_salir" class="btn" style="--clr:#DEED43">
                     <span>Salir</span><i></i>
                 </a>
             </div>

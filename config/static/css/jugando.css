@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Poppins&display=swap);
 
 * {
     margin: 0;
@@ -216,7 +216,7 @@ h4{
     align-content: center;
     height: 100vh;
     width: 100%;
-    background-image: url('/config/static/img/JugandoImg/MapaPEP.jpg');
+    background-image: url(/static/img/JugandoImg/mapaPEP.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
