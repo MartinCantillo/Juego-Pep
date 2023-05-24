@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify, json, render_template, redirect, session,url_for
 #importo las configuraciones de la bd
 from config.db import app, bd
+from sqlalchemy.orm import aliased
 
 #importamos los modelos
 
@@ -517,7 +518,50 @@ def ConsultaTematica():
       
     print(tematica.nombre_tematica  )  
     return jsonify(dato)
-  
+  #Consulta para obtener las preguntas registradas
+@app.route('/consultaP', methods=['POST'])
+def getData():
+    data = request.json
+    nombre_tematica = data.get('nombre_tematica')
+    # Realiza la consulta a las tres tablas utilizando los valores recibidos
+    results = consultar_base_de_datos(nombre_tematica)
+
+    for result in results:
+        print(result)
+
+    return jsonify(results)
+
+def consultar_base_de_datos(nombre_tematica):
+    PreguntaAlias = aliased(Pregunta)
+    RespuestaAlias1 = aliased(Respuesta, name="tbl_respuesta_1")
+    
+    results = bd.session.query(
+        PreguntaAlias.id,
+        PreguntaAlias.enunciado,
+        RespuestaAlias1.id,
+        RespuestaAlias1.EnuncRespu
+    ).join(
+        RespuestaAlias1, PreguntaAlias.id == RespuestaAlias1.IDpregunta_FK
+    ).join(
+        Tematica, PreguntaAlias.Idtematica_FK == Tematica.id
+    ).filter(
+        Tematica.nombre_tematica == nombre_tematica
+    ).all()
+
+    dato = {}   
+    i = 0
+    for pregunta_id, enunciado, respuesta_id, respuesta_enunc in results:
+        i += 1
+        dato[i] = {
+            'pregunta_id': pregunta_id,
+            'enunciado': enunciado,
+            'id': respuesta_id,
+            'EnuncRespu': respuesta_enunc
+        }
+       
+    return dato
+    
+
 @app.route('/consultapregunta', methods=['GET'])
 def ConsultaPregunta():
     results = bd.session.query(Pregunta).all() 
