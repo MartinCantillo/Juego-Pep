@@ -1,5 +1,5 @@
 #importo las dependencias de trabajo
-from flask import Flask, request, jsonify, json, render_template, redirect, session
+from flask import Flask, request, jsonify, json, render_template, redirect, session,url_for
 #importo las configuraciones de la bd
 from config.db import app, bd
 
@@ -65,11 +65,6 @@ def index():
     nombre= "Login"
     return render_template('Login.html')
 
-@app.route("/avatar", methods=['GET'])
-def avatar():
-    nombre= "Avatar"
-    return render_template('avatar.html')
-
 @app.route("/admin", methods=['GET'])
 def admin():
     nombre= "Admin"
@@ -99,15 +94,6 @@ def registrar():
 def Contraseña():
     nombre= "contraseña"
     return  render_template('Ccontraseña.html')
-
-@app.route("/jugando", methods=['GET'])
-def jugando():
-    return render_template("jugando.html")
-
-@app.route("/menuprincipal", methods=['GET'])
-def menuprincipal():
-    return render_template('menuPrincipal.html')
-    
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
@@ -559,10 +545,18 @@ def valiusuarios():
     resultado = usuario_schema.dump(usuario)
     
     if len(resultado)>0:
-        session['eamil'] = emailusuario_pk
-        return redirect('/avatar')
+        session['email'] = emailusuario_pk
+        return redirect(url_for('avatar'))
     else:
-        return "jjjjjjjjjjjjjjjjjjjjjjjjjjjjj"  
+        return redirect('/')  
+
+@app.route("/avatar", methods=['GET'])
+def avatar():
+    #nombre= "Avatar"
+    if 'email' in session:
+        return render_template('menuprincipal.html',usuario=session['email'])
+    else:
+        return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
