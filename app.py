@@ -543,20 +543,30 @@ def valiusuarios():
     clave_usuario = request.json['clave_usuario']
     usuario = bd.session.query(Usuario.id).filter(Usuario.emailusuario_pk == emailusuario_pk, Usuario.clave_usuario == clave_usuario).all()
     resultado = usuario_schema.dump(usuario)
-    
-    if len(resultado)>0:
-        session['email'] = emailusuario_pk
-        return redirect(url_for('avatar'))
+    dato={}   
+  
+    if len(resultado)>0:  
+        dato[0] = {
+            'StatusCode':'200',
+            'payload':True,                     
+        }
+        
+        return jsonify(dato)
     else:
         return redirect('/')  
 
 @app.route("/avatar", methods=['GET'])
 def avatar():
-    #nombre= "Avatar"
+
     if 'email' in session:
-        return render_template('menuprincipal.html',usuario=session['email'])
+        return render_template('avatar.html',usuario=session['email'])
     else:
         return redirect('/')
+    
+@app.route("/prueba", methods=['GET'])
+def prueba():
+    return render_template('prueba.html')    
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

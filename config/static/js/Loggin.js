@@ -8,7 +8,9 @@ function Iniciar(){
     'clave_usuario' : txtpsw.value
   })
   .then(function (response) {
-    alert(response);
+    let data = response.data;
+    let sucess = data[0].payload;
+    sucess ? window.location.href= '/avatar' : alert('Error');
   })
   .catch(function (error) {
     console.log(error);
