@@ -19,20 +19,84 @@
   <h3>Crear nueva pregunta</h3>
 </div>
 <div class="preguntas-creadas" id="preguntas-creadas">
+    <span class="item-label">Buscar por temática:</span>
+      <select class="footer-item-select" id="selTematicas">
+        <option value="Seleccionar">Seleccionar</option>
+    </select>
     <div class="content-pregunta">
         <div>
+          <h2>Pregunta</h2>
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">IdPregunta</th>
+                <th scope="col">Id Pregunta</th>
                 <th scope="col">Pregunta</th>
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody id="listapreguntas">
-        
+            <tbody id="listapreguntas0">
+
             </tbody>
           </table>
+          <br/>
+          <!--
+          <h2>Respueta 1</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id Respuesta</th>
+                <th scope="col">Respuesta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="listapreguntas1">
+
+            </tbody>
+          </table>
+          <br/>
+          <h2>Respueta 2</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id Respuesta</th>
+                <th scope="col">Respuesta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="listapreguntas2">
+
+            </tbody>
+          </table>
+          <br/>
+          <h2>Respueta 3</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id Respuesta</th>
+                <th scope="col">Respuesta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="listapreguntas3">
+
+            </tbody>
+          </table>
+          <br/>
+          <h2>Respueta 4</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id Respuesta</th>
+                <th scope="col">Respuesta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="listapreguntas4">
+
+            </tbody>
+          </table>
+          -->
+          
         </div>
     </div>
 </div>
@@ -134,6 +198,7 @@
 </div>
 {% endblock %}
 
+
 <!-- Aquí se define la parte del js-->
 {% block scripts %}
 <script>
@@ -144,6 +209,94 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     respuestaCorrecta();
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+      // Agregar filas de ejemplo para visualizar la tabla
+      var listaPreguntas0 = $("#listapreguntas0");
+      var listaPreguntas1 = $("#listapreguntas1");
+      var listaPreguntas2 = $("#listapreguntas2");
+      var listaPreguntas3 = $("#listapreguntas3");
+      var listaPreguntas4 = $("#listapreguntas4");
+      // Ejemplo de fila con botones de eliminar y editar
+      var filaEjemplo0 = $("<tr>").append(
+          $("<td>").text("1"),
+          $("<td>").text("¿Cuál es la capital de Francia?"),
+          $("<td>").append(
+              $("<button>").text("Editar").addClass("btn btn-primary").click(function() {
+                  editarPregunta(1);
+              }),
+              $("<button>").text("Eliminar").addClass("btn btn-danger").click(function() {
+                  eliminarPregunta(1);
+              })
+          )
+      );
+      
+      listaPreguntas0.append(filaEjemplo0);
+/*
+      var filaEjemplo1 = $("<tr>").append(
+          $("<td>").text("1"),
+          $("<td>").text("La capital de Francia es París."),
+          $("<td>").append(
+              $("<button>").text("Editar").addClass("btn btn-primary").click(function() {
+                  editarPregunta(1);
+              }),
+              $("<button>").text("Eliminar").addClass("btn btn-danger").click(function() {
+                  eliminarPregunta(1);
+              })
+          )
+      );
+      
+      listaPreguntas1.append(filaEjemplo1);
+
+      var filaEjemplo2 = $("<tr>").append(
+          $("<td>").text("1"),
+          $("<td>").text("La capital de Francia es París."),
+          $("<td>").append(
+              $("<button>").text("Editar").addClass("btn btn-primary").click(function() {
+                  editarPregunta(1);
+              }),
+              $("<button>").text("Eliminar").addClass("btn btn-danger").click(function() {
+                  eliminarPregunta(1);
+              })
+          )
+      );
+      
+      listaPreguntas2.append(filaEjemplo2);
+
+      var filaEjemplo3 = $("<tr>").append(
+          $("<td>").text("1"),
+          $("<td>").text("La capital de Francia es París."),
+          $("<td>").append(
+              $("<button>").text("Editar").addClass("btn btn-primary").click(function() {
+                  editarPregunta(1);
+              }),
+              $("<button>").text("Eliminar").addClass("btn btn-danger").click(function() {
+                  eliminarPregunta(1);
+              })
+          )
+      );
+      
+      listaPreguntas3.append(filaEjemplo3);
+      
+      var filaEjemplo4 = $("<tr>").append(
+          $("<td>").text("1"),
+          $("<td>").text("La capital de Francia es París."),
+          $("<td>").append(
+              $("<button>").text("Editar").addClass("btn btn-primary").click(function() {
+                  editarPregunta(1);
+              }),
+              $("<button>").text("Eliminar").addClass("btn btn-danger").click(function() {
+                  eliminarPregunta(1);
+              })
+          )
+      );
+      
+      listaPreguntas4.append(filaEjemplo4);
+  */
+
   });
 </script>
 {% endblock %}
