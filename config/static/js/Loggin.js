@@ -10,10 +10,9 @@ function Iniciar(){
   .then(function (response) {
     let data = response.data;
     let sucess = data[0].payload;
-    sucess ? window.location.href= '/avatar' : alert('Error');
+    sucess ? window.location.href= '/menuprincipal' : alert('Usuario Invalido');
   })
   .catch(function (error) {
     console.log(error);
   });
 }
-

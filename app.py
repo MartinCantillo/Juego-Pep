@@ -589,12 +589,12 @@ def valiusuarios():
     resultado = usuario_schema.dump(usuario)
     dato={}   
   
-    if len(resultado)>0:  
+    if len(resultado)>0: 
+        session['email']=emailusuario_pk
         dato[0] = {
             'StatusCode':'200',
             'payload':True,                     
-        }
-        
+        }      
         return jsonify(dato)
     else:
         return redirect('/')  
@@ -607,9 +607,12 @@ def avatar():
     else:
         return redirect('/')
     
-@app.route("/prueba", methods=['GET'])
-def prueba():
-    return render_template('prueba.html')    
+@app.route("/menuprincipal", methods=['GET'])
+def menuprincipal():
+    if 'email' in session:
+        return render_template('menuPrincipal.html',usuario=session['email'])
+    else:
+        return redirect('/')  
     
 
 if __name__ == '__main__':
