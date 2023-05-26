@@ -617,6 +617,10 @@ def frquestions():
 @app.route("/jugando", methods=['GET'])
 def jugando():
     return render_template('jugando.html')
+
+@app.route("/layout", methods=['GET'])
+def layout():
+    return render_template('layout.html')
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
