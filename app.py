@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify, json, render_template, redirect, session,url_for
 #importo las configuraciones de la bd
 from config.db import app, bd
+from sqlalchemy.orm import aliased
 
 #importamos los modelos
 
@@ -59,7 +60,7 @@ usuario_schema =  UsuarioSchema ()
 usuario_schema =  UsuarioSchema (many=True)
 
 
-
+#RUTAS DIRECTAS
 @app.route("/", methods=['GET'])
 def index():
     nombre= "Login"
@@ -94,6 +95,23 @@ def registrar():
 def Contraseña():
     nombre= "contraseña"
     return  render_template('Ccontraseña.html')
+
+@app.route("/pregunta", methods=['GET'])
+def pregunta():
+    return  render_template('index.html')
+
+@app.route("/frquestions", methods=['GET'])
+def frquestions():
+    return render_template('frquestions.html')
+
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    return render_template('jugando.html')
+
+@app.route("/layout", methods=['GET'])
+def layout():
+    return render_template('layout.html')
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
@@ -517,7 +535,32 @@ def ConsultaTematica():
       
     print(tematica.nombre_tematica  )  
     return jsonify(dato)
-  
+  #Consulta para obtener las preguntas registradas
+@app.route('/consultaP', methods=['POST'])
+def getData():
+    data = request.json
+    IdtematicaFK = data.get('Idtematica_FK')
+ 
+    results = consultar_base_de_datos(IdtematicaFK)
+
+    for result in results:
+        print(result)
+
+    return jsonify(results)
+
+def consultar_base_de_datos(IdtematicaFK):
+   results = bd.session.query(Pregunta). \
+   filter(Pregunta.Idtematica_FK== IdtematicaFK).all()
+   dato={}   
+   i=0
+   for pregunta in results:
+        i+=1	       
+        dato[i] = {
+        'id': pregunta.id,
+        'enunciado': pregunta.enunciado,              
+        }
+   return dato
+
 @app.route('/consultapregunta', methods=['GET'])
 def ConsultaPregunta():
     results = bd.session.query(Pregunta).all() 
@@ -545,12 +588,12 @@ def valiusuarios():
     resultado = usuario_schema.dump(usuario)
     dato={}   
   
-    if len(resultado)>0:  
+    if len(resultado)>0: 
+        session['email']=emailusuario_pk
         dato[0] = {
             'StatusCode':'200',
             'payload':True,                     
-        }
-        
+        }      
         return jsonify(dato)
     else:
         return redirect('/')  
@@ -563,10 +606,26 @@ def avatar():
     else:
         return redirect('/')
     
-@app.route("/prueba", methods=['GET'])
-def prueba():
-    return render_template('prueba.html')    
+@app.route("/menuprincipal", methods=['GET'])
+def menuprincipal():
+    if 'email' in session:
+        return render_template('menuPrincipal.html',usuario=session['email'])
+    else:
+        return redirect('/')  
     
-
+#Actualizar contraseña de usuario
+@app.route("/actucontra", methods=['POST'])
+def actucontra():    
+    emailusuario_pk = request.json['emailusuario_pk']
+    clave_usuario = request.json['clave_usuario']
+    user = Usuario.query.filter_by(emailusuario_pk=emailusuario_pk).first()
+    
+    if user:
+        user.clave_usuario = clave_usuario
+        bd.session.commit()
+        return "Actualización exitosa"
+    else:
+        return "Usuario no encontrado"
+    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

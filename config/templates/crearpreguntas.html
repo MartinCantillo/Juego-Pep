@@ -19,18 +19,24 @@
   <h3>Crear nueva pregunta</h3>
 </div>
 <div class="preguntas-creadas" id="preguntas-creadas">
+    <span class="item-label">Buscar por temática:</span>
+      <select class="footer-item-select" id="selectT">
+        <option value="Seleccionar">Seleccionar</option>
+    </select>
+    <button class="footer-button save-button"  onclick= "LlenarTabla()" >Consultar</button>
     <div class="content-pregunta">
         <div>
-          <table class="table table-hover">
+          <h2>Pregunta</h2>
+          <table class="table table-hover" id="tabla-preguntas">
             <thead>
               <tr>
-                <th scope="col">IdPregunta</th>
+                <th scope="col">Id Pregunta</th>
                 <th scope="col">Pregunta</th>
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody id="listapreguntas">
-        
+            <tbody id="listapreguntas0">
+
             </tbody>
           </table>
         </div>
@@ -133,6 +139,7 @@
   </div>
 </div>
 {% endblock %}
+
 
 <!-- Aquí se define la parte del js-->
 {% block scripts %}

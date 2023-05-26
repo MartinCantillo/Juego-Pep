@@ -1,7 +1,7 @@
 //funcion para cargar las tematicas registradas
 function cargarTematica() {
   const selectElement = document.getElementById("selTematicas");
-
+  const tematicaN = document.getElementById("selectT");
   let endpoint = "/consultatematica";
   axios
     .get(endpoint)
@@ -14,6 +14,15 @@ function cargarTematica() {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
         selectElement.appendChild(option);
+       
+       
+      }
+      for (let key in datos) {
+        const option = document.createElement("option");
+        option.text = datos[key].nombre_tematica;
+       
+        tematicaN.appendChild(option);
+       
       }
     })
     .catch(function (error) {
@@ -190,7 +199,7 @@ function obtenerIdPreguntas() {
 }
 
 function guardarRespuestas() {
- // console.log("idPreguntaActu metodo guardar respuestas" + idPreguntaActu);
+  // console.log("idPreguntaActu metodo guardar respuestas" + idPreguntaActu);
 
   var puntosAct = 0;
   var puntosAct1 = 0;
@@ -226,7 +235,7 @@ function guardarRespuestas() {
     } else if (resp3 === respCorrecta) {
       puntosAct3 = puntos;
     }
-    
+
     //Consumir la API Con metodo Post
     let endpoint = "/saverespuesta";
     //1
@@ -280,6 +289,51 @@ function guardarRespuestas() {
       });
 
     //window.location.href = "/crearpreguntas";
-  
+  }
+}
+//funcion para llenar la tabla con las preguntas registradas
+function LlenarTabla() {
+  let idTematica = null;
+  const temati = document.getElementById("selectT").value;
+  if (temati=="Seleccionar") {
+    alert("Por favor verifica");
+  }else {
+    // Hago consulta para obtener el Pk de la tematica
+    let urlT = "/consultatematica";
+    axios
+      .get(urlT, {
+        params: {
+          nombre_tematica: temati,
+        },
+      })
+      .then((response) => {
+        const tematicas = response.data;
+
+        Object.values(tematicas).forEach((tematica) => {
+          if (tematica.nombre_tematica === temati) {
+            idTematica = tematica.id;
+          }
+        });
+
+        const tablaPreguntas = document.getElementById("tabla-preguntas").getElementsByTagName("tbody")[0];
+        tablaPreguntas.innerHTML = "";
+        axios
+          .post("/consultaP", {
+            Idtematica_FK: idTematica,
+          })
+          .then(function (response) {
+            const preguntas = response.data;
+
+            // Itera sobre las preguntas y las agrega a la tabla
+            Object.values(preguntas).forEach(function (pregunta) {
+              const row = tablaPreguntas.insertRow();
+              row.insertCell(0).innerHTML = pregunta.id;
+              row.insertCell(1).innerHTML = pregunta.enunciado;
+            });
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      });
   }
 }

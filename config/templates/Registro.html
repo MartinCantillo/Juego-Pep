@@ -12,47 +12,51 @@
 <body>
 
     <div class="contenedor-formulario contenedor">
-        <div class="imagen-formulario">
-            
+        <div class="imagen-formulario"></div>
+  
+        <div class="formulario">
+          <div class="texto-formulario">
+            <h2 src="{{ url_for('static', filename='static/img/LoginyRegistro/bh.jpg') }}" >
         </div>
-        
-        <form class="formulario">
-            <div class="texto-formulario">
-                <h2 src="bh.png">
-            </div>
-            <div class="input">
-                <label for="nombre">Nombre</label>
-                <input placeholder=""type="text" id="nombre" style="width: 320px;">
-            </div>
-            <div class="input">
-                <label for="apellidos">Apellidos</label>
-                <input placeholder=""type="text" id="apellidos">
-            </div>
-            <div class="input">
-                <label for="email">Email</label>
-                <input placeholder=""type="text" id="email">
-            </div>
-            <div class="input">
-                <label for="contraseña">Contraseña</label>
-                <input placeholder="" type="password" id="contraseña">
-
-            </div>
-            <div class="input">
-                <label for="confirmar_contraseña">Confirmar Contraseña</label>
-                <input placeholder="" type="password" type="password" id="Confriamr_contraseña">
-
-            </div>
-            <button type="submit" class="btn">Crear Cuenta</button>
+        <div class="input">
+            <label for="Nombre">Nombre completo</label>
+            <input placeholder="Ingresa su nombre" type="text" id="nombre" name="nombre" />
+          </div>
+          <div class="input">
+            <label for="Email">Email</label>
+            <input placeholder="Ingresa tu Email" type="text" id="email" name="email" />
+          </div>
+          <div class="input">
+            <label for="contraseña">Contraseña</label>
+            <input
+              placeholder="Ingresa tu contraseña"
+              type="password"
+              id="contraseña"
+              name="contraseña"
+            />
+          </div>
+          <div class="input">
+            <label for="Veri_contraseña">Verificar contraseña</label>
+            <input
+              placeholder="Ingresa tu contraseña"
+              type="password"
+              id="contraseñaf"
+              name="contraseñaf"
+            />
+          </div>
+            <button type="submit" class="btn" onclick="saveuser()">
+              Registrarse
+            </button>
             <div class="login-register">
-                <p>Ya tienes una cuenta?<a href="/"
-                    class="Login-link">Ingresa aquí</a>
-                </p>
-            </div>
-            
-        </form>
-     
-    </div>
-
+              <p>
+                Ya tienes una cuenta?<a href="/" class="register-link"
+                  >Iniciar sesión</a>
+              </p>
+           </div>
+        </div>
+      </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{url_for('static', filename ='js/registro.js')}}"></script>
 </body>
 
 </html>
