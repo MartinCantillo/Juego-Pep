@@ -6,24 +6,30 @@
   justify-content: center;
 
 }
-@media (min-width: 762px) {
+@media (min-width: 1366px) {
   
 }
-@media (max-width: 762px) {
+@media (max-width:1366px) {
   
 }
+@media (max-height:768px){
+
+}
+@media (min-height:768px){
+
+}
+
 
 .container {
     width: 90vw;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     height: 90vh;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border: 2px solid black;
     padding: 20px;
@@ -39,15 +45,18 @@
     box-shadow: 0 8px 32px 0 rgba(146, 9, 244, 0.37);
     overflow: hidden;
     position: relative;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
-    align-items: center;
     border-style: double;
+    
 
+  }
+  .quiz-container{
+    width: 100%;
   }
 
   .bubbles{
-    position: relative;
+    position: absolute;
     display: flex;
   }
   .bubbles span{
@@ -79,16 +88,26 @@
     0 0 100px #ff2d75;
 
   }
+  .top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+  
 
   #textbox { 
-    width: 1200px;
-    height: 150px;
+    min-width: 1200px;
+    max-width: 1200px;
+    min-height: 100px;
+    max-height: 100px;
     padding: 10px;
     font-size: 16px;
     margin-bottom: 30px;
     position: absolute;
-    top: 40px;
-    left: 295px;
+    /* top: 40px; */
+    /* left: 295px; */
     border: 50px;
     border-color: black;
     border-radius: 30px;
@@ -96,22 +115,22 @@
     box-shadow: 0 8px 32px 0 rgba(146, 9, 244, 0.37);
   }
   
-  #textbox2{
-    width: 1000px;
-    height: 150px;
+  /* #textbox2{ 
+    min-width: 600px;
+    min-height: 100px;
     padding: 10px;
     font-size: 16px;
     margin-bottom: 30px;
     position: absolute;
-    top: 250px; 
-    left: 400px;
+    /* top: 250px;  */
+    /* left: 400px; 
     border: 50px;
     border-color: black;
     border-radius: 30px;
     background-color:rgba(159, 41, 255, 0.692) ;
     box-shadow: 0 8px 32px 0 rgba(146, 9, 244, 0.37);
     
-  }
+  } */
 
   body{
     min-height: 100 vh;
@@ -121,7 +140,7 @@
   }
   
   .btn{
-    position: absolute;
+    position: relative;
     display: flex;
     text-align: left;
     color: white;
@@ -137,45 +156,49 @@
     transform: translate(-50%,-50%);
     margin-left: 900px;
     border-radius: 30px;
-    right: 500px;
+    /* right: 500px; */
     backdrop-filter: blur(60px);
+   
   }
   .btn1{
     display: flex;
-    position: absolute;
-    justify-content: left;
-    margin-top:200px;
-    margin-right: 10px; 
+    position: relative;
+    justify-content: left; 
     box-shadow: 0 8px 32px 0 rgba(176, 65, 255, 0.733);
     background: linear-gradient(135deg, rgba(17, 24, 244, 0.692), rgba(255, 255, 255, 0));
     backdrop-filter: blur(60px);
+    top: 300px;
+    left: -470px;
+
   }
 
   .btn2{
-    position: absolute;
-    margin-top:200px;
-    margin-right: -770px; 
+    position: relative;
     box-shadow: 0 8px 32px 0 rgba(176, 65, 255, 0.733);
     background: linear-gradient(135deg, rgba(17, 24, 244, 0.692), rgba(255, 255, 255, 0));
     backdrop-filter: blur(60px);
+    text-align: left;
+    left: 370px;
+    top:210px
+    
   }
 
   .btn3{
-    position:absolute;
-    margin-top:300px ;
-    margin-right:10px ;
+    position:relative;
     box-shadow: 0 8px 32px 0 rgba(176, 65, 255, 0.733);
     background: linear-gradient(135deg, rgba(17, 24, 244, 0.692), rgba(255, 255, 255, 0));
     backdrop-filter: blur(60px);
+    top: 250px;
+    left: -470px;
   }
 
   .btn4{
-    position: absolute;
-    margin-top: 300px;
-    margin-right: -770px;
+    position: relative;
      box-shadow: 0 8px 32px 0 rgba(176, 65, 255, 0.733);  
     background: linear-gradient(135deg, rgba(17, 24, 244, 0.692), rgba(255, 255, 255, 0));
     backdrop-filter: blur(60px);
+    left: 370px;
+    top:160px
   }
 
   .btn::before{
