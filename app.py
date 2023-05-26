@@ -71,6 +71,16 @@ def admin():
     nombre= "Admin"
     return render_template('admin.html')
 
+@app.route("/menuprincipal", methods=['GET'])
+def principal():
+    nombre= "principal"
+    return render_template('menuPrincipal.html')
+
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    nombre= "jugando"
+    return render_template('jugando.html')
+
 @app.route("/creadospormi", methods=['GET'])
 def creadospormi():
     nombre= "Creados por mí"
