@@ -618,6 +618,23 @@ def ConsultaPregunta():
      
     return jsonify(dato)  
 
+@app.route('/traerpregu', methods=['GET'])
+def traerpregu():
+    #registro = bd.session.query(Pregunta).all() 
+    registro = bd.session.query(Pregunta).filter(Pregunta.Idtematica_FK == 1).all()
+    regi={}
+    i=0
+    for pregunta in registro:
+        i+=1
+        regi[i]={
+        'id' :registro.id,
+        'nombrecorto':registro.NomCorto,
+        'enunciado':  registro.enunciado,
+        'puntos': registro.puntos          
+        }
+    return jsonify(regi) 
+    
+
 #VALIDACION
 
 @app.route("/valiusuarios", methods=['POST'])
