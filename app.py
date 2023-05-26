@@ -95,6 +95,11 @@ def registrar():
 def Contraseña():
     nombre= "contraseña"
     return  render_template('Ccontraseña.html')
+
+@app.route("/pregunta", methods=['GET'])
+def pregunta():
+    return  render_template('index.html')
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
