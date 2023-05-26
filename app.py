@@ -548,6 +548,38 @@ def consultar_base_de_datos(IdtematicaFK):
         'enunciado': pregunta.enunciado,              
         }
    return dato
+#Consulta para poder editar las preguntas y respuestas
+@app.route('/cargardatos', methods=['POST'])
+def cargarDatos():
+    data = request.json
+    IDpregunta = data.get('id')
+ 
+    results = consultar(IDpregunta)
+
+    for result in results:
+        print(result)
+
+    return jsonify(results)
+
+def consultar(IDpregunta):
+   results = bd.session.query(Pregunta,Respuesta).join(Respuesta).filter(Pregunta.id==IDpregunta).all()
+   dato={}   
+   i=0
+   
+   for pregunta, respuesta in results:
+        i+=1	       
+        dato[i] = {
+        'id': pregunta.id,
+        'enunciado': pregunta.enunciado, 
+        'id' :respuesta.id ,
+        'EnuncRespu': respuesta.EnuncRespu,           
+        }
+      
+   return dato
+
+
+
+
 
 @app.route('/consultapregunta', methods=['GET'])
 def ConsultaPregunta():
