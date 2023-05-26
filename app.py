@@ -105,6 +105,11 @@ def registrar():
 def Contraseña():
     nombre= "contraseña"
     return  render_template('Ccontraseña.html')
+
+@app.route("/pregunta", methods=['GET'])
+def pregunta():
+    return  render_template('index.html')
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
@@ -532,44 +537,29 @@ def ConsultaTematica():
 @app.route('/consultaP', methods=['POST'])
 def getData():
     data = request.json
-    nombre_tematica = data.get('nombre_tematica')
+    IdtematicaFK = data.get('Idtematica_FK')
     # Realiza la consulta a las tres tablas utilizando los valores recibidos
-    results = consultar_base_de_datos(nombre_tematica)
+    results = consultar_base_de_datos(IdtematicaFK)
 
     for result in results:
         print(result)
 
     return jsonify(results)
 
-def consultar_base_de_datos(nombre_tematica):
-    PreguntaAlias = aliased(Pregunta)
-    RespuestaAlias1 = aliased(Respuesta, name="tbl_respuesta_1")
-    
-    results = bd.session.query(
-        PreguntaAlias.id,
-        PreguntaAlias.enunciado,
-        RespuestaAlias1.id,
-        RespuestaAlias1.EnuncRespu
-    ).join(
-        RespuestaAlias1, PreguntaAlias.id == RespuestaAlias1.IDpregunta_FK
-    ).join(
-        Tematica, PreguntaAlias.Idtematica_FK == Tematica.id
-    ).filter(
-        Tematica.nombre_tematica == nombre_tematica
-    ).all()
-
-    dato = {}   
-    i = 0
-    for pregunta_id, enunciado, respuesta_id, respuesta_enunc in results:
-        i += 1
+def consultar_base_de_datos(IdtematicaFK):
+   results = bd.session.query(Pregunta). \
+   filter(Pregunta.Idtematica_FK== IdtematicaFK).all()
+   dato={}   
+   i=0
+   for pregunta in results:
+        i+=1	       
         dato[i] = {
-            'pregunta_id': pregunta_id,
-            'enunciado': enunciado,
-            'id': respuesta_id,
-            'EnuncRespu': respuesta_enunc
+        'id': pregunta.id,
+        'enunciado': pregunta.enunciado,              
         }
        
-    return dato
+        
+   return dato
     
 
 @app.route('/consultapregunta', methods=['GET'])
@@ -599,12 +589,12 @@ def valiusuarios():
     resultado = usuario_schema.dump(usuario)
     dato={}   
   
-    if len(resultado)>0:  
+    if len(resultado)>0: 
+        session['email']=emailusuario_pk
         dato[0] = {
             'StatusCode':'200',
             'payload':True,                     
-        }
-        
+        }      
         return jsonify(dato)
     else:
         return redirect('/')  
@@ -617,10 +607,20 @@ def avatar():
     else:
         return redirect('/')
     
-@app.route("/prueba", methods=['GET'])
-def prueba():
-    return render_template('prueba.html')    
+@app.route("/menuprincipal", methods=['GET'])
+def menuprincipal():
+    if 'email' in session:
+        return render_template('menuPrincipal.html',usuario=session['email'])
+    else:
+        return redirect('/')  
     
+@app.route("/frquestions", methods=['GET'])
+def frquestions():
+    return render_template('frquestions.html')
 
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    return render_template('jugando.html')
+    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
