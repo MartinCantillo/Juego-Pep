@@ -1,3 +1,22 @@
+.container-filtro {
+    height: 100;
+    width: 100;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    padding: 10px;
+}
+
+.btn-filtro {
+    background-color: rgba(143, 103, 224, 0.2);
+    border: 10px;
+    position: absolute;
+    right: 35;
+    top: 20;
+    width: 70px;
+    border: thin solid gray;
+    padding: 10px;
+}
 
 .game-list {
     margin-top: 20px;
@@ -8,6 +27,7 @@
 h3 {
     cursor: pointer;
 }
+
 .game-item {
     width: 1000px;
     display: flex;
