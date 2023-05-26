@@ -619,6 +619,13 @@ def menuprincipal():
     else:
         return redirect('/')  
     
+@app.route("/frquestions", methods=['GET'])
+def frquestions():
+    return render_template('frquestions.html')
 
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    return render_template('jugando.html')
+    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
