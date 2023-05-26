@@ -71,12 +71,6 @@ def admin():
     nombre= "Admin"
     return render_template('admin.html')
 
-@app.route("/menuprincipal", methods=['GET'])
-def principal():
-    nombre= "principal"
-    return render_template('menuPrincipal.html')
-
-
 @app.route("/creadospormi", methods=['GET'])
 def creadospormi():
     nombre= "Creados por mí"
@@ -553,10 +547,7 @@ def consultar_base_de_datos(IdtematicaFK):
         'id': pregunta.id,
         'enunciado': pregunta.enunciado,              
         }
-       
-        
    return dato
-    
 
 @app.route('/consultapregunta', methods=['GET'])
 def ConsultaPregunta():
