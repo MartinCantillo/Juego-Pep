@@ -60,7 +60,7 @@ usuario_schema =  UsuarioSchema ()
 usuario_schema =  UsuarioSchema (many=True)
 
 
-
+#RUTAS DIRECTAS
 @app.route("/", methods=['GET'])
 def index():
     nombre= "Login"
@@ -99,6 +99,18 @@ def Contraseña():
 @app.route("/pregunta", methods=['GET'])
 def pregunta():
     return  render_template('index.html')
+
+@app.route("/frquestions", methods=['GET'])
+def frquestions():
+    return render_template('frquestions.html')
+
+@app.route("/jugando", methods=['GET'])
+def jugando():
+    return render_template('jugando.html')
+
+@app.route("/layout", methods=['GET'])
+def layout():
+    return render_template('layout.html')
 
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
@@ -633,17 +645,19 @@ def menuprincipal():
     else:
         return redirect('/')  
     
-@app.route("/frquestions", methods=['GET'])
-def frquestions():
-    return render_template('frquestions.html')
-
-@app.route("/jugando", methods=['GET'])
-def jugando():
-    return render_template('jugando.html')
-
-@app.route("/layout", methods=['GET'])
-def layout():
-    return render_template('layout.html')
+#Actualizar contraseña de usuario
+@app.route("/actucontra", methods=['POST'])
+def actucontra():    
+    emailusuario_pk = request.json['emailusuario_pk']
+    clave_usuario = request.json['clave_usuario']
+    user = Usuario.query.filter_by(emailusuario_pk=emailusuario_pk).first()
+    
+    if user:
+        user.clave_usuario = clave_usuario
+        bd.session.commit()
+        return "Actualización exitosa"
+    else:
+        return "Usuario no encontrado"
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
