@@ -1,0 +1,114 @@
+body{
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #182C3B;
+    overflow: hidden;
+
+
+}
+
+.formulario{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+    
+    padding: 150px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #04151f;
+
+    
+}
+
+
+h1{
+    color: #4fb2fe;
+}
+.formulario__grupo-input{
+    height: 53px; 
+    width: 204px;
+    overflow: hidden;
+}
+.formulario__grupo-input input{
+    color: aliceblue;
+    overflow: hidden;
+    padding: 3px;
+    background-color: rgb(43, 101, 150);
+    border-radius: 30px;
+    text-align: left;
+    font-size: 1rem;
+    height: 45px;
+    border: 1px solid #ccc;
+    outline:none;
+}
+.formulario__grupo textarea{
+    background-color: rgb(43, 101, 150);
+    padding: 20px 14px;
+    margin-bottom: 25px;
+    border-color: aliceblue;
+    font-size: 16px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 30px;
+    
+}
+li {
+    list-style: none;
+}
+.footer-item-label {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.footer-item-select {
+    background-color: rgb(43, 101, 150);
+    color: aliceblue;
+    width: 200px;
+    height: 52px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+label{
+    color:#2a6a9b;
+    padding: 5px;
+    font-size: 20px;
+
+}
+
+
+::placeholder{
+    color: #BFC9F3;
+    font-size: 17px;
+}
+
+:focus{
+    outline: lpx solid #25d97c;
+}
+button{
+    background-color: #4fb2fe;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inftema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inftema.css' ) }}">
+</head>
+<body>
+    <body>
+        <div class = "contenedor" id="contenedor">
+            <h1>Informacion Tematica</h1>
+            <div class="formulario">
+                <div class="formulario__grupo" id="grupo__tematica">
+                    <label for="Tematica" class="formulario__label">Tematica</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" name="tematica" id="tematica" placeholder="Titulo">
+                    </div>
+                </div>
+                <div class="formulario__grupo" id="grupo__Idtematica">
+                    <label for="Id" class="formulario__label">ID</label>
+                    <li class="footer-item">
+                        <span class="footer-item-label"></span>
+                        <select class="footer-item-select" id="selTematicas">
+                          <option value="Seleccionar">Seleccionar</option>
+                        </select>
+                      </li>
+                </div>
+                <div class="formulario__grupo" id="grupo__Nivel">
+                    <label for="Nivel" class="formulario__label">Nivel</label>
+                    <li class="footer-item">
+                        <span class="footer-item-label"></span>
+                        <select class="footer-item-select" id="selTematicas">
+                          <option value="Seleccionar">Seleccionar</option>
+                        </select>
+                      </li>
+            </div>        
+                </div>
+                <div class="formulario__grupo" id="grupo__Descripcion">
+                    <label for="Detalles">Detalles</label>
+                    <div class="">
+                        <textarea cols= "30" rows="5" name="Detalles" placeholder="Digite una descripcion"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn">
+                        Enviar
+                      </button>
+                </div>
+
+        </div>
+    </body>
+</body>
+</html>
