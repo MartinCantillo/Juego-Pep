@@ -627,10 +627,10 @@ def traerpregu():
     for pregunta in registro:
         i+=1
         regi[i]={
-        'id' :registro.id,
-        'nombrecorto':registro.NomCorto,
-        'enunciado':  registro.enunciado,
-        'puntos': registro.puntos          
+        'id' : pregunta.id,
+        'nombrecorto':pregunta.NomCorto,
+        'enunciado':  pregunta.enunciado,
+        'puntos': pregunta.puntos          
         }
     return jsonify(regi) 
     
