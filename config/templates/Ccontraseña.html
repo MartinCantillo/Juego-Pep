@@ -16,29 +16,30 @@
             
         </div>
 
-        <form class="formulario">
+        <div class="formulario">
             <div class="texto-formulario">
                 <h2 src="{{ url_for('static', filename='static/img/LoginyRegistro/bh.jpg') }}"> 
             </div>
             
             <div class="input">
                 <label for="Email">Email</label>
-                <input placeholder="" type="text" id="Email">                 
+                <input placeholder="" type="text" id="email" name="email">                 
             </div>
 
             <div class="input">
                 <label for="contraseña">Contraseña nueva</label>
-                <input placeholder="" type="password" id="contraseña">                 
+                <input placeholder="" type="password" id="contraseña" name="contraseña">                 
             </div>
             <div class="input">
                 <label for="contraseña">Confirmar Contraseña nueva</label>
-                <input placeholder="" type="password" id="contraseña">                 
+                <input placeholder="" type="password" id="contraseñaf" name="contraseñaf">                 
             </div>
-            <button type="submit" class="btn" onclick="Iniciar()" >Actualizar</button>
+            <button type="submit" class="btn" onclick="actualizarC()" >Actualizar</button>
             
-        </form>
+        </div>
     </div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{url_for('static', filename ='js/contraseña.js')}}"></script>
 </body>
 
 </html>
