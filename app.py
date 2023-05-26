@@ -76,10 +76,6 @@ def principal():
     nombre= "principal"
     return render_template('menuPrincipal.html')
 
-@app.route("/jugando", methods=['GET'])
-def jugando():
-    nombre= "jugando"
-    return render_template('jugando.html')
 
 @app.route("/creadospormi", methods=['GET'])
 def creadospormi():
@@ -538,7 +534,7 @@ def ConsultaTematica():
 def getData():
     data = request.json
     IdtematicaFK = data.get('Idtematica_FK')
-    # Realiza la consulta a las tres tablas utilizando los valores recibidos
+ 
     results = consultar_base_de_datos(IdtematicaFK)
 
     for result in results:

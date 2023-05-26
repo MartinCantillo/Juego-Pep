@@ -2,7 +2,6 @@
 function cargarTematica() {
   const selectElement = document.getElementById("selTematicas");
   const tematicaN = document.getElementById("selectT");
-
   let endpoint = "/consultatematica";
   axios
     .get(endpoint)
@@ -15,7 +14,15 @@ function cargarTematica() {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
         selectElement.appendChild(option);
+       
+       
+      }
+      for (let key in datos) {
+        const option = document.createElement("option");
+        option.text = datos[key].nombre_tematica;
+       
         tematicaN.appendChild(option);
+       
       }
     })
     .catch(function (error) {
@@ -288,9 +295,9 @@ function guardarRespuestas() {
 function LlenarTabla() {
   let idTematica = null;
   const temati = document.getElementById("selectT").value;
-  if (temati === "Seleccionar") {
+  if (temati=="Seleccionar") {
     alert("Por favor verifica");
-  } else {
+  }else {
     // Hago consulta para obtener el Pk de la tematica
     let urlT = "/consultatematica";
     axios
@@ -308,9 +315,8 @@ function LlenarTabla() {
           }
         });
 
-        const tablaPreguntas = document
-          .getElementById("tabla-preguntas")
-          .getElementsByTagName("tbody")[0];
+        const tablaPreguntas = document.getElementById("tabla-preguntas").getElementsByTagName("tbody")[0];
+        tablaPreguntas.innerHTML = "";
         axios
           .post("/consultaP", {
             Idtematica_FK: idTematica,
