@@ -30,11 +30,23 @@
           />
         </div>
         
-          <div>
-            <input type="checkbox" name="opcion" id="opcion1" onchange="limitarSeleccion('opcion1')" /> <!--El valor para el "ID" de jugador es igual a "1" -->
+          <div >
+            <input type="checkbox" name="opcion1" id="opcion1" onclick="updateCheckboxValue1()" value="0"/> <!--El valor para el "ID" de jugador es igual a "1" -->
+            <script>
+              function updateCheckboxValue1() {
+                  var checkbox = document.getElementById("opcion1");
+                  checkbox.value = checkbox.checked ? 1 : 0;
+              }
+            </script>
             <label for="opcion1">Jugador</label>
 
-            <input type="checkbox" name="opcion" id="opcion2" onchange="limitarSeleccion('opcion2')" />  <!--El valor para el "ID" de administrador es igual a "2" -->
+            <input type="checkbox" name="opcion2" id="opcion2" onclick="updateCheckboxValue2()" value="0"/>  <!--El valor para el "ID" de administrador es igual a "2" -->
+            <script>
+              function updateCheckboxValue2() {
+                  var checkbox = document.getElementById("opcion2");
+                  checkbox.value = checkbox.checked ? 1 : 0;
+              }
+            </script>
             <label for="opcion2">Administrador</label>
           </div>
           

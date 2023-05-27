@@ -112,6 +112,14 @@ def jugando():
 def layout():
     return render_template('layout.html')
 
+@app.route("/avatar", methods=['GET'])
+def avatar():
+    return render_template('avatar.html')
+
+@app.route("/menuPrincipal", methods=['GET'])
+def menuPrincipal():
+    return render_template('menuPrincipal.html')
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
@@ -629,14 +637,6 @@ def valiusuarios():
         return jsonify(dato)
     else:
         return redirect('/')  
-
-@app.route("/avatar", methods=['GET'])
-def avatar():
-
-    if 'email' in session:
-        return render_template('avatar.html',usuario=session['email'])
-    else:
-        return redirect('/')
     
 @app.route("/menuprincipal", methods=['GET'])
 def menuprincipal():
@@ -644,6 +644,13 @@ def menuprincipal():
         return render_template('menuPrincipal.html',usuario=session['email'])
     else:
         return redirect('/')  
+    
+@app.route("/menuadmin", methods=['GET'])
+def menuadmin():
+    if 'email' in session:
+        return render_template('layout.html',usuario=session['email'])
+    else:
+        return redirect('/')
     
 #Actualizar contraseña de usuario
 @app.route("/actucontra", methods=['POST'])
