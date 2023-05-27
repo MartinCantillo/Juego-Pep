@@ -78,8 +78,7 @@ function MostrarCrearPregunta() {
 
 function CancelarPregunta() {
   // Mostrar elementos que se ocultaron al crear la pregunta
-  document.getElementById("tituloJuego").style.display = "block";
-  document.getElementById("crearpreguntas").style.display = "in-block";
+  document.getElementById("crearpreguntas").style.display = "flex";
   document.getElementById("preguntas-creadas").style.display = "flex";
 
   // Ocultar el contenido de la pregunta creada

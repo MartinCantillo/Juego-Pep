@@ -61,3 +61,26 @@ h2 {
     margin: 10px 0px;
     color: #fff;
 }
+
+button{
+    background-color: #4fb2fe;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.bttn{
+    color: #fff;
+    background-color: #4fb2fe;
+}
+
+.bttnInf{
+    color: #fff;
+    background-color: #4fb2fe;
+}

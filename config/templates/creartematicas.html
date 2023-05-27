@@ -10,10 +10,20 @@
             <label for="topeTematica">Puntos</label>
             <input placeholder="Ingresa los puntos para pasar la tematica" type="text" id="topeTematica" />
         </div>
-        <button type="submit" onclick="saveTematica()" class="btn">
+        <button type="submit" onclick="saveTematica()" class="bttn">
             Guardar
+        </button>
+        <button class="bttnInf">
+            Agregar Tema
         </button>
     </div>
 </div>
-
+{% block scripts %}
+<script>
+    const btnInftema = document.querySelector(".bttnInf");
+    btnInftema.onclick = function () {
+        window.location.href ="/inftema";
+    }
+</script>
+{% endblock %}
 {% endblock %}

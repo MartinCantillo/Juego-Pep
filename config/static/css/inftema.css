@@ -1,13 +1,19 @@
-body{
-    font-family: sans-serif;
-    min-height: 100vh;
+
+.contenedor-inftema{
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, .5);
+    width:65%;
+    height: 600px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #182C3B;
+    flex-direction: column;
     overflow: hidden;
-
-
 }
 
 .formulario{
@@ -18,31 +24,22 @@ body{
     align-items: center;
 }
 
-.contenedor{
-    
-    padding: 150px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    text-align: center;
-    width: 50%;
-    background-color: #04151f;
-
-    
-}
-
-
 h1{
-    color: #4fb2fe;
+    color: #fff;
+    margin-bottom: 40px;
 }
+
 .formulario__grupo-input{
     height: 53px; 
     width: 204px;
     overflow: hidden;
 }
+
 .formulario__grupo-input input{
     color: aliceblue;
     overflow: hidden;
     padding: 3px;
+    margin-top: 4px;
     background-color: rgb(43, 101, 150);
     border-radius: 30px;
     text-align: left;
@@ -51,7 +48,10 @@ h1{
     border: 1px solid #ccc;
     outline:none;
 }
+
 .formulario__grupo textarea{
+    width: 600px;
+    height: 200px;
     background-color: rgb(43, 101, 150);
     padding: 20px 14px;
     margin-bottom: 25px;
@@ -60,36 +60,41 @@ h1{
     text-align: center;
     color: aliceblue;
     border-radius: 30px;
-    
+    max-width: 600px;
+    max-height: 200px;
+    margin-top: 4px;
 }
+
 li {
     list-style: none;
 }
+
 .footer-item-label {
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
     margin-left: 10px;
+    
 }
 
-.footer-item-select {
+.item-select {
     background-color: rgb(43, 101, 150);
     color: aliceblue;
-    width: 200px;
-    height: 52px;
-    border-radius: 20px;
+    width: 204px;
+    height: 47px;
+    border-radius: 30px;
     border: 1px solid #ccc;
     padding: 5px;
     font-size: 1rem;
+    margin-top: 2px;
 }
 
 label{
-    color:#2a6a9b;
+    color:#fff;
     padding: 5px;
     font-size: 20px;
 
 }
-
 
 ::placeholder{
     color: #BFC9F3;

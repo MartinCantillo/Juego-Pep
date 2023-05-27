@@ -71,6 +71,11 @@ def admin():
     nombre= "Admin"
     return render_template('admin.html')
 
+@app.route("/inftema", methods=['GET'])
+def inftema():
+    nombre= "Inftema"
+    return render_template('inftema.html')
+
 @app.route("/creadospormi", methods=['GET'])
 def creadospormi():
     nombre= "Creados por mí"
