@@ -117,6 +117,14 @@ def jugando():
 def layout():
     return render_template('layout.html')
 
+@app.route("/avatar", methods=['GET'])
+def avatar():
+    return render_template('avatar.html')
+
+@app.route("/menuPrincipal", methods=['GET'])
+def menuPrincipal():
+    return render_template('menuPrincipal.html')
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
@@ -565,6 +573,38 @@ def consultar_base_de_datos(IdtematicaFK):
         'enunciado': pregunta.enunciado,              
         }
    return dato
+#Consulta para poder editar las preguntas y respuestas
+@app.route('/cargardatos', methods=['POST'])
+def cargarDatos():
+    data = request.json
+    IDpregunta = data.get('id')
+ 
+    results = consultar(IDpregunta)
+
+    for result in results:
+        print(result)
+
+    return jsonify(results)
+
+def consultar(IDpregunta):
+   results = bd.session.query(Pregunta,Respuesta).join(Respuesta).filter(Pregunta.id==IDpregunta).all()
+   dato={}   
+   i=0
+   
+   for pregunta, respuesta in results:
+        i+=1	       
+        dato[i] = {
+        'id': pregunta.id,
+        'enunciado': pregunta.enunciado, 
+        'id' :respuesta.id ,
+        'EnuncRespu': respuesta.EnuncRespu,           
+        }
+      
+   return dato
+
+
+
+
 
 @app.route('/consultapregunta', methods=['GET'])
 def ConsultaPregunta():
@@ -582,6 +622,23 @@ def ConsultaPregunta():
         }
      
     return jsonify(dato)  
+
+@app.route('/traerpregu', methods=['GET'])
+def traerpregu():
+    #registro = bd.session.query(Pregunta).all() 
+    registro = bd.session.query(Pregunta).filter(Pregunta.Idtematica_FK == 1).all()
+    regi={}
+    i=0
+    for pregunta in registro:
+        i+=1
+        regi[i]={
+        'id' : pregunta.id,
+        'nombrecorto':pregunta.NomCorto,
+        'enunciado':  pregunta.enunciado,
+        'puntos': pregunta.puntos          
+        }
+    return jsonify(regi) 
+    
 
 #VALIDACION
 
@@ -602,14 +659,6 @@ def valiusuarios():
         return jsonify(dato)
     else:
         return redirect('/')  
-
-@app.route("/avatar", methods=['GET'])
-def avatar():
-
-    if 'email' in session:
-        return render_template('avatar.html',usuario=session['email'])
-    else:
-        return redirect('/')
     
 @app.route("/menuprincipal", methods=['GET'])
 def menuprincipal():
@@ -617,6 +666,13 @@ def menuprincipal():
         return render_template('menuPrincipal.html',usuario=session['email'])
     else:
         return redirect('/')  
+    
+@app.route("/menuadmin", methods=['GET'])
+def menuadmin():
+    if 'email' in session:
+        return render_template('layout.html',usuario=session['email'])
+    else:
+        return redirect('/')
     
 #Actualizar contraseña de usuario
 @app.route("/actucontra", methods=['POST'])

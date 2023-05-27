@@ -88,11 +88,14 @@
         </div>
     
         <div class="quiz-container">
-          <textarea id="textbox" name="retroalimentacion" readonly>texto de retro alimentación</textarea>
-          <textarea id="textbox2" name="pregunta" readonly>Aqui va la pregunta</textarea>
+          <div class="top">
+          <h1 id="txtpregunta">pregunta</h1>
+          <!-- <textarea id="textbox2" name="pregunta" readonly>Aqui va la pregunta</textarea> -->
+          </div>
+          
           <div class="middle">
 
-            <a href="" class="btn btn1" name="A">A</a></div>
+            <div><a href="" class="btn btn1" name="A" onclick="mostrarpregu()" >A</a></div>
             
             <div><a href="" class="btn btn2" name="B">B</a></div>  
 
@@ -103,6 +106,7 @@
 
           </div>
 </div>
-    
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{{url_for('static', filename ='js/preguntasyresp.js')}}"></script>
 </body>
-</html> 
+</html>
