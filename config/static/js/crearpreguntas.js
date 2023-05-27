@@ -14,15 +14,15 @@ function cargarTematica() {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
         selectElement.appendChild(option);
-       
-       
+
+
       }
       for (let key in datos) {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
-       
+
         tematicaN.appendChild(option);
-       
+
       }
     })
     .catch(function (error) {
@@ -78,6 +78,7 @@ function MostrarCrearPregunta() {
 
 function CancelarPregunta() {
   // Mostrar elementos que se ocultaron al crear la pregunta
+  document.getElementById("tituloJuego").style.display = "none";
   document.getElementById("crearpreguntas").style.display = "flex";
   document.getElementById("preguntas-creadas").style.display = "flex";
 
@@ -258,7 +259,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct1,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -270,7 +271,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct2,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -282,7 +283,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct3,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -294,9 +295,9 @@ function guardarRespuestas() {
 function LlenarTabla() {
   let idTematica = null;
   const temati = document.getElementById("selectT").value;
-  if (temati=="Seleccionar") {
+  if (temati == "Seleccionar") {
     alert("Por favor verifica");
-  }else {
+  } else {
     // Hago consulta para obtener el Pk de la tematica
     let urlT = "/consultatematica";
     axios
@@ -329,10 +330,41 @@ function LlenarTabla() {
               row.insertCell(0).innerHTML = pregunta.id;
               row.insertCell(1).innerHTML = pregunta.enunciado;
             });
+            agregarBotonesConIconos();
           })
           .catch(function (error) {
             console.error(error);
           });
       });
+  }
+}
+
+var tabla = document.getElementById("tabla-preguntas");
+function agregarBotonesConIconos() {
+  var tabla = document.getElementById("tabla-preguntas");
+  var filas = tabla.getElementsByTagName("tr");
+
+  for (var i = 1; i < filas.length; i++) {
+    var celdaOpciones = filas[i].insertCell(-1);
+
+    var botonEditar = document.createElement("button");
+    botonEditar.classList.add("icono-boton");
+    botonEditar.title = "Editar";
+
+    var iconoEditar = document.createElement("i");
+    iconoEditar.classList.add("fas", "fa-edit"); // Clases de Font Awesome para el icono de editar
+
+    botonEditar.appendChild(iconoEditar);
+    celdaOpciones.appendChild(botonEditar);
+
+    var botonEliminar = document.createElement("button");
+    botonEliminar.classList.add("icono-boton");
+    botonEliminar.title = "Eliminar";
+
+    var iconoEliminar = document.createElement("i");
+    iconoEliminar.classList.add("fas", "fa-trash-alt"); // Clases de Font Awesome para el icono de eliminar
+
+    botonEliminar.appendChild(iconoEliminar);
+    celdaOpciones.appendChild(botonEliminar);
   }
 }
