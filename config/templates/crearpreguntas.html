@@ -1,7 +1,7 @@
 {% extends "layout.html" %} {% block body %}
 
-<header >
-  <nav class="navbar" >
+<header>
+  <nav class="navbar">
     <span class="navbar-navTittle" id="header-pregunta">
       <input
         type="text"
@@ -12,35 +12,37 @@
     </span>
   </nav>
 </header>
-<div class="card-pregunta" id="crearpreguntas">
-  <div class="add_btn">
-    <i class="fa-solid fa-circle-plus"></i>
+<div class="div">
+  <div class="card-pregunta" id="crearpreguntas">
+    <div class="add_btn">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+    <h3>Crear nueva pregunta</h3>
   </div>
-  <h3>Crear nueva pregunta</h3>
 </div>
 <div class="preguntas-creadas" id="preguntas-creadas">
-    <span class="item-label">Buscar por temática:</span>
-      <select class="footer-item-select" id="selectT">
-        <option value="Seleccionar">Seleccionar</option>
-    </select>
-    <button class="footer-button save-button2"  onclick= "LlenarTabla()" >Consultar</button>
-    <div class="content-pregunta">
-        <div>
-          <h2>Pregunta</h2>
-          <table class="table table-hover" id="tabla-preguntas">
-            <thead>
-              <tr>
-                <th scope="col">Id Pregunta</th>
-                <th scope="col">Pregunta</th>
-                <th scope="col">Opciones</th>
-              </tr>
-            </thead>
-            <tbody id="listapreguntas0">
-
-            </tbody>
-          </table>
-        </div>
+  <span class="item-label">Buscar por temática:</span>
+  <select class="footer-item-select" id="selectT">
+    <option value="Seleccionar">Seleccionar</option>
+  </select>
+  <button class="footer-button save-button2" onclick="LlenarTabla()">
+    Consultar
+  </button>
+  <div class="content-pregunta">
+    <div>
+      <h2>Pregunta</h2>
+      <table class="table table-hover" id="tabla-preguntas">
+        <thead>
+          <tr>
+            <th scope="col">Id Pregunta</th>
+            <th scope="col">Pregunta</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody id="listapreguntas0"></tbody>
+      </table>
     </div>
+  </div>
 </div>
 <div class="contenedor" id="contenedor">
   <div class="contenedor-interior">
@@ -48,7 +50,11 @@
       <div class="explicacion-pregunta">
         <div id="pregunta">
           <span class="tittle-pregunta" id="enunciado">
-            <p class="enunciado-pregunta" contenteditable="true" placeholder="Escribe aquí tu pregunta..."></p>
+            <p
+              class="enunciado-pregunta"
+              contenteditable="true"
+              placeholder="Escribe aquí tu pregunta..."
+            ></p>
           </span>
         </div>
       </div>
@@ -58,55 +64,70 @@
     </div>
     <div class="contenedor-respuestas">
       <ul class="contenedor-opciones">
-
         <li class="contenedor-option" id="resp0">
-            <div class="interior-opcion">
-              <div class="marcar-correcta">
-                <div>
-                  <input type="radio" name="opciones" />
-                </div>
-              </div>
-              <div class="explicacion-respuesta">
-                <p class="opcion-0" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <div>
+                <input type="radio" name="opciones" id="input0" />
               </div>
             </div>
-        </li>   
+            <div class="explicacion-respuesta">
+              <p
+                class="opcion-0"
+                contenteditable="true"
+                placeholder="Escribe aquí tu opción de respuesta"
+              ></p>
+            </div>
+          </div>
+        </li>
 
         <li class="contenedor-option" id="resp1">
           <div class="interior-opcion">
-              <div class="marcar-correcta">
-                <div>
-                  <input type="radio" name="opciones" />
-                </div>
-              </div>
-              <div class="explicacion-respuesta">
-                <p class="opcion-1" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
+            <div class="marcar-correcta">
+              <div>
+                <input type="radio" name="opciones" id="input01" />
               </div>
             </div>
+            <div class="explicacion-respuesta">
+              <p
+                class="opcion-1"
+                contenteditable="true"
+                placeholder="Escribe aquí tu opción de respuesta"
+              ></p>
+            </div>
+          </div>
         </li>
         <li class="contenedor-option" id="resp2">
-            <div class="interior-opcion">
-                <div class="marcar-correcta">
-                  <div>
-                    <input type="radio" name="opciones" />
-                  </div>
-                </div>
-                <div class="explicacion-respuesta">
-                  <p class="opcion-2" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
-                </div>
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <div>
+                <input type="radio" name="opciones" id="input02"/>
               </div>
+            </div>
+            <div class="explicacion-respuesta" id="pRespuestas">
+              <p
+                class="opcion-2"
+                contenteditable="true"
+                placeholder="Escribe aquí tu opción de respuesta"
+              ></p>
+            </div>
+          </div>
         </li>
         <li class="contenedor-option" id="resp3">
-            <div class="interior-opcion">
-                <div class="marcar-correcta">
-                  <div>
-                    <input type="radio" name="opciones" />
-                  </div>
-                </div>
-                <div class="explicacion-respuesta">
-                  <p class="opcion-3" contenteditable="true" placeholder="Escribe aquí tu opción de respuesta"></p>
-                </div>
+          <div class="interior-opcion">
+            <div class="marcar-correcta">
+              <div>
+                <input type="radio" name="opciones" id="input03" />
               </div>
+            </div>
+            <div class="explicacion-respuesta">
+              <p
+                class="opcion-3"
+                contenteditable="true"
+                placeholder="Escribe aquí tu opción de respuesta"
+              ></p>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -135,11 +156,9 @@
   <div class="footer-buttons">
     <button class="footer-button cancel-button">Cancelar</button>
     <button class="footer-button save-button">Guardar</button>
-    
   </div>
 </div>
 {% endblock %}
-
 
 <!-- Aquí se define la parte del js-->
 {% block scripts %}
