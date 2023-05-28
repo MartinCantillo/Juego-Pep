@@ -78,6 +78,17 @@ body {
     overflow-x: hidden;
     color: #fff;
     margin-top: 20px;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent; 
+}
+
+.preguntas-creadas::-webkit-scrollbar {
+    width: 8px; /* Ancho del scroll */
+}
+
+.preguntas-creadas::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Color del scroll */
+    border-radius: 8px; /* Radio de las esquinas del scroll */
 }
 
 .content-pregunta {
@@ -344,7 +355,7 @@ li {
 .footer-item-select {
     width: 150px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid #ccc;
     padding: 5px;
     font-size: 1rem;
