@@ -6,27 +6,30 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>{%print(name)%}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel='stylesheet' type='text/css' media='screen' href='/static/css/layout.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/css/admin.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/css/creartematicas.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/css/crearpreguntas.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/css/creadospormi.css'>
     <link rel="stylesheet" type='text/css' media='screen' href='/static/css/inftema.css'>
-    
-    
+    <link rel="stylesheet" type='text/css' media='screen' href='/static/css/nivel.css'>
 </head>
+
 <body>
     <header>
         <h2 class="logo">Conoce tu PEP</h2>
         <span class="navTittleGame" id="tituloJuego">
-            <input type="text" class="nav-item-input1" placeholder="Sin título"/>
+            <input type="text" class="nav-item-input1" placeholder="Sin título" />
         </span>
         <nav class="navbar-layout">
             <a href="/admin">🏠︎ Home</a>
-            <a href="/creartematicas" >🌍 Temáticas</a>
+            <a href="/creartematicas">🌍 Temáticas</a>
             <a href="/crearpreguntas">❓ Preguntas</a>
             <a href="/creadospormi">⚙️ Creados por mí</a>
+            <a href="/nivel"> 📈 Nivel</a>
             <a href="#">👦 Cambiar a jugador</a>
         </nav>
         <div class="toggle_btn">
@@ -34,9 +37,10 @@
         </div>
         <div class="menu-inferior">
             <a href="/admin">🏠︎ Home</a>
-            <a href="/creartematicas" >🌍 Temáticas</a>
+            <a href="/creartematicas">🌍 Temáticas</a>
             <a href="/crearpreguntas">❓ Preguntas</a>
             <a href="/creadospormi">⚙️ Creados por mí</a>
+            <a href="/nivel"> 📈 Nivel </a>
             <a href="#">👦 Cambiar a jugador</a>
         </div>
     </header>
@@ -44,8 +48,8 @@
     {% endblock %}
     {% block scripts %}
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-        CancelarPregunta();
+        document.addEventListener("DOMContentLoaded", function (event) {
+            CancelarPregunta();
         });
     </script>
     {% endblock %}

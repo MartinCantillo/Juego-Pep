@@ -1,0 +1,73 @@
+.contenedor-nivel{
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, .5);
+    width:40%;
+    height: 600px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.formulario-nivel{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.formulario__nivel{
+    width: 600px;
+    height: 100px;
+    padding: 20px 14px;
+    margin-bottom: 25px;
+    border-color: #fff;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px;
+    max-width: 600px;
+    max-height: 200px;
+    margin-top: 4px;
+}
+.nivel_input input{
+    color: #fff;
+    overflow: hidden;
+    padding: 6px;
+    margin-top: 6px;
+    background-color: transparent;
+    border-radius: 30px;
+    text-align: left;
+    font-size: 1rem;
+    height: 45px;
+    border: 1px solid #ccc;
+}
+
+label{
+    color:#fff;
+    padding: 5px;
+    font-size: 20px;
+}
+
+:focus{
+    outline: lpx solid #25d97c;
+}
+
+.btton2{
+    background-color: #4fb2fe;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}

@@ -53,3 +53,19 @@ button {
     border-radius: 6px;
     cursor: pointer;
 }
+
+#fechahoy {
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    margin: 12px;
+    
+}
+.reloj-c input{
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 1.2em;
+    color: #ffffff;
+
+}
