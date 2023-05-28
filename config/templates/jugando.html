@@ -13,19 +13,7 @@
         <span>Volver</span><i></i>
     </a>
     <div class="padre">
-        <a href="/avatar">
-            <img id="mainAvatar" src="/static/img/avatar/avatar1.jpg" alt="" class="imgBas">
-            <script>
-                // Verifica si hay un avatar seleccionado guardado en el almacenamiento local
-                var savedAvatar = localStorage.getItem('selectedAvatar');
-                
-                if (savedAvatar) {
-                    // Si hay un avatar seleccionado guardado, muestra ese avatar en la página
-                    var mainAvatar = document.getElementById('mainAvatar');
-                    mainAvatar.src = savedAvatar;
-                }
-            </script>
-        </a>
+        
         <div class="item1">
             <a href="#" id="btn_open1">      
                 <img src="/static/img/JugandoImg/Lost/nivel1Lost.png" class="imgEsfera" id="imgChange1" alt="boton 1">
