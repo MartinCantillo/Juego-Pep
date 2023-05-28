@@ -16,8 +16,8 @@ body{
 }
 
 .imgAvatar{
-    height: 70px;
-    width: 70px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     position: absolute;
     margin-top: 12px;

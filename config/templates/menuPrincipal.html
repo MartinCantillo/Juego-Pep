@@ -8,7 +8,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menuPrincipal.css' ) }}">
 </head>
 <body>
-    <img src="/static/img/JugandoImg/avatar.jpg" class="imgAvatar" id="imgChange" alt="">
+    <a href="/avatar">
+        <img id="mainAvatar" src="/static/img/avatar/avatar1.jpg" alt="" class="imgAvatar">
+        <script>
+            // Verifica si hay un avatar seleccionado guardado en el almacenamiento local
+            var savedAvatar = localStorage.getItem('selectedAvatar');
+            
+            if (savedAvatar) {
+                // Si hay un avatar seleccionado guardado, muestra ese avatar en la página
+                var mainAvatar = document.getElementById('mainAvatar');
+                mainAvatar.src = savedAvatar;
+            }
+        </script>
+    </a>
 
 
     <div class="contenedor">
