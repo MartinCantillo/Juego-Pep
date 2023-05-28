@@ -1,8 +1,7 @@
-
-.contenedor-inftema{
+.contenedor-nivel{
     backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, .5);
-    width:65%;
+    width:40%;
     height: 600px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -16,42 +15,16 @@
     overflow: hidden;
 }
 
-.formulario{
+.formulario-nivel{
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-
-h1{
-    color: #fff;
-    margin-bottom: 40px;
-}
-
-.formulario__grupo-input{
-    height: 53px; 
-    width: 204px;
-    overflow: hidden;
-}
-
-.formulario__grupo-input input{
-    color: #fff;
-    overflow: hidden;
-    padding: 3px;
-    margin-top: 4px;
-    background-color: rgb(43, 101, 150);
-    border-radius: 30px;
-    text-align: left;
-    font-size: 1rem;
-    height: 45px;
-    border: 1px solid #ccc;
-}
-
-.formulario__grupo textarea{
+.formulario__nivel{
     width: 600px;
-    height: 200px;
-    background-color: rgb(43, 101, 150);
+    height: 100px;
     padding: 20px 14px;
     margin-bottom: 25px;
     border-color: #fff;
@@ -63,47 +36,30 @@ h1{
     max-height: 200px;
     margin-top: 4px;
 }
-
-li {
-    list-style: none;
-}
-
-.footer-item-label {
+.nivel_input input{
     color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-left: 10px;
-    
-}
-
-.item-select {
-    background-color: rgb(43, 101, 150);
-    color: #fff;
-    width: 204px;
-    height: 47px;
+    overflow: hidden;
+    padding: 6px;
+    margin-top: 6px;
+    background-color: transparent;
     border-radius: 30px;
-    border: 1px solid #ccc;
-    padding: 5px;
+    text-align: left;
     font-size: 1rem;
-    margin-top: 2px;
+    height: 45px;
+    border: 1px solid #ccc;
 }
 
 label{
     color:#fff;
     padding: 5px;
     font-size: 20px;
-
-}
-
-::placeholder{
-    color: #fff;
-    font-size: 17px;
 }
 
 :focus{
     outline: lpx solid #25d97c;
 }
-button{
+
+.btton2{
     background-color: #4fb2fe;
     border: none;
     color: white;
@@ -112,7 +68,6 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
 }

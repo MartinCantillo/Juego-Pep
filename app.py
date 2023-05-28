@@ -125,6 +125,12 @@ def avatar():
 def menuPrincipal():
     return render_template('menuPrincipal.html')
 
+@app.route("/nivel", methods=['GET'])
+def nivel():
+    nombre= "Nivel"
+    return render_template('nivel.html')
+
+
 #AGREGAR
 @app.route("/savetematica", methods=['POST'])
 def savetematica():
