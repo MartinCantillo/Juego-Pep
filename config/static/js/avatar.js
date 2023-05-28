@@ -49,4 +49,9 @@ var selectButton = document.getElementById('selectButton');
         if (savedAvatar) {
             // Si hay un avatar seleccionado guardado, muestra ese avatar en la página
             mainAvatar.src = savedAvatar;
-        }
+        }else {
+          // Si no hay un avatar seleccionado guardado, muestra el primer avatar
+          var firstAvatar = document.querySelector('.thumbnail');
+          mainAvatar.src = firstAvatar.src;
+          firstAvatar.classList.add('active');
+      }
