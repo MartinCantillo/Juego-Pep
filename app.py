@@ -665,11 +665,23 @@ def traeresp():
     #con la siguiente consulta obtenemos los 4
     #registros de respuestas, filtrados por el ID de la pregunta con que se relaciona.
     registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == 1).all() 
-    regi=[5]
-    i=0
+    regi={}
+    i=1
+    u=1
+    r1="";p1=0;r2=""
+   
+    r3=""
+    r4=""
     for respuesta in registro:
-        i+=1
-        regi[i]=respuesta.EnuncRespu
+        if respuesta.id==1:
+            p1=respuesta.EnuncRespu
+            regi[1]={
+            'r1' : r1,
+            'p1':
+            'r2': r2,
+            'r3':  r3,
+            'r4': r4          
+            } 
         
     return jsonify(regi) 
 
