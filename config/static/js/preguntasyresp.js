@@ -36,13 +36,10 @@ function trespuesta(){
       .then(function (response) {
       let data = response.data;
       let r_bd = data[1].r1;
-        alert("pregunta mostrada");
-        alert(r_bd)
-        //alert(data)
-        //alert(data)
-        //alert(data)
-        //alert("hola aqui estoy")
-        //txt_pregunta.textContent = pregunta_bd;
+        resp_a.textContent = data[1].r1;
+        resp_b.textContent = data[1].r2;
+        resp_c.textContent = data[1].r3;
+        resp_d.textContent = data[1].r4;
       })
       .catch(function (error) {
         console.log(error);
