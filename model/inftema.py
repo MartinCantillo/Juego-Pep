@@ -5,11 +5,12 @@ class Inftema(bd.Model):
 
     id = bd.Column(bd.Integer, primary_key = True)
     Titulo_inftem = bd.Column(bd.String(50))
-    Det_inftema =bd.Column(bd.String(50))
+    Det_inftema =bd.Column(bd.String(100))
     Idtematica_Fk= bd.Column(bd.Integer,bd.ForeignKey('tbl_tematica.id'))
     IdNivel_fk = bd.Column(bd.Integer,bd.ForeignKey('tbl_nivel.id'))
     
-   
+    tematica = bd.relationship('Tematica', foreign_keys=[Idtematica_Fk])
+    nivel = bd.relationship('Nivel', foreign_keys=[IdNivel_fk])
 
     def __init__(self,Titulo_inftem,Det_inftema, IdNivel_fk ,Idtematica_Fk):
         self.Titulo_inftem =Titulo_inftem

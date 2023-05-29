@@ -1,4 +1,4 @@
-
+function tpregunta(){
   let endpoint ='/traerpregu'
   const txt_pregunta = document.getElementById('txtpregunta')
 
@@ -17,5 +17,10 @@
       .catch(function (error) {
         console.log(error);
       });
+}
+
+
+  
+
 
 

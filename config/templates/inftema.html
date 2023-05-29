@@ -5,7 +5,7 @@
         <div class="formulario__grupo" id="grupo__tematica">
             <label for="Titulo" class="formulario__label">Tema</label>
             <div class="formulario__grupo-input">
-                <input type="text" name="Titulo" id="Titulo" placeholder="Titulo">
+                <input type="text" name="Titulo" id="Tituloinf" placeholder="Titulo">
             </div>
         </div>
         <div class="formulario__grupo" id="grupo__Idtematica">
@@ -30,14 +30,26 @@
     <div class="formulario__grupo" id="grupo__Descripcion">
         <label for="Detalles">Detalles</label>
         <div class="">
-            <textarea cols="30" rows="5" name="Detalles" placeholder="Digite una descripcion"></textarea>
+            <textarea cols="30" rows="5" id="desc" name="Detalles" placeholder="Digite una descripcion"></textarea>
         </div>
     </div>
     <div>
-        <button type="submit" class="bttn">
+        <button type="submit" onclick="saveinftema2()" class="bttn">
             Enviar
         </button>
     </div>
 
 </div>
+{% endblock %}
+{% block scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    cargarTematica2();
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    cargarNivel();
+  });
+</script>
 {% endblock %}

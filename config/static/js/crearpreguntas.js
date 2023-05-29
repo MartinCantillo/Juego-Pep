@@ -85,6 +85,7 @@ function CancelarPregunta() {
   document.getElementById("header-pregunta").style.display = "none";
   document.getElementById("footer").style.display = "none";
 }
+
 var enunciadoGlobal = "";
 function GuardarPregunta() {
   const enunciado = document
