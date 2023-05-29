@@ -668,6 +668,7 @@ def traeresp():
     regi={}
     r1="";p1=0;r2="";p2=0;r3="";p3=0;r4="";p4=0
     for respuesta in registro:
+        #condicional para asignar cada respuesta a una variable.
         if respuesta.id==1:
             r1=respuesta.EnuncRespu
             p1=respuesta.PuntosRespu
@@ -679,8 +680,7 @@ def traeresp():
             p3=respuesta.PuntosRespu
         if respuesta.id==4:
             r4=respuesta.EnuncRespu
-            p4=respuesta.PuntosRespu
-            
+            p4=respuesta.PuntosRespu   
         regi[1]={
         'r1' : r1,
         'p1': p1,
