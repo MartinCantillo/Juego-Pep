@@ -342,6 +342,7 @@ function LlenarTabla() {
       });
   }
 }
+var idPreE=""
 var idPre = "";
 var tabla = document.getElementById("tabla-preguntas");
 function agregarBotonesConIconos() {
@@ -362,12 +363,12 @@ function agregarBotonesConIconos() {
     celdaOpciones.appendChild(botonEditar);
 
     botonEditar.onclick = function () {
-      //Acción a realizar al hacer clic en el botón "Editar"
+      
       var fila = this.parentNode.parentNode; // Obtener la fila correspondiente al botón
       idPre = fila.cells[0].innerHTML; // Obtener el ID de la pregunta de la celda correspondiente
-      //console.log("Editar pregunta con ID: " + idPre);
+      
 
-      // Agrega aquí tu lógica para editar la pregunta con el ID obtenido
+      // editar la pregunta 
       contenedorPregunta.classList.toggle("open");
       const isOpen = contenedorPregunta.classList.contains("open");
       crearPreguntaBtn.classList = isOpen
@@ -408,7 +409,11 @@ function agregarBotonesConIconos() {
 
     botonEliminar.appendChild(iconoEliminar);
     celdaOpciones.appendChild(botonEliminar);
-    botonEliminar.onclick = function () {};
+    botonEliminar.onclick = function () {
+      var fila = this.parentNode.parentNode; // Obtener la fila correspondiente al botón
+      idPreE = fila.cells[0].innerHTML; // Obtener el ID de la pregunta de la celda correspondiente
+      eliminarrPregYResp();
+    };
   }
 }
 
@@ -433,11 +438,6 @@ function cargarPregyResp() {
   })
   .then(function (response) {
     var jsonData = response.data;
-    //se valida el radio
-  const radioSelec = document.querySelector(
-    'input[name="opciones"]:checked'
-  );
-
     for (var i = 1; i <= Object.keys(jsonData).length; i++) {
       var pregunta = jsonData[i].enunciado;
       var repts0 =  jsonData[1].EnuncRespu;
@@ -472,5 +472,31 @@ function cargarPregyResp() {
   })
   .finally(function () {
     // always executed
+  });
+}
+
+function eliminarrPregYResp(){
+  alert("Se elimino con exito id pregunta" +idPreE)
+   let UrlP="/delpregunta"
+   let UrlR="/delrespuestas"
+  axios.post(UrlR, {
+    IDpregunta_FK: idPreE,
+   
+  })
+  .then(function (response) {
+
+    axios.post(UrlP, {
+      id: idPreE,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+  })
+  .catch(function (error) {
+    console.log(error);
   });
 }

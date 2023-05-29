@@ -42,7 +42,7 @@ partida_schema =  PartidaSchema()
 partida_schema =  PartidaSchema(many=True)
 
 pregunta_schema =  PreguntaSchema()
-pregunta_schema =  PreguntaSchema(many=True)
+preguntas_schema =  PreguntaSchema(many=True)
 
 programa_schema =  ProgramaSchema()
 programa_schema =  ProgramaSchema(many=True)
@@ -58,6 +58,8 @@ tematica_schema =  TematicaSchema(many=True)
 
 usuario_schema =  UsuarioSchema ()
 usuario_schema =  UsuarioSchema (many=True)
+
+respuestas_schema =  RespuestaSchema(many=True)
 
 
 #RUTAS DIRECTAS
@@ -692,7 +694,21 @@ def menuadmin():
         return render_template('layout.html',usuario=session['email'])
     else:
         return redirect('/')
-    
+#elminar respuesta con filtro
+@app.route("/delrespuestas", methods=['POST'])
+def delrespuestas():    
+    IDpre_FK = request.json['IDpregunta_FK'] 
+    respuestas = Respuesta.query.filter_by(IDpregunta_FK=IDpre_FK).all()
+  
+    if respuestas:
+        for respuesta in respuestas:
+            bd.session.delete(respuesta)
+        bd.session.commit()     
+        return jsonify(respuestas_schema.dump(respuestas))
+    else:
+        return jsonify({'message': 'No se encontraron respuestas para el filtro especificado.'}), 404
+
+
 #Actualizar contraseña de usuario
 @app.route("/actucontra", methods=['POST'])
 def actucontra():    
