@@ -21,15 +21,15 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
-    height: 900px;
+    height: 130vh;
     
 }
 
 .contenedor{
-    height: 650px;
+    height: 550px;
     margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
+    max-width: 900px;
+    width: 95%;
     padding: 0px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -97,8 +97,8 @@ body{
         background-image: url('../img/LoginyRegistro/bh.jpg');
         display: flex;
         justify-content: center;
-        width:  140px;
-        height: 140px;
+        width:  120px;
+        height: 120px;
         border-top-left-radius: 75px;
         border-bottom-left-radius: 75px;
         border-top-right-radius: 75px;
@@ -178,4 +178,11 @@ div{
     border-bottom-left-radius: 30px;
 
     
+}
+all{
+    height: 800px;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0px;
 }
