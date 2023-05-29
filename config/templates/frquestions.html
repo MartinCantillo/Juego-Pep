@@ -89,25 +89,33 @@
     
         <div class="quiz-container">
           <div class="top">
-          <h1 id="txtpregunta">pregunta</h1>
+          <h1 id="txtpregunta"></h1>
           <!-- <textarea id="textbox2" name="pregunta" readonly>Aqui va la pregunta</textarea> -->
           </div>
           
           <div class="middle">
 
-            <div><a class="btn btn1" name="A" onclick="mostrarpregu()" >A</a></div>
+          <div><a class="btn btn1" name="A">A</a></div>
             
-            <div><a class="btn btn2" name="B">B</a></div>  
+          <div><a class="btn btn2" name="B">B</a></div>  
 
-           <div> <a class="btn btn3" name="C">C</a></div>
+          <div> <a class="btn btn3" name="C">C</a></div>
             
-            <div><a class="btn btn4" name="D">D</a></div>
+          <div><a class="btn btn4" name="D">D</a></div>
                 
 
           </div>
           <div><a href="/jugando" class="btn volver" name="volver">volver</a> </div>
 
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   tpregunta();
+  });
+</script>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{{url_for('static', filename ='js/preguntasyresp.js')}}"></script>
 </body>

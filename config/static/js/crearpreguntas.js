@@ -14,15 +14,12 @@ function cargarTematica() {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
         selectElement.appendChild(option);
-
-
       }
       for (let key in datos) {
         const option = document.createElement("option");
         option.text = datos[key].nombre_tematica;
 
         tematicaN.appendChild(option);
-
       }
     })
     .catch(function (error) {
@@ -35,6 +32,7 @@ const contenedorPregunta = document.querySelector(".contenedor");
 const btnCancelar = document.querySelector(".cancel-button");
 const btnGuardar = document.querySelector(".save-button");
 
+//ocultar los contenedores de crear pregunta y el de la tabla
 crearPreguntaBtn.onclick = function () {
   contenedorPregunta.classList.toggle("open");
   const isOpen = contenedorPregunta.classList.contains("open");
@@ -190,10 +188,10 @@ function obtenerIdPreguntas() {
       Object.values(preguntas).forEach((Pregunta) => {
         if (Pregunta.enunciado === enunciados) {
           idPregunta = Pregunta.id;
-          console.log("ID de la pregunta desde el if:", idPregunta);
+         // console.log("ID de la pregunta desde el if:", idPregunta);
         }
       });
-      console.log("ID de la pregunta: fuera del if", idPregunta);
+      //console.log("ID de la pregunta: fuera del if", idPregunta);
       idPreguntaActu = idPregunta;
       idPreguntaGlobal = idPregunta;
     });
@@ -260,7 +258,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct1,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) { })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -272,7 +270,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct2,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) { })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -284,7 +282,7 @@ function guardarRespuestas() {
         PuntosRespu: puntosAct3,
         IDpregunta_FK: idPreguntaActu,
       })
-      .then(function (response) { })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -292,10 +290,13 @@ function guardarRespuestas() {
     //window.location.href = "/crearpreguntas";
   }
 }
+
+var temtica=""
 //funcion para llenar la tabla con las preguntas registradas
 function LlenarTabla() {
   let idTematica = null;
   const temati = document.getElementById("selectT").value;
+  temtica = temati;
   if (temati == "Seleccionar") {
     alert("Por favor verifica");
   } else {
@@ -316,7 +317,9 @@ function LlenarTabla() {
           }
         });
 
-        const tablaPreguntas = document.getElementById("tabla-preguntas").getElementsByTagName("tbody")[0];
+        const tablaPreguntas = document
+          .getElementById("tabla-preguntas")
+          .getElementsByTagName("tbody")[0];
         tablaPreguntas.innerHTML = "";
         axios
           .post("/consultaP", {
@@ -339,7 +342,7 @@ function LlenarTabla() {
       });
   }
 }
-
+var idPre = "";
 var tabla = document.getElementById("tabla-preguntas");
 function agregarBotonesConIconos() {
   var tabla = document.getElementById("tabla-preguntas");
@@ -358,6 +361,44 @@ function agregarBotonesConIconos() {
     botonEditar.appendChild(iconoEditar);
     celdaOpciones.appendChild(botonEditar);
 
+    botonEditar.onclick = function () {
+      //Acción a realizar al hacer clic en el botón "Editar"
+      var fila = this.parentNode.parentNode; // Obtener la fila correspondiente al botón
+      idPre = fila.cells[0].innerHTML; // Obtener el ID de la pregunta de la celda correspondiente
+      //console.log("Editar pregunta con ID: " + idPre);
+
+      // Agrega aquí tu lógica para editar la pregunta con el ID obtenido
+      contenedorPregunta.classList.toggle("open");
+      const isOpen = contenedorPregunta.classList.contains("open");
+      crearPreguntaBtn.classList = isOpen
+        ? "card-pregunta open"
+        : "card-pregunta";
+      cargarPregyResp();
+      if (isOpen) {
+        MostrarCrearPregunta();
+        btnCancelar.onclick = function () {
+          contenedorPregunta.classList.remove("open");
+          crearPreguntaBtn.classList.remove("open");
+          const isOpen = false;
+          crearPreguntaBtn.classList = "card-pregunta";
+          document.getElementById("crearpreguntas").style.display = "flex";
+          CancelarPregunta();
+        };
+
+        btnGuardar.onclick = function () {
+          guardarRespuestas();
+          contenedorPregunta.classList.remove("open");
+          crearPreguntaBtn.classList.remove("open");
+          const isOpen = false;
+          crearPreguntaBtn.classList = "card-pregunta";
+          document.getElementById("crearpreguntas").style.display = "flex";
+          CancelarPregunta();
+        };
+      } else {
+        CancelarPregunta();
+      }
+    };
+
     var botonEliminar = document.createElement("button");
     botonEliminar.classList.add("icono-boton");
     botonEliminar.title = "Eliminar";
@@ -367,5 +408,69 @@ function agregarBotonesConIconos() {
 
     botonEliminar.appendChild(iconoEliminar);
     celdaOpciones.appendChild(botonEliminar);
+    botonEliminar.onclick = function () {};
   }
+}
+
+function cargarPregyResp() {
+  const select = document.getElementById("selTematicas");
+  select.value =temtica;
+  let cargarurl = "/cargardatosp";
+  let datosDiv = document.getElementById("enunciado");
+  let datosResp0 = document.getElementById("resp0").querySelector("p");
+  let datosResp1 = document.getElementById("resp1").querySelector("p");
+  let datosResp2 = document.getElementById("resp2").querySelector("p");
+  let datosResp3 = document.getElementById("resp3").querySelector("p");
+  //Obtener radios
+
+  const input0 = document.getElementById('input0');
+  const input01 = document.getElementById('input01');
+  const input02 = document.getElementById('input02');
+  const input03 = document.getElementById('input03');
+
+  axios.post(cargarurl, {
+    "id": idPre,
+  })
+  .then(function (response) {
+    var jsonData = response.data;
+    //se valida el radio
+  const radioSelec = document.querySelector(
+    'input[name="opciones"]:checked'
+  );
+
+    for (var i = 1; i <= Object.keys(jsonData).length; i++) {
+      var pregunta = jsonData[i].enunciado;
+      var repts0 =  jsonData[1].EnuncRespu;
+      var repts1 =  jsonData[2].EnuncRespu;
+      var repts2 =  jsonData[3].EnuncRespu;
+      var repts3 =  jsonData[4].EnuncRespu;
+      var preguntaParrafo = datosDiv.querySelector("p");
+      preguntaParrafo.innerText = pregunta;
+      datosResp0.innerText = repts0;
+      datosResp1.innerText = repts1;
+      datosResp2.innerText = repts2;
+      datosResp3.innerText = repts3;
+      if(jsonData[i].PuntosRespu!=0){
+        //valido ahora lo que dice el enunciado para seleccionar el input
+      if(jsonData[i].EnuncRespu ==repts0){
+        input0.checked= true;
+      }
+      if(jsonData[i].EnuncRespu ==repts1){
+        input01.checked= true;
+      }
+      if(jsonData[i].EnuncRespu ==repts2){
+        input02.checked= true;
+      }
+      if(jsonData[i].EnuncRespu ==repts3){
+        input03.checked= true;
+      }
+      }
+    }
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
 }
