@@ -242,14 +242,17 @@ def savepartida():
 
 @app.route("/saveinftema", methods=['POST'])
 def saveinftema():
-    Titulo_inftem = request.json['Titulo_inftem']
-    Det_inftema = request.json['Det_inftema']
-    Idtematica_Fk = request.json['Idtematica_Fk']
-    IdNivel_fk = request.json['IdNivel_fk']
-    newinftema = Inftema(Titulo_inftem, Det_inftema, Idtematica_Fk, IdNivel_fk)
-    bd.session.add(newinftema)
-    bd.session.commit()
-    return "guardado"
+    try:
+        Titulo_inftem = request.json['Titulo_inftem']
+        Det_inftema = request.json['Det_inftema']
+        Idtematica_Fk = request.json['Idtematica_Fk']
+        IdNivel_fk = request.json['IdNivel_fk']
+        newinftema = Inftema(Titulo_inftem, Det_inftema, Idtematica_Fk, IdNivel_fk)
+        bd.session.add(newinftema)
+        bd.session.commit()
+        return "guardado"
+    except Exception as e:
+        return str(e)
 
 @app.route("/saveadministrativo", methods=['POST'])
 def saveadministrativo():
@@ -554,6 +557,22 @@ def ConsultaTematica():
       
     print(tematica.nombre_tematica  )  
     return jsonify(dato)
+
+@app.route('/consultanivel', methods=['GET'])
+def Consultanivel():
+    results = bd.session.query(Nivel).all() 
+    dato={}   
+    i=0
+    for nivel in results:
+        i+=1	       
+        dato[i] = {
+        'id' :nivel.id, 
+        'nombre_nv':nivel.nombre_nv          
+        }
+      
+    print(nivel.nombre_nv )  
+    return jsonify(dato)
+
   #Consulta para obtener las preguntas registradas
 @app.route('/consultaP', methods=['POST'])
 def getData():

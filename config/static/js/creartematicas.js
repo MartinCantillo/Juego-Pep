@@ -13,7 +13,8 @@ function saveTematica() {
         tope_tem: puntos,
       })
       .then(function (response) {
-        alert(response);
+        document.getElementById("nombreTematica").value = "";
+        document.getElementById("topeTematica").value = "";
       })
       .catch(function (error) {
         console.log(error);
