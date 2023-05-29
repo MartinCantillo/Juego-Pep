@@ -1,20 +1,27 @@
-
 {% extends "layout.html" %} {% block body %}
+<style>
+    body.default-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
 <!-- barra de busqueda-->
 <h2>Todos los Temas</h2>
 <div class="container-filtro">
     <form action="javascript:void(0);" id="busquedaForm">
         <h4>Filtrar por pregunta</h4>
         <input type="text" id="valor" aling="right" placeholder="ingresa una pregunta creada"><br>
-       <br> <button type="submit" class="btn-filtro">Buscar</button>
+        <br> <button type="submit" class="btn-filtro">Buscar</button>
     </form>
     <table>
         <tbody id="cuerpo"></tbody>
     </table>
-<br> <!-- checkbox-->
-<div class="desplegable">
-    <h3>Creados Por Mi</h3> <input type="checkbox" class="checkbox">
-     </div>  
+    <br> <!-- checkbox-->
+    <div class="desplegable">
+        <h3>Creados Por Mi</h3> <input type="checkbox" class="checkbox">
+    </div>
 
 </div>
 

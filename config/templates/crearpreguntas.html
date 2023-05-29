@@ -1,5 +1,16 @@
 {% extends "layout.html" %} {% block body %}
-
+<style>
+ body.default-body{
+    display: flex;
+    flex-direction: unset;
+    align-items: center;
+    justify-content: space-evenly;
+    /*grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: "div preguntras-creadas";*/
+    min-height: 100vh;
+}
+</style>
 <header>
   <nav class="navbar">
     <span class="navbar-navTittle" id="header-pregunta">

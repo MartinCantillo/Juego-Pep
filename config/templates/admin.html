@@ -1,14 +1,19 @@
 {% extends "layout.html" %} {% block body %}
+<style>
+  body.default-body {
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+</style>
+  <h2>Bienvenido a Conoce Tu PEP</h2>
 
-<h2>Bienvenido a Conoce Tu PEP</h2>
-
-<div id="fechahoy"></div>
-<form name="Tick" id="Tick">
-  <p class="reloj-c">
-    <input type="text" size="11" name="Clock" />
-  </p>
-</form>
-
+  <div id="fechahoy"></div>
+  <form name="Tick" id="Tick">
+    <p class="reloj-c">
+      <input type="text" size="11" name="Clock" />
+    </p>
+  </form>
 <script defer src="https://app.embed.im/snow.js"> </script>
 
 {% endblock %}

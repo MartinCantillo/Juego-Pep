@@ -1,13 +1,4 @@
-body body{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    /*grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-areas: "div preguntras-creadas";*/
-    min-height: 100vh;
-}
+
 
 .navbar {
     position: absolute;
@@ -39,7 +30,7 @@ body body{
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin: 10px auto;
+    margin: 10px 20px;
     grid-area: div;
 }
 
@@ -194,7 +185,7 @@ body body{
 
 .contenedor.open {
     display: block;
-    transform: scale(0.7);
+    transform: scale(0.8) translate(0);
 }
 
 .contenedor .contenedor-interior {
