@@ -660,6 +660,18 @@ def traerpregu():
         }
     return jsonify(regi) 
     
+@app.route('/traeresp', methods=['GET'])
+def traeresp():
+    #con la siguiente consulta obtenemos los 4
+    #registros de respuestas, filtrados por el ID de la pregunta con que se relaciona.
+    registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == 1).all() 
+    regi=[5]
+    i=0
+    for respuesta in registro:
+        i+=1
+        regi[i]=respuesta.EnuncRespu
+        
+    return jsonify(regi) 
 
 #VALIDACION
 
