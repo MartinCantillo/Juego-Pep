@@ -694,6 +694,21 @@ def traeresp():
         
     return jsonify(regi) 
 
+@app.route('/ttt', methods=['GET'])
+def ttt():
+    registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == 1).all() 
+    regi={}
+    i=0
+    for res in registro:
+        i+=1
+        regi[i]={
+        'id' : res.id,
+        'enunciado': res.EnuncRespu,
+        'puntos': res.PuntosRespu          
+        }
+    return jsonify(regi) 
+
+
 #VALIDACION
 
 @app.route("/valiusuarios", methods=['POST'])

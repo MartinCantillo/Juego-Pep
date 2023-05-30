@@ -96,10 +96,10 @@
       </div>
 
       <div class="middle">
-        <div><a class="btn btn1" id="respa"></a></div>
-        <div><a class="btn btn2" id="respb"></a></div>
-        <div> <a class="btn btn3" id="respc"></a></div>
-        <div><a class="btn btn4" id="respd"></a></div>
+        <div><a class="btn btn1" id="respa" onclick="validaresp(this)"></a></div>
+        <div><a class="btn btn2" id="respb" onclick="validaresp(this)"></a></div>
+        <div> <a class="btn btn3" id="respc" onclick="validaresp(this)"></a></div>
+        <div><a class="btn btn4" id="respd" onclick="validaresp(this)"></a></div>
       </div>
       <div class="volverbtn"><a href="/jugando" class="btn volver" name="volver">volver</a> </div>
     </div>
@@ -108,14 +108,10 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         tpregunta();
+        tee();
       });
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        trespuesta();
-      });
-    </script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{url_for('static', filename ='js/preguntasyresp.js')}}"></script>
