@@ -5,8 +5,6 @@ function Iniciar(){
   var txtopc1 = document.getElementById('opcion1')
   var txtopc2 = document.getElementById('opcion2')
 
-  alert(txtopc1.value)
-  alert(txtopc2.value)
   if(txtopc1.value == 1 & txtopc2.value == 1){
     alert("Elegir una sola opcion")
   }
