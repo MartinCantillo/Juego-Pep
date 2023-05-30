@@ -345,6 +345,7 @@ function LlenarTabla() {
       });
   }
 }
+
 var idPreE = "";
 var idPre = "";
 var tabla = document.getElementById("tabla-preguntas");
@@ -376,6 +377,7 @@ function agregarBotonesConIconos() {
         ? "card-pregunta open"
         : "card-pregunta";
       cargarPregyResp();
+      
       if (isOpen) {
         MostrarCrearPregunta();
         btnCancelar.onclick = function () {
@@ -428,8 +430,8 @@ function cargarPregyResp() {
   let datosResp1 = document.getElementById("resp1").querySelector("p");
   let datosResp2 = document.getElementById("resp2").querySelector("p");
   let datosResp3 = document.getElementById("resp3").querySelector("p");
+  
   //Obtener radios
-
   const input0 = document.getElementById("input0");
   const input01 = document.getElementById("input01");
   const input02 = document.getElementById("input02");

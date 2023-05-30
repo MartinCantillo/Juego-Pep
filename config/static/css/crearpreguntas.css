@@ -395,6 +395,10 @@ li {
     background-color: #f44336;
 }
 
+.refresh-button{
+    background-color: #007bff;
+}
+
 .save-button {
     background-color: #4CAF50;
 }
