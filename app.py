@@ -64,8 +64,7 @@ usuario_schema =  UsuarioSchema (many=True)
 
 respuestas_schema =  RespuestaSchema(many=True)
 
-id_pregunta_act =2 
-
+id_pregunta_act =1
 
 
 #RUTAS DIRECTAS
@@ -717,10 +716,8 @@ def ttt():
 @app.route('/modifica_general', methods=['GET'])
 def modifica_general():
     global id_pregunta_act
-    if id_pregunta_act < 5:
-        id_pregunta_act=+1
+    id_pregunta_act= id_pregunta_act+1
     return("correcto")
-
 
 
 
