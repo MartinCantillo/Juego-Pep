@@ -720,7 +720,6 @@ def modifica_general():
     return("correcto")
 
 
-
 #VALIDACION
 
 @app.route("/valiusuarios", methods=['POST'])
