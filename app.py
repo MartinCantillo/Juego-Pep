@@ -660,6 +660,39 @@ def traerpregu():
         }
     return jsonify(regi) 
     
+@app.route('/traeresp', methods=['GET'])
+def traeresp():
+    #con la siguiente consulta obtenemos los 4
+    #registros de respuestas, filtrados por el ID de la pregunta con que se relaciona.
+    registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == 1).all() 
+    regi={}
+    r1="";p1=0;r2="";p2=0;r3="";p3=0;r4="";p4=0
+    for respuesta in registro:
+        #condicional para asignar cada respuesta a una variable.
+        if respuesta.id==1:
+            r1=respuesta.EnuncRespu
+            p1=respuesta.PuntosRespu
+        if respuesta.id==2:
+            r2=respuesta.EnuncRespu
+            p2=respuesta.PuntosRespu
+        if respuesta.id==3:
+            r3=respuesta.EnuncRespu
+            p3=respuesta.PuntosRespu
+        if respuesta.id==4:
+            r4=respuesta.EnuncRespu
+            p4=respuesta.PuntosRespu   
+        regi[1]={
+        'r1' : r1,
+        'p1': p1,
+        'r2': r2,
+        'p2': p2,
+        'r3': r3,
+        'p3': p3,
+        'r4': r4,
+        'p4': p4          
+        } 
+        
+    return jsonify(regi) 
 
 #VALIDACION
 

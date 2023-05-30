@@ -19,6 +19,33 @@ function tpregunta(){
       });
 }
 
+function trespuesta(){
+  let endpointb ='/traeresp'
+  const resp_a = document.getElementById('respa')
+  const resp_b = document.getElementById('respb')
+  const resp_c = document.getElementById('respc')
+  const resp_d = document.getElementById('respd')
+
+      axios.get(endpointb,{
+          'respuesta_a': resp_a.value,
+          'respuesta_b': resp_b.value,
+          'respuesta_c': resp_c.value,
+          'respuesta_d': resp_d.value
+          
+      })
+      .then(function (response) {
+      let data = response.data;
+      let r_bd = data[1].r1;
+        resp_a.textContent = data[1].r1;
+        resp_b.textContent = data[1].r2;
+        resp_c.textContent = data[1].r3;
+        resp_d.textContent = data[1].r4;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
 
   
 
