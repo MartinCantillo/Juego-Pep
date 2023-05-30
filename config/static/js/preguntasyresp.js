@@ -9,9 +9,6 @@ function tpregunta() {
     .then(function (response) {
       let data = response.data;
       let pregunta_bd = data[1].enunciado;
-      //alert("pregunta mostrada");
-      //alert(data[1].id)
-      //alert(data[1].enunciado)
       txt_pregunta.textContent = pregunta_bd;
     })
     .catch(function (error) {
@@ -75,7 +72,7 @@ function tee() {
 function validaresp(etiq) {
   var valor = etiq.innerHTML;
   let endpointbb = '/ttt'
-
+  var p=true
   axios.get(endpointbb, {
     
 
@@ -86,13 +83,14 @@ function validaresp(etiq) {
         if (valor == data[i].enunciado) {
           // VALIDAMOS SI TIENE LA PUNTUACION DE LA RESPUESTA CORRECTA
           if (data[i].puntos == 100) {
-            alert("esta buena")
+            //alert("esta buena")
             let endpointmod = '/modifica_general'
             axios.get(endpointmod, {
             }).then(function (response) {
+              swal("¡ENHORABUENA!", "has seleccionado la respuesta correcta.", "success");
+              p=false
               tee()
               tpregunta()
-                alert("entra")
               })
               .catch(function (error) {
                 console.log(error);
@@ -101,11 +99,15 @@ function validaresp(etiq) {
           }
         }
       }
+      if (p==true) {
+        swal("UPSSSS...", "has seleccionado la respuesta incorrecta.", "error");
+      }
 
     })
     .catch(function (error) {
       console.log(error);
     });
+    
 }
 
 
