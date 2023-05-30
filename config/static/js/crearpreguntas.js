@@ -3,8 +3,7 @@ function cargarTematica() {
   const selectElement = document.getElementById("selTematicas");
   const tematicaN = document.getElementById("selectT");
   let endpoint = "/consultatematica";
-  axios
-    .get(endpoint)
+  axios.get(endpoint)
     .then(function (response) {
       // La datos contiene los datos devueltos por la API
       const datos = response.data;
@@ -30,6 +29,7 @@ function cargarTematica() {
 const crearPreguntaBtn = document.querySelector("#crearpreguntas");
 const contenedorPregunta = document.querySelector(".contenedor");
 const btnCancelar = document.querySelector(".cancel-button");
+const btnActualizar = document.querySelector(".refresh-button");
 const btnGuardar = document.querySelector(".save-button");
 
 //ocultar los contenedores de crear pregunta y el de la tabla
@@ -37,11 +37,11 @@ crearPreguntaBtn.onclick = function () {
   contenedorPregunta.classList.toggle("open");
   const isOpen = contenedorPregunta.classList.contains("open");
   crearPreguntaBtn.classList = isOpen ? "card-pregunta open" : "card-pregunta";
-
+  document.getElementById("btnActualizar").style.display = "none";
+  document.getElementById("btnGuardar").style.display = "block";
   if (isOpen) {
     MostrarCrearPregunta();
     btnCancelar.onclick = function () {
-      editar();
       contenedorPregunta.classList.remove("open");
       crearPreguntaBtn.classList.remove("open");
       const isOpen = false;
@@ -51,17 +51,9 @@ crearPreguntaBtn.onclick = function () {
     };
     btnGuardar.onclick = function () {
       guardarRespuestas();
-      contenedorPregunta.classList.remove("open");
-      crearPreguntaBtn.classList.remove("open");
-      const isOpen = false;
-      crearPreguntaBtn.classList = "card-pregunta";
-      document.getElementById("crearpreguntas").style.display = "flex";
-      CancelarPregunta();
     };
   } else {
     CancelarPregunta();
-    editar();
-
   }
 };
 
@@ -91,9 +83,7 @@ function CancelarPregunta() {
 
 var enunciadoGlobal = "";
 function GuardarPregunta() {
-  const enunciado = document
-    .getElementById("enunciado")
-    .querySelector("p").textContent;
+  const enunciado = document.getElementById("enunciado").querySelector("p").textContent;
   enunciadoGlobal = enunciado;
   const tituloP = document.getElementById("tituloP").value;
   const puntos = document.getElementById("puntos").value;
@@ -103,8 +93,7 @@ function GuardarPregunta() {
     alert("Todos los campos son obligatorios");
   } else {
     let url = "/consultatematica";
-    axios
-      .get(url, {
+    axios.get(url, {
         params: {
           nombre_tematica: tematicaN,
         },
@@ -118,25 +107,21 @@ function GuardarPregunta() {
             idTematica = tematica.id;
           }
         });
-
         // Realiza la petición para guardar la pregunta dentro del bloque .then()
         let endpoint2 = "/savepregunta";
-        axios
-          .post(endpoint2, {
-            NomCorto: tituloP,
-            Idtematica_FK: idTematica,
-            enunciado: enunciado,
-            puntos: puntos,
-          })
+        axios.post(endpoint2, {
+          NomCorto: tituloP,
+          Idtematica_FK: idTematica,
+          enunciado: enunciado,
+          puntos: puntos,
+        })
           .then(function (response) {
             alert(response);
             //Funcion para consultar a la bd para obtener la pk de la pregunta
             obtenerIdPreguntas();
             // Limpiar el contenido de los elementos HTML
             document.getElementById("tituloP").value = "";
-            document
-              .getElementById("enunciado")
-              .querySelector("p").textContent = "";
+            document.getElementById("enunciado").querySelector("p").textContent = "";
           })
           .catch(function (error) {
             console.log(error);
@@ -152,7 +137,6 @@ function GuardarPregunta() {
 
 function respuestaCorrecta() {
   var inputsRadio = document.querySelectorAll('input[type="radio"]');
-
   // Agrega un evento a cada input de radio
   inputsRadio.forEach(function (input) {
     input.addEventListener("change", obtenerParrafo);
@@ -165,25 +149,21 @@ function obtenerParrafo(event) {
   var contenedorP = event.target.closest(".contenedor-option");
   var parrafo = contenedorP.querySelector("p");
   var valorParrafo = parrafo.textContent;
-
   respCorrecta = valorParrafo;
 }
 
 var idPreguntaActu = "";
 var idPreguntaGlobal = "";
 function obtenerIdPreguntas() {
-  const enunciados = document
-    .getElementById("enunciado")
-    .querySelector("p").textContent;
+  const enunciados = document.getElementById("enunciado").querySelector("p").textContent;
   // Cargar el id de la pregunta
   let url2 = "/consultapregunta";
   // se consulta por enunciado
-  axios
-    .get(url2, {
-      params: {
-        enunciado: enunciados,
-      },
-    })
+  axios.get(url2, {
+    params: {
+      enunciado: enunciados,
+    },
+  })
     .then((response) => {
       const preguntas = response.data;
       let idPregunta = null;
@@ -218,15 +198,8 @@ function guardarRespuestas() {
     'input[name="opciones"]:checked'
   );
   if (
-    !radioSeleccionado ||
-    resp0 == "" ||
-    resp1 == "" ||
-    resp2 == "" ||
-    resp3 == "" ||
-    idPreguntaActu == ""
-  ) {
+    !radioSeleccionado || resp0 == "" || resp1 == "" || resp2 == "" || resp3 == "" || idPreguntaActu == "") {
     alert("Por favor verificar");
-    return;
   } else {
     if (resp0 === respCorrecta) {
       puntosAct = puntos;
@@ -241,12 +214,11 @@ function guardarRespuestas() {
     //Consumir la API Con metodo Post
     let endpoint = "/saverespuesta";
     //1
-    axios
-      .post(endpoint, {
-        EnuncRespu: resp0,
-        PuntosRespu: puntosAct,
-        IDpregunta_FK: idPreguntaActu,
-      })
+    axios.post(endpoint, {
+      EnuncRespu: resp0,
+      PuntosRespu: puntosAct,
+      IDpregunta_FK: idPreguntaActu,
+    })
       .then(function (response) {
         alert("Guardado con éxito");
       })
@@ -255,42 +227,45 @@ function guardarRespuestas() {
       });
 
     //2
-    axios
-      .post(endpoint, {
-        EnuncRespu: resp1,
-        PuntosRespu: puntosAct1,
-        IDpregunta_FK: idPreguntaActu,
-      })
-      .then(function (response) {})
+    axios.post(endpoint, {
+      EnuncRespu: resp1,
+      PuntosRespu: puntosAct1,
+      IDpregunta_FK: idPreguntaActu,
+    })
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
 
     //3
-    axios
-      .post(endpoint, {
-        EnuncRespu: resp2,
-        PuntosRespu: puntosAct2,
-        IDpregunta_FK: idPreguntaActu,
-      })
-      .then(function (response) {})
+    axios.post(endpoint, {
+      EnuncRespu: resp2,
+      PuntosRespu: puntosAct2,
+      IDpregunta_FK: idPreguntaActu,
+    })
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
 
     //4
-    axios
-      .post(endpoint, {
-        EnuncRespu: resp3,
-        PuntosRespu: puntosAct3,
-        IDpregunta_FK: idPreguntaActu,
-      })
-      .then(function (response) {})
+    axios.post(endpoint, {
+      EnuncRespu: resp3,
+      PuntosRespu: puntosAct3,
+      IDpregunta_FK: idPreguntaActu,
+    })
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
 
-    //window.location.href = "/crearpreguntas";
+    //volver a la pantalla de preguntas
+    contenedorPregunta.classList.remove("open");
+    crearPreguntaBtn.classList.remove("open");
+    const isOpen = false;
+    crearPreguntaBtn.classList = "card-pregunta";
+    document.getElementById("crearpreguntas").style.display = "flex";
+    CancelarPregunta();
   }
 }
 
@@ -319,18 +294,15 @@ function LlenarTabla() {
             idTematica = tematica.id;
           }
         });
-
         const tablaPreguntas = document
           .getElementById("tabla-preguntas")
           .getElementsByTagName("tbody")[0];
         tablaPreguntas.innerHTML = "";
-        axios
-          .post("/consultaP", {
-            Idtematica_FK: idTematica,
-          })
+        axios.post("/consultaP", {
+          Idtematica_FK: idTematica,
+        })
           .then(function (response) {
             const preguntas = response.data;
-
             // Itera sobre las preguntas y las agrega a la tabla
             Object.values(preguntas).forEach(function (pregunta) {
               const row = tablaPreguntas.insertRow();
@@ -369,7 +341,8 @@ function agregarBotonesConIconos() {
     botonEditar.onclick = function () {
       var fila = this.parentNode.parentNode; // Obtener la fila correspondiente al botón
       idPre = fila.cells[0].innerHTML; // Obtener el ID de la pregunta de la celda correspondiente
-
+      document.getElementById("btnActualizar").style.display = "block";
+      document.getElementById("btnGuardar").style.display = "none";
       // editar la pregunta
       contenedorPregunta.classList.toggle("open");
       const isOpen = contenedorPregunta.classList.contains("open");
@@ -377,7 +350,7 @@ function agregarBotonesConIconos() {
         ? "card-pregunta open"
         : "card-pregunta";
       cargarPregyResp();
-      
+
       if (isOpen) {
         MostrarCrearPregunta();
         btnCancelar.onclick = function () {
@@ -388,15 +361,8 @@ function agregarBotonesConIconos() {
           document.getElementById("crearpreguntas").style.display = "flex";
           CancelarPregunta();
         };
-
-        btnGuardar.onclick = function () {
-          guardarRespuestas();
-          contenedorPregunta.classList.remove("open");
-          crearPreguntaBtn.classList.remove("open");
-          const isOpen = false;
-          crearPreguntaBtn.classList = "card-pregunta";
-          document.getElementById("crearpreguntas").style.display = "flex";
-          CancelarPregunta();
+        btnActualizar.onclick = function () {
+          editar();
         };
       } else {
         CancelarPregunta();
@@ -430,17 +396,16 @@ function cargarPregyResp() {
   let datosResp1 = document.getElementById("resp1").querySelector("p");
   let datosResp2 = document.getElementById("resp2").querySelector("p");
   let datosResp3 = document.getElementById("resp3").querySelector("p");
-  
+
   //Obtener radios
   const input0 = document.getElementById("input0");
   const input01 = document.getElementById("input01");
   const input02 = document.getElementById("input02");
   const input03 = document.getElementById("input03");
   idpregg = idPre;
-  axios
-    .post(cargarurl, {
-      id: idPre,
-    })
+  axios.post(cargarurl, {
+    id: idPre,
+  })
     .then(function (response) {
       var jsonData = response.data;
       for (var i = 1; i <= Object.keys(jsonData).length; i++) {
@@ -481,22 +446,20 @@ function cargarPregyResp() {
 }
 
 function eliminarrPregYResp() {
-  
+
   alert("Se elimino con exito id pregunta" + idPreE);
- 
+
   let UrlP = "/delpregunta";
   let UrlR = "/delrespuestas";
-  axios
-    .post(UrlR, {
-      IDpregunta_FK: idPreE,
-    })
+
+  axios.post(UrlR, {
+    IDpregunta_FK: idPreE,
+  })
     .then(function (response) {
-      axios
-        .post(UrlP, {
-          id: idPreE,
-        })
+      axios.post(UrlP, {
+        id: idPreE,
+      })
         .then(function (response) {
-          console.log(response);
         })
         .catch(function (error) {
           console.log(error);
@@ -508,23 +471,29 @@ function eliminarrPregYResp() {
 }
 
 function editar() {
-  alert("Entro a editar codigo pregunta  codigo :"+idpregg);
+  alert("Entro a editar pregunta codigo :" + idpregg);
+  //volver a la pantalla de pregunta
+  contenedorPregunta.classList.remove("open");
+  crearPreguntaBtn.classList.remove("open");
+  const isOpen = false;
+  crearPreguntaBtn.classList = "card-pregunta";
+  document.getElementById("crearpreguntas").style.display = "flex";
 }
   //alert("Entro a editar codigo pregunta " + idpregg);
-  /*const enunciado2 = document
-    .getElementById("enunciado")
-    .querySelector("p").textContent;
-  let UpdateP = "/actualizarpreg";
-  axios
-    .post(UpdateP, {
-      id: idpregg,
-      enunciado: enunciado2,
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    */
+/*const enunciado2 = document
+  .getElementById("enunciado")
+  .querySelector("p").textContent;
+let UpdateP = "/actualizarpreg";
+axios
+  .post(UpdateP, {
+    id: idpregg,
+    enunciado: enunciado2,
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  */
 
