@@ -397,6 +397,7 @@ li {
 
 .refresh-button{
     background-color: #007bff;
+    display: none;
 }
 
 .save-button {
@@ -405,16 +406,4 @@ li {
 
 @media (max-width:580px) {
 
-    .contenedor,
-    .contenedor.open {
-        display: none;
-    }
-
-    .navbar-navTittle {
-        display: none;
-    }
-
-    .footer {
-        display: none;
-    }
 }
