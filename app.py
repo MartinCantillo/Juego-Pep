@@ -3,6 +3,9 @@ from flask import Flask, request, jsonify, json, render_template, redirect, sess
 #importo las configuraciones de la bd
 from config.db import app, bd
 from sqlalchemy.orm import aliased
+import random
+
+
 
 #importamos los modelos
 
@@ -60,6 +63,9 @@ usuario_schema =  UsuarioSchema ()
 usuario_schema =  UsuarioSchema (many=True)
 
 respuestas_schema =  RespuestaSchema(many=True)
+
+id_pregunta_act = 1
+
 
 
 #RUTAS DIRECTAS
@@ -647,7 +653,7 @@ def ConsultaPregunta():
 @app.route('/traerpregu', methods=['GET'])
 def traerpregu():
     #registro = bd.session.query(Pregunta).all() 
-    registro = bd.session.query(Pregunta).filter(Pregunta.Idtematica_FK == 1).all()
+    registro = bd.session.query(Pregunta).filter(Pregunta.id ==id_pregunta_act ).all()
     regi={}
     i=0
     for pregunta in registro:
@@ -696,7 +702,7 @@ def traeresp():
 
 @app.route('/ttt', methods=['GET'])
 def ttt():
-    registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == 1).all() 
+    registro = bd.session.query(Respuesta).filter(Respuesta.IDpregunta_FK == id_pregunta_act).all() 
     regi={}
     i=0
     for res in registro:
@@ -707,6 +713,13 @@ def ttt():
         'puntos': res.PuntosRespu          
         }
     return jsonify(regi) 
+
+@app.route('/modifica_general', methods=['GET'])
+def modifica_general():
+    global id_pregunta_act
+    id_pregunta_act=2
+    return("correcto")
+
 
 
 #VALIDACION

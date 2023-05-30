@@ -87,6 +87,16 @@ function validaresp(etiq) {
           // VALIDAMOS SI TIENE LA PUNTUACION DE LA RESPUESTA CORRECTA
           if (data[i].puntos == 100) {
             alert("esta buena")
+            let endpointmod = '/modifica_general'
+            axios.get(endpointmod, {
+            }).then(function (response) {
+              tee()
+              tpregunta()
+                alert("entra")
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
             break;
           }
         }
