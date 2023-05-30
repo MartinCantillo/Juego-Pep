@@ -708,6 +708,14 @@ def delrespuestas():
     else:
         return jsonify({'message': 'No se encontraron respuestas para el filtro especificado.'}), 404
 
+@app.route("/actualizarpreg", methods=['POST'])
+def Updatepregunta():    
+    id = request.json['id'] 
+    enunciado = request.json['enunciado']
+    pregunta = Pregunta.query.get(id)  
+    pregunta.enunciado = enunciado
+    bd.session.commit()     
+    return "actualización exitosa"
 
 #Actualizar contraseña de usuario
 @app.route("/actucontra", methods=['POST'])

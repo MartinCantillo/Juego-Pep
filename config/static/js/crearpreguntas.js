@@ -41,6 +41,7 @@ crearPreguntaBtn.onclick = function () {
   if (isOpen) {
     MostrarCrearPregunta();
     btnCancelar.onclick = function () {
+      editar();
       contenedorPregunta.classList.remove("open");
       crearPreguntaBtn.classList.remove("open");
       const isOpen = false;
@@ -59,6 +60,8 @@ crearPreguntaBtn.onclick = function () {
     };
   } else {
     CancelarPregunta();
+    editar();
+
   }
 };
 
@@ -188,7 +191,7 @@ function obtenerIdPreguntas() {
       Object.values(preguntas).forEach((Pregunta) => {
         if (Pregunta.enunciado === enunciados) {
           idPregunta = Pregunta.id;
-         // console.log("ID de la pregunta desde el if:", idPregunta);
+          // console.log("ID de la pregunta desde el if:", idPregunta);
         }
       });
       //console.log("ID de la pregunta: fuera del if", idPregunta);
@@ -291,7 +294,7 @@ function guardarRespuestas() {
   }
 }
 
-var temtica=""
+var temtica = "";
 //funcion para llenar la tabla con las preguntas registradas
 function LlenarTabla() {
   let idTematica = null;
@@ -342,7 +345,7 @@ function LlenarTabla() {
       });
   }
 }
-var idPreE=""
+var idPreE = "";
 var idPre = "";
 var tabla = document.getElementById("tabla-preguntas");
 function agregarBotonesConIconos() {
@@ -363,12 +366,10 @@ function agregarBotonesConIconos() {
     celdaOpciones.appendChild(botonEditar);
 
     botonEditar.onclick = function () {
-      
       var fila = this.parentNode.parentNode; // Obtener la fila correspondiente al botón
       idPre = fila.cells[0].innerHTML; // Obtener el ID de la pregunta de la celda correspondiente
-      
 
-      // editar la pregunta 
+      // editar la pregunta
       contenedorPregunta.classList.toggle("open");
       const isOpen = contenedorPregunta.classList.contains("open");
       crearPreguntaBtn.classList = isOpen
@@ -417,9 +418,10 @@ function agregarBotonesConIconos() {
   }
 }
 
+var idpregg = "";
 function cargarPregyResp() {
   const select = document.getElementById("selTematicas");
-  select.value =temtica;
+  select.value = temtica;
   let cargarurl = "/cargardatosp";
   let datosDiv = document.getElementById("enunciado");
   let datosResp0 = document.getElementById("resp0").querySelector("p");
@@ -428,65 +430,93 @@ function cargarPregyResp() {
   let datosResp3 = document.getElementById("resp3").querySelector("p");
   //Obtener radios
 
-  const input0 = document.getElementById('input0');
-  const input01 = document.getElementById('input01');
-  const input02 = document.getElementById('input02');
-  const input03 = document.getElementById('input03');
-
-  axios.post(cargarurl, {
-    "id": idPre,
-  })
-  .then(function (response) {
-    var jsonData = response.data;
-    for (var i = 1; i <= Object.keys(jsonData).length; i++) {
-      var pregunta = jsonData[i].enunciado;
-      var repts0 =  jsonData[1].EnuncRespu;
-      var repts1 =  jsonData[2].EnuncRespu;
-      var repts2 =  jsonData[3].EnuncRespu;
-      var repts3 =  jsonData[4].EnuncRespu;
-      var preguntaParrafo = datosDiv.querySelector("p");
-      preguntaParrafo.innerText = pregunta;
-      datosResp0.innerText = repts0;
-      datosResp1.innerText = repts1;
-      datosResp2.innerText = repts2;
-      datosResp3.innerText = repts3;
-      if(jsonData[i].PuntosRespu!=0){
-        //valido ahora lo que dice el enunciado para seleccionar el input
-      if(jsonData[i].EnuncRespu ==repts0){
-        input0.checked= true;
+  const input0 = document.getElementById("input0");
+  const input01 = document.getElementById("input01");
+  const input02 = document.getElementById("input02");
+  const input03 = document.getElementById("input03");
+  idpregg = idPre;
+  axios
+    .post(cargarurl, {
+      id: idPre,
+    })
+    .then(function (response) {
+      var jsonData = response.data;
+      for (var i = 1; i <= Object.keys(jsonData).length; i++) {
+        var pregunta = jsonData[i].enunciado;
+        var repts0 = jsonData[1].EnuncRespu;
+        var repts1 = jsonData[2].EnuncRespu;
+        var repts2 = jsonData[3].EnuncRespu;
+        var repts3 = jsonData[4].EnuncRespu;
+        var preguntaParrafo = datosDiv.querySelector("p");
+        preguntaParrafo.innerText = pregunta;
+        datosResp0.innerText = repts0;
+        datosResp1.innerText = repts1;
+        datosResp2.innerText = repts2;
+        datosResp3.innerText = repts3;
+        if (jsonData[i].PuntosRespu != 0) {
+          //valido ahora lo que dice el enunciado para seleccionar el input
+          if (jsonData[i].EnuncRespu == repts0) {
+            input0.checked = true;
+          }
+          if (jsonData[i].EnuncRespu == repts1) {
+            input01.checked = true;
+          }
+          if (jsonData[i].EnuncRespu == repts2) {
+            input02.checked = true;
+          }
+          if (jsonData[i].EnuncRespu == repts3) {
+            input03.checked = true;
+          }
+        }
       }
-      if(jsonData[i].EnuncRespu ==repts1){
-        input01.checked= true;
-      }
-      if(jsonData[i].EnuncRespu ==repts2){
-        input02.checked= true;
-      }
-      if(jsonData[i].EnuncRespu ==repts3){
-        input03.checked= true;
-      }
-      }
-    }
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
 }
 
-function eliminarrPregYResp(){
-  alert("Se elimino con exito id pregunta" +idPreE)
-   let UrlP="/delpregunta"
-   let UrlR="/delrespuestas"
-  axios.post(UrlR, {
-    IDpregunta_FK: idPreE,
-   
-  })
-  .then(function (response) {
+function eliminarrPregYResp() {
+  
+  alert("Se elimino con exito id pregunta" + idPreE);
+ 
+  let UrlP = "/delpregunta";
+  let UrlR = "/delrespuestas";
+  axios
+    .post(UrlR, {
+      IDpregunta_FK: idPreE,
+    })
+    .then(function (response) {
+      axios
+        .post(UrlP, {
+          id: idPreE,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
 
-    axios.post(UrlP, {
-      id: idPreE,
+function editar() {
+  alert("Entro a editar codigo pregunta  codigo :"+idpregg);
+}
+  //alert("Entro a editar codigo pregunta " + idpregg);
+  /*const enunciado2 = document
+    .getElementById("enunciado")
+    .querySelector("p").textContent;
+  let UpdateP = "/actualizarpreg";
+  axios
+    .post(UpdateP, {
+      id: idpregg,
+      enunciado: enunciado2,
     })
     .then(function (response) {
       console.log(response);
@@ -494,9 +524,5 @@ function eliminarrPregYResp(){
     .catch(function (error) {
       console.log(error);
     });
-    
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    */
+
