@@ -72,12 +72,13 @@ function tee() {
 function validaresp(etiq) {
   var valor = etiq.innerHTML;
   let endpointbb = '/ttt'
-  var p=true
+  
   axios.get(endpointbb, {
     
 
   })
     .then(function (response) {
+      var p=true
       let data = response.data;
       for (var i = 1; i < 5; i++) {
         if (valor == data[i].enunciado) {
@@ -95,6 +96,7 @@ function validaresp(etiq) {
               .catch(function (error) {
                 console.log(error);
               });
+              
             break;
           }
         }
@@ -102,6 +104,8 @@ function validaresp(etiq) {
       if (p==true) {
         swal("UPSSSS...", "has seleccionado la respuesta incorrecta.", "error");
       }
+      
+      
 
     })
     .catch(function (error) {
